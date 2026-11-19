@@ -1,0 +1,22 @@
+nama	jenis	kecamatan	lat	lon	bpjs	rawat_inap	poned	spesialis	tempat_tidur	dokter	bidan	perawat
+RSUD Pringsewu	rs	Pringsewu	-5.3567	104.9545	ya	ya	-	bedah; dalam; anak; obgyn; saraf; mata; dll	~150	~35	~50	~120
+RS Mitra Husada	rs	Pringsewu	-5.3708	104.9856	ya	ya	-	bedah; dalam; anak; obgyn; mata; THT	~150	~40	~45	~130
+RS Surya Asih	rs	Pringsewu	-5.3665	104.9782	ya	ya	-	dalam; anak; obgyn; bedah	~50	~15	~20	~40
+RS Wisma Rini	rs	Pringsewu	-5.3725	104.971	ya	ya	-	dalam; anak; bedah; obgyn	~50	~12	~15	~35
+RS Harapan Bunda	rs	Pringsewu	-5.361	104.981	ya	ya	-	dalam; anak; obgyn	~40	~10	~15	~30
+RSIA Mutiara Hati	rs	Gadingrejo	-5.3752	105.0215	ya	ya	-	anak; obgyn	~30	~5	~25	~20
+Puskesmas Pringsewu	puskesmas	Pringsewu	-5.3581	104.9752	ya	tidak	tidak	-	-	2	10	8
+Puskesmas Rejosari	puskesmas	Pringsewu	-5.3402	104.9701	ya	tidak	tidak	-	-	1	8	6
+Puskesmas Gadingrejo	puskesmas	Gadingrejo	-5.3805	105.0354	ya	ya	ya	-	15	3	15	12
+Puskesmas Wates	puskesmas	Gadingrejo	-5.383216	105.016936	ya	ya	ya	-	10	2	12	10
+Puskesmas Ambarawa	puskesmas	Ambarawa	-5.3951	104.9705	ya	ya	ya	-	15	3	14	12
+Puskesmas Pagelaran	puskesmas	Pagelaran	-5.3854	104.9201	ya	ya	ya	-	15	3	15	14
+Puskesmas Bumiratu	puskesmas	Pagelaran	-5.4056	104.9002	ya	ya	ya	-	10	2	10	8
+Puskesmas Fajar Mulia	puskesmas	Pagelaran Utara	-5.3204	104.9005	ya	tidak	tidak	-	-	1	6	5
+Puskesmas Pardasuka	puskesmas	Pardasuka	-5.4502	104.9304	ya	ya	ya	-	15	2	14	10
+Puskesmas Sukoharjo	puskesmas	Sukoharjo	-5.2905	104.9602	ya	ya	ya	-	15	3	15	12
+Puskesmas Adiluwih	puskesmas	Adiluwih	-5.218764	105.036702	ya	ya	ya	-	15	2	12	10
+Puskesmas Bandung Baru	puskesmas	Adiluwih	-5.266416	104.980573	ya	tidak	tidak	-	-	1	8	6
+Puskesmas Banyumas	puskesmas	Banyumas	-5.290175	104.926707	ya	ya	ya	-	10	2	10	8
+Klinik Kosasih Pringsewu	klinik_pratama	Pringsewu	-5.365	104.977	ya	tidak	-	-	-	2	2	4
+Klinik Teluk Pringsewu	klinik_pratama	Pringsewu	-5.3601	104.98	ya	tidak	-	-	-	1	2	3

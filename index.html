@@ -1,0 +1,1041 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+<title>Akses Faskes Pringsewu</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="WebGIS jangkauan dan kapasitas fasilitas kesehatan di 131 desa Kabupaten Pringsewu, Lampung.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Leaflet 1.9.4 (BSD-2-Clause) */
+
+
+.leaflet-pane,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-pane > svg,
+.leaflet-pane > canvas,
+.leaflet-zoom-box,
+.leaflet-image-layer,
+.leaflet-layer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	}
+.leaflet-container {
+	overflow: hidden;
+	}
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	        user-select: none;
+	  -webkit-user-drag: none;
+	}
+
+.leaflet-tile::selection {
+	background: transparent;
+}
+
+.leaflet-safari .leaflet-tile {
+	image-rendering: -webkit-optimize-contrast;
+	}
+
+.leaflet-safari .leaflet-tile-container {
+	width: 1600px;
+	height: 1600px;
+	-webkit-transform-origin: 0 0;
+	}
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	display: block;
+	}
+
+
+.leaflet-container .leaflet-overlay-pane svg {
+	max-width: none !important;
+	max-height: none !important;
+	}
+.leaflet-container .leaflet-marker-pane img,
+.leaflet-container .leaflet-shadow-pane img,
+.leaflet-container .leaflet-tile-pane img,
+.leaflet-container img.leaflet-image-layer,
+.leaflet-container .leaflet-tile {
+	max-width: none !important;
+	max-height: none !important;
+	width: auto;
+	padding: 0;
+	}
+
+.leaflet-container img.leaflet-tile {
+	
+	mix-blend-mode: plus-lighter;
+}
+
+.leaflet-container.leaflet-touch-zoom {
+	-ms-touch-action: pan-x pan-y;
+	touch-action: pan-x pan-y;
+	}
+.leaflet-container.leaflet-touch-drag {
+	-ms-touch-action: pinch-zoom;
+	
+	touch-action: none;
+	touch-action: pinch-zoom;
+}
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.leaflet-container {
+	-webkit-tap-highlight-color: transparent;
+}
+.leaflet-container a {
+	-webkit-tap-highlight-color: rgba(51, 181, 229, 0.4);
+}
+.leaflet-tile {
+	filter: inherit;
+	visibility: hidden;
+	}
+.leaflet-tile-loaded {
+	visibility: inherit;
+	}
+.leaflet-zoom-box {
+	width: 0;
+	height: 0;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	z-index: 800;
+	}
+
+.leaflet-overlay-pane svg {
+	-moz-user-select: none;
+	}
+
+.leaflet-pane         { z-index: 400; }
+
+.leaflet-tile-pane    { z-index: 200; }
+.leaflet-overlay-pane { z-index: 400; }
+.leaflet-shadow-pane  { z-index: 500; }
+.leaflet-marker-pane  { z-index: 600; }
+.leaflet-tooltip-pane   { z-index: 650; }
+.leaflet-popup-pane   { z-index: 700; }
+
+.leaflet-map-pane canvas { z-index: 100; }
+.leaflet-map-pane svg    { z-index: 200; }
+
+.leaflet-vml-shape {
+	width: 1px;
+	height: 1px;
+	}
+.lvml {
+	behavior: url(#default#VML);
+	display: inline-block;
+	position: absolute;
+	}
+
+
+
+
+.leaflet-control {
+	position: relative;
+	z-index: 800;
+	pointer-events: visiblePainted; 
+	pointer-events: auto;
+	}
+.leaflet-top,
+.leaflet-bottom {
+	position: absolute;
+	z-index: 1000;
+	pointer-events: none;
+	}
+.leaflet-top {
+	top: 0;
+	}
+.leaflet-right {
+	right: 0;
+	}
+.leaflet-bottom {
+	bottom: 0;
+	}
+.leaflet-left {
+	left: 0;
+	}
+.leaflet-control {
+	float: left;
+	clear: both;
+	}
+.leaflet-right .leaflet-control {
+	float: right;
+	}
+.leaflet-top .leaflet-control {
+	margin-top: 10px;
+	}
+.leaflet-bottom .leaflet-control {
+	margin-bottom: 10px;
+	}
+.leaflet-left .leaflet-control {
+	margin-left: 10px;
+	}
+.leaflet-right .leaflet-control {
+	margin-right: 10px;
+	}
+
+
+
+
+.leaflet-fade-anim .leaflet-popup {
+	opacity: 0;
+	-webkit-transition: opacity 0.2s linear;
+	   -moz-transition: opacity 0.2s linear;
+	        transition: opacity 0.2s linear;
+	}
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
+	opacity: 1;
+	}
+.leaflet-zoom-animated {
+	-webkit-transform-origin: 0 0;
+	    -ms-transform-origin: 0 0;
+	        transform-origin: 0 0;
+	}
+svg.leaflet-zoom-animated {
+	will-change: transform;
+}
+
+.leaflet-zoom-anim .leaflet-zoom-animated {
+	-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);
+	   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);
+	        transition:         transform 0.25s cubic-bezier(0,0,0.25,1);
+	}
+.leaflet-zoom-anim .leaflet-tile,
+.leaflet-pan-anim .leaflet-tile {
+	-webkit-transition: none;
+	   -moz-transition: none;
+	        transition: none;
+	}
+
+.leaflet-zoom-anim .leaflet-zoom-hide {
+	visibility: hidden;
+	}
+
+
+
+
+.leaflet-interactive {
+	cursor: pointer;
+	}
+.leaflet-grab {
+	cursor: -webkit-grab;
+	cursor:    -moz-grab;
+	cursor:         grab;
+	}
+.leaflet-crosshair,
+.leaflet-crosshair .leaflet-interactive {
+	cursor: crosshair;
+	}
+.leaflet-popup-pane,
+.leaflet-control {
+	cursor: auto;
+	}
+.leaflet-dragging .leaflet-grab,
+.leaflet-dragging .leaflet-grab .leaflet-interactive,
+.leaflet-dragging .leaflet-marker-draggable {
+	cursor: move;
+	cursor: -webkit-grabbing;
+	cursor:    -moz-grabbing;
+	cursor:         grabbing;
+	}
+
+
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-image-layer,
+.leaflet-pane > svg path,
+.leaflet-tile-container {
+	pointer-events: none;
+	}
+
+.leaflet-marker-icon.leaflet-interactive,
+.leaflet-image-layer.leaflet-interactive,
+.leaflet-pane > svg path.leaflet-interactive,
+svg.leaflet-image-layer.leaflet-interactive path {
+	pointer-events: visiblePainted; 
+	pointer-events: auto;
+	}
+
+
+
+.leaflet-container {
+	background: #ddd;
+	outline-offset: 1px;
+	}
+.leaflet-container a {
+	color: #0078A8;
+	}
+.leaflet-zoom-box {
+	border: 2px dotted #38f;
+	background: rgba(255,255,255,0.5);
+	}
+
+
+
+.leaflet-container {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1.5;
+	}
+
+
+
+
+.leaflet-bar {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	border-radius: 4px;
+	}
+.leaflet-bar a {
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	}
+.leaflet-bar a,
+.leaflet-control-layers-toggle {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	display: block;
+	}
+.leaflet-bar a:hover,
+.leaflet-bar a:focus {
+	background-color: #f4f4f4;
+	}
+.leaflet-bar a:first-child {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	}
+.leaflet-bar a:last-child {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom: none;
+	}
+.leaflet-bar a.leaflet-disabled {
+	cursor: default;
+	background-color: #f4f4f4;
+	color: #bbb;
+	}
+
+.leaflet-touch .leaflet-bar a {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	}
+.leaflet-touch .leaflet-bar a:first-child {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	}
+.leaflet-touch .leaflet-bar a:last-child {
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	}
+
+
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+	font: bold 18px 'Lucida Console', Monaco, monospace;
+	text-indent: 1px;
+	}
+
+.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out  {
+	font-size: 22px;
+	}
+
+
+
+
+.leaflet-control-layers {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+	background: #fff;
+	border-radius: 5px;
+	}
+.leaflet-control-layers-toggle {
+	background-image: url(images/layers.png);
+	width: 36px;
+	height: 36px;
+	}
+.leaflet-retina .leaflet-control-layers-toggle {
+	background-image: url(images/layers-2x.png);
+	background-size: 26px 26px;
+	}
+.leaflet-touch .leaflet-control-layers-toggle {
+	width: 44px;
+	height: 44px;
+	}
+.leaflet-control-layers .leaflet-control-layers-list,
+.leaflet-control-layers-expanded .leaflet-control-layers-toggle {
+	display: none;
+	}
+.leaflet-control-layers-expanded .leaflet-control-layers-list {
+	display: block;
+	position: relative;
+	}
+.leaflet-control-layers-expanded {
+	padding: 6px 10px 6px 6px;
+	color: #333;
+	background: #fff;
+	}
+.leaflet-control-layers-scrollbar {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-right: 5px;
+	}
+.leaflet-control-layers-selector {
+	margin-top: 2px;
+	position: relative;
+	top: 1px;
+	}
+.leaflet-control-layers label {
+	display: block;
+	font-size: 13px;
+	font-size: 1.08333em;
+	}
+.leaflet-control-layers-separator {
+	height: 0;
+	border-top: 1px solid #ddd;
+	margin: 5px -10px 5px -6px;
+	}
+
+
+.leaflet-default-icon-path { 
+	background-image: url(images/marker-icon.png);
+	}
+
+
+
+
+.leaflet-container .leaflet-control-attribution {
+	background: #fff;
+	background: rgba(255, 255, 255, 0.8);
+	margin: 0;
+	}
+.leaflet-control-attribution,
+.leaflet-control-scale-line {
+	padding: 0 5px;
+	color: #333;
+	line-height: 1.4;
+	}
+.leaflet-control-attribution a {
+	text-decoration: none;
+	}
+.leaflet-control-attribution a:hover,
+.leaflet-control-attribution a:focus {
+	text-decoration: underline;
+	}
+.leaflet-attribution-flag {
+	display: inline !important;
+	vertical-align: baseline !important;
+	width: 1em;
+	height: 0.6669em;
+	}
+.leaflet-left .leaflet-control-scale {
+	margin-left: 5px;
+	}
+.leaflet-bottom .leaflet-control-scale {
+	margin-bottom: 5px;
+	}
+.leaflet-control-scale-line {
+	border: 2px solid #777;
+	border-top: none;
+	line-height: 1.1;
+	padding: 2px 5px 1px;
+	white-space: nowrap;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	background: rgba(255, 255, 255, 0.8);
+	text-shadow: 1px 1px #fff;
+	}
+.leaflet-control-scale-line:not(:first-child) {
+	border-top: 2px solid #777;
+	border-bottom: none;
+	margin-top: -2px;
+	}
+.leaflet-control-scale-line:not(:first-child):not(:last-child) {
+	border-bottom: 2px solid #777;
+	}
+
+.leaflet-touch .leaflet-control-attribution,
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	box-shadow: none;
+	}
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	border: 2px solid rgba(0,0,0,0.2);
+	background-clip: padding-box;
+	}
+
+
+
+
+.leaflet-popup {
+	position: absolute;
+	text-align: center;
+	margin-bottom: 20px;
+	}
+.leaflet-popup-content-wrapper {
+	padding: 1px;
+	text-align: left;
+	border-radius: 12px;
+	}
+.leaflet-popup-content {
+	margin: 13px 24px 13px 20px;
+	line-height: 1.3;
+	font-size: 13px;
+	font-size: 1.08333em;
+	min-height: 1px;
+	}
+.leaflet-popup-content p {
+	margin: 17px 0;
+	margin: 1.3em 0;
+	}
+.leaflet-popup-tip-container {
+	width: 40px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	margin-top: -1px;
+	margin-left: -20px;
+	overflow: hidden;
+	pointer-events: none;
+	}
+.leaflet-popup-tip {
+	width: 17px;
+	height: 17px;
+	padding: 1px;
+
+	margin: -10px auto 0;
+	pointer-events: auto;
+
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	        transform: rotate(45deg);
+	}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+	background: white;
+	color: #333;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+	}
+.leaflet-container a.leaflet-popup-close-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: none;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	font: 16px/24px Tahoma, Verdana, sans-serif;
+	color: #757575;
+	text-decoration: none;
+	background: transparent;
+	}
+.leaflet-container a.leaflet-popup-close-button:hover,
+.leaflet-container a.leaflet-popup-close-button:focus {
+	color: #585858;
+	}
+.leaflet-popup-scrolled {
+	overflow: auto;
+	}
+
+.leaflet-oldie .leaflet-popup-content-wrapper {
+	-ms-zoom: 1;
+	}
+.leaflet-oldie .leaflet-popup-tip {
+	width: 24px;
+	margin: 0 auto;
+
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
+	filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+	}
+
+.leaflet-oldie .leaflet-control-zoom,
+.leaflet-oldie .leaflet-control-layers,
+.leaflet-oldie .leaflet-popup-content-wrapper,
+.leaflet-oldie .leaflet-popup-tip {
+	border: 1px solid #999;
+	}
+
+
+
+
+.leaflet-div-icon {
+	background: #fff;
+	border: 1px solid #666;
+	}
+
+
+
+
+.leaflet-tooltip {
+	position: absolute;
+	padding: 6px;
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	color: #222;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	}
+.leaflet-tooltip.leaflet-interactive {
+	cursor: pointer;
+	pointer-events: auto;
+	}
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	position: absolute;
+	pointer-events: none;
+	border: 6px solid transparent;
+	background: transparent;
+	content: "";
+	}
+
+
+
+.leaflet-tooltip-bottom {
+	margin-top: 6px;
+}
+.leaflet-tooltip-top {
+	margin-top: -6px;
+}
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-top:before {
+	left: 50%;
+	margin-left: -6px;
+	}
+.leaflet-tooltip-top:before {
+	bottom: 0;
+	margin-bottom: -12px;
+	border-top-color: #fff;
+	}
+.leaflet-tooltip-bottom:before {
+	top: 0;
+	margin-top: -12px;
+	margin-left: -6px;
+	border-bottom-color: #fff;
+	}
+.leaflet-tooltip-left {
+	margin-left: -6px;
+}
+.leaflet-tooltip-right {
+	margin-left: 6px;
+}
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	top: 50%;
+	margin-top: -6px;
+	}
+.leaflet-tooltip-left:before {
+	right: 0;
+	margin-right: -12px;
+	border-left-color: #fff;
+	}
+.leaflet-tooltip-right:before {
+	left: 0;
+	margin-left: -12px;
+	border-right-color: #fff;
+	}
+
+
+
+@media print {
+	
+	.leaflet-control {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+		}
+	}
+
+</style>
+<style>
+/* Layout: header + KPI strip → map (dominant, sticky) beside control/detail panel → findings → recommendation → tables → method. One column under 960px. */
+:root{
+  --bg:#f3f5f4; --surface:#ffffff; --ink:#132a2f; --muted:#5b6f72; --line:#d6dedd;
+  --accent:#0f6e7a; --sel:#e0711f; --sea:#dfe8ea; --good:#2f7d4f; --warn:#b5530f;
+  --c1:#e3eef0; --c2:#a9d0d3; --c3:#5fa8b0; --c4:#1f7a87; --c5:#0b3f4b;
+  --rs:#b8323a; --pkm:#0f6e7a; --klinik:#6b4fa0; --cand:#e0711f;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1719; --surface:#152225; --ink:#e4eeee; --muted:#93a8aa; --line:#27393c;
+  --accent:#4fb3bf; --sel:#f39a4f; --sea:#0b1416; --good:#6cc690; --warn:#f0a060;
+  --c1:#1d3337; --c2:#25525a; --c3:#2f7f89; --c4:#55b2bc; --c5:#a8e0e3;
+  --rs:#ef6b72; --pkm:#4fb3bf; --klinik:#a98be0; --cand:#f39a4f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1719; --surface:#152225; --ink:#e4eeee; --muted:#93a8aa; --line:#27393c;
+  --accent:#4fb3bf; --sel:#f39a4f; --sea:#0b1416; --good:#6cc690; --warn:#f0a060;
+  --c1:#1d3337; --c2:#25525a; --c3:#2f7f89; --c4:#55b2bc; --c5:#a8e0e3;
+  --rs:#ef6b72; --pkm:#4fb3bf; --klinik:#a98be0; --cand:#f39a4f; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.5;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:20px 40px}
+.wrap{max-width:1280px;margin:0 auto;display:grid;gap:22px}
+header{display:grid;gap:14px;border-bottom:1px solid var(--line);padding-bottom:16px}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 4px}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(24px,3.2vw,34px);line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+.lede{margin:6px 0 0;color:var(--muted);max-width:68ch}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.kpi{border-left:3px solid var(--line);padding:2px 0 2px 12px}
+.kpi b{display:block;font-family:var(--f-display);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}
+.kpi span{font-size:13px;color:var(--muted)}
+.kpi.warn{border-color:var(--warn)} .kpi.warn b{color:var(--warn)}
+.kpi.ok{border-color:var(--accent)}
+
+.main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:20px;align-items:start}
+@media (min-width:961px){.mapbox{position:sticky;top:max(12px, env(safe-area-inset-top, 0px))}}
+@media (max-width:960px){.main{grid-template-columns:minmax(0,1fr)}}
+.mapbox{position:relative;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--sea)}
+#map{height:min(78vh,720px);min-height:440px;background:var(--sea)}
+@media (max-width:600px){#map{height:480px;min-height:0}}
+.leaflet-container{font-family:var(--f-body);background:var(--sea)}
+.maplegend{position:absolute;left:10px;bottom:10px;z-index:500;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:6px 9px;
+  display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;max-width:calc(100% - 20px)}
+.maplegend span{display:inline-flex;align-items:center;gap:5px}
+.leaflet-tooltip.tip{background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:0 2px 8px rgba(0,0,0,.15);font-family:var(--f-body);font-size:13px;padding:6px 9px}
+.leaflet-tooltip.tip::before{display:none}
+.tip .v{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.leaflet-control-zoom a{background:var(--surface)!important;color:var(--ink)!important;border-color:var(--line)!important}
+.leaflet-control-attribution{background:var(--surface)!important;color:var(--muted)!important;font-size:10px}
+.leaflet-control-attribution a{color:var(--accent)!important}
+.fk{background:none;border:none}
+.fk svg{display:block;overflow:visible;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.35))}
+.fk.on svg{filter:drop-shadow(0 0 0 var(--sel)) drop-shadow(0 0 3px var(--sel))}
+
+aside{display:grid;gap:16px;min-width:0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:16px;min-width:0}
+.panel h2{font-family:var(--f-display);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px;color:var(--muted)}
+label.lab{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+select{width:100%;font:500 15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:9px 10px}
+select:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.note{font-size:13px;color:var(--muted);margin:8px 0 0}
+.legend{display:grid;gap:4px;margin-top:12px}
+.legend .row{display:grid;grid-template-columns:22px 1fr auto;align-items:center;gap:8px;font-family:var(--f-mono);font-size:12px;font-variant-numeric:tabular-nums}
+.legend .sw{width:22px;height:14px;border-radius:2px;border:1px solid var(--line)}
+.legend .n{color:var(--muted)}
+.layers{display:grid;gap:6px;margin-top:4px}
+.layers label{display:flex;align-items:center;gap:9px;font-size:14px;cursor:pointer}
+.layers input{width:16px;height:16px;accent-color:var(--accent);margin:0}
+.layers svg{flex:none}
+
+.detail h3{font-family:var(--f-display);font-size:20px;margin:0;line-height:1.2}
+.detail .sub{font-size:12px;color:var(--muted);font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.06em}
+.kv{display:grid;grid-template-columns:1fr auto;gap:4px 12px;margin:12px 0 0;font-size:14px}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0;text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.kv dd.hl{color:var(--accent);font-weight:500}
+.kv dd.bad{color:var(--warn);font-weight:500}
+.est{font-family:var(--f-body);font-size:11px;color:var(--warn);margin-left:4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{font-family:var(--f-mono);font-size:11px;padding:2px 7px;border-radius:10px;border:1px solid currentColor}
+.chip.warn{color:var(--warn)} .chip.ok{color:var(--good)} .chip.mut{color:var(--muted)}
+.empty{color:var(--muted);font-size:14px;margin:0}
+
+h2.sec{font-family:var(--f-display);font-size:20px;margin:0 0 -6px;font-weight:700}
+.finds{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.finds .panel p{margin:0;font-size:14px}
+.finds strong{font-family:var(--f-display)}
+.reco{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.reco .panel{border-left:3px solid var(--cand)}
+.reco h3{font-family:var(--f-display);font-size:18px;margin:2px 0 8px}
+.reco .rank{font-family:var(--f-mono);font-size:12px;color:var(--cand);text-transform:uppercase;letter-spacing:.06em}
+.reco p{margin:8px 0 0;font-size:14px}
+.beforeafter{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-size:13px}
+.beforeafter b{font-family:var(--f-display);font-size:20px;display:block}
+.beforeafter .arr{color:var(--muted)}
+.reco button{all:unset;cursor:pointer;color:var(--accent);font-size:13px;margin-top:10px;display:inline-block;border-bottom:1px solid currentColor}
+
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:760px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+th{font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:500;background:var(--surface)}
+th:first-child,td:first-child{text-align:left}
+tbody tr{cursor:pointer} tbody tr:hover{background:var(--bg)}
+td .bar{display:inline-block;height:6px;border-radius:2px;background:var(--accent);vertical-align:middle;margin-right:6px}
+td.bad{color:var(--warn);font-weight:500}
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+.method h2{font-family:var(--f-display);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin:0 0 6px}
+.method ul{margin:0;padding-left:18px;display:grid;gap:4px}
+.method a{color:var(--accent)}
+footer{font-size:12px;color:var(--muted);font-family:var(--f-mono)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <p class="eyebrow">WebGIS · Kabupaten Pringsewu · 9 kecamatan · 131 desa · 21 faskes</p>
+      <h1>Akses Fasilitas Kesehatan Kabupaten Pringsewu</h1>
+      <p class="lede">Seberapa jauh warga tiap desa dari puskesmas dan rumah sakit, seberapa berat beban tiap puskesmas, dan di mana faskes rujukan baru paling banyak membantu.</p>
+    </div>
+    <div class="kpis" id="kpis"></div>
+  </header>
+
+  <div class="main">
+    <div class="mapbox">
+      <div id="map" role="region" aria-label="Peta desa dan fasilitas kesehatan Kabupaten Pringsewu"></div>
+      <div class="maplegend" id="maplegend"></div>
+    </div>
+    <aside>
+      <section class="panel">
+        <h2>Tampilan peta</h2>
+        <label class="lab" for="mode">Warna desa menurut</label>
+        <select id="mode"></select>
+        <p class="note" id="modenote"></p>
+        <div class="legend" id="legend"></div>
+      </section>
+      <section class="panel">
+        <h2>Lapisan</h2>
+        <div class="layers" id="layers"></div>
+      </section>
+      <section class="panel detail" id="detail" aria-live="polite"></section>
+    </aside>
+  </div>
+
+  <h2 class="sec">Temuan</h2>
+  <div class="finds" id="finds"></div>
+
+  <h2 class="sec">Rekomendasi lokasi faskes rujukan baru</h2>
+  <div class="reco" id="reco"></div>
+
+  <h2 class="sec">Beban puskesmas</h2>
+  <div class="tablewrap"><table id="tpkm"><thead></thead><tbody></tbody></table></div>
+
+  <h2 class="sec">Ringkasan per kecamatan</h2>
+  <div class="tablewrap"><table id="tkec"><thead></thead><tbody></tbody></table></div>
+
+  <section class="method">
+    <div>
+      <h2>Metode</h2>
+      <ul>
+        <li>Jarak diukur <strong>garis lurus</strong> dari titik tengah tiap desa ke faskes terdekat (UTM 48S). Jarak tempuh lewat jalan biasanya 1,2–1,5 kali lebih jauh.</li>
+        <li>Wilayah layanan puskesmas dimodelkan sebagai <strong>puskesmas terdekat</strong> dari tiap desa. Ini bukan wilayah kerja resmi Dinas Kesehatan.</li>
+        <li>Cakupan (%) dihitung berbobot penduduk: seluruh penduduk desa dianggap berada di titik tengah desa.</li>
+        <li>Kandidat lokasi dipilih bertahap (<em>greedy</em>): desa yang paling menurunkan rata-rata jarak warga ke RS umum, lalu desa kedua setelah kandidat pertama ditambahkan.</li>
+        <li>RSIA Mutiara Hati tidak dihitung sebagai RS umum karena layanannya khusus ibu dan anak.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Data dan keterbatasan</h2>
+      <ul>
+        <li>Penduduk per desa: Disdukcapil Kab. Pringsewu via portal PRIMA. Halaman memuat dua periode; dipakai angka periode yang lebih besar (total 451.666, selisih 0,02% dari total kecamatan resmi). Periode pastinya belum dikonfirmasi.</li>
+        <li>Titik faskes dikumpulkan dan diverifikasi manual, lalu dicek otomatis terhadap batas kecamatan.</li>
+        <li>Tempat tidur dan tenaga RS bertanda <span class="est">perkiraan</span> belum diverifikasi ke data resmi. Sumber jumlah tenaga puskesmas belum dicatat.</li>
+        <li>Klinik pratama baru 2 yang terpetakan; klinik BPJS lain belum masuk.</li>
+        <li>Batas desa: BPS 2020 via HDX (repo <a href="https://github.com/JfrAziz/indonesia-district" target="_blank" rel="noopener">indonesia-district</a>).</li>
+      </ul>
+    </div>
+  </section>
+  <footer>Dibuat oleh Fahmi Adi Wicaksono · Leaflet · analisis Python/GeoPandas</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+const DATA = {"desa":{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"kode":"1810080010","kecamatan":"Adi Luwih","desa":"Adi Luwih","penduduk":4151,"luas_km2":4.59,"kepadatan":904.0,"jarak_pkm":0.72,"pkm_terdekat":"Puskesmas Adiluwih","jarak_fktp":0.72,"fktp_terdekat":"Puskesmas Adiluwih","jarak_rs":16.18,"rs_terdekat":"RS Harapan Bunda","jarak_poned":0.72},"geometry":{"type":"Polygon","coordinates":[[[105.03894,-5.23517],[105.03377,-5.23313],[105.03199,-5.23532],[105.02776,-5.23699],[105.02299,-5.2406],[105.01695,-5.23367],[105.02053,-5.22966],[105.02547,-5.22689],[105.03273,-5.22005],[105.03389,-5.21539],[105.03786,-5.20916],[105.04693,-5.20737],[105.04246,-5.21993],[105.0379,-5.22488],[105.03911,-5.22684],[105.04014,-5.22656],[105.03818,-5.23198],[105.04103,-5.23234],[105.03894,-5.23517]]]}},{"type":"Feature","properties":{"kode":"1810020003","kecamatan":"Ambarawa","desa":"Ambarawa","penduduk":7371,"luas_km2":5.35,"kepadatan":1378.0,"jarak_pkm":2.55,"pkm_terdekat":"Puskesmas Ambarawa","jarak_fktp":2.55,"fktp_terdekat":"Puskesmas Ambarawa","jarak_rs":4.9,"rs_terdekat":"RS Wisma Rini","jarak_poned":2.55},"geometry":{"type":"Polygon","coordinates":[[[104.96903,-5.40291],[104.96898,-5.40562],[104.96568,-5.40708],[104.96588,-5.40947],[104.96732,-5.40982],[104.96726,-5.41376],[104.96732,-5.41301],[104.9702,-5.41156],[104.96832,-5.41589],[104.96827,-5.41699],[104.96936,-5.41714],[104.96767,-5.41858],[104.96747,-5.42072],[104.97239,-5.42042],[104.97553,-5.42102],[104.97062,-5.42487],[104.96808,-5.42457],[104.96726,-5.42554],[104.96512,-5.42589],[104.96314,-5.42733],[104.96034,-5.42624],[104.95754,-5.42776],[104.95258,-5.42714],[104.94961,-5.42766],[104.9498,-5.42551],[104.94892,-5.42376],[104.94988,-5.4179],[104.95026,-5.40936],[104.95215,-5.40678],[104.95264,-5.40344],[104.96903,-5.40291]]]}},{"type":"Feature","properties":{"kode":"1810020004","kecamatan":"Ambarawa","desa":"Ambarawa Barat","penduduk":5564,"luas_km2":3.24,"kepadatan":1717.0,"jarak_pkm":3.67,"pkm_terdekat":"Puskesmas Ambarawa","jarak_fktp":3.67,"fktp_terdekat":"Puskesmas Ambarawa","jarak_rs":5.62,"rs_terdekat":"RS Wisma Rini","jarak_poned":3.67},"geometry":{"type":"Polygon","coordinates":[[[104.95264,-5.40344],[104.95215,-5.40678],[104.95026,-5.40936],[104.94988,-5.4179],[104.94892,-5.42376],[104.9498,-5.42551],[104.94961,-5.42766],[104.94481,-5.42867],[104.9411,-5.42861],[104.94083,-5.4208],[104.93964,-5.41721],[104.93978,-5.40939],[104.93677,-5.40496],[104.93477,-5.40343],[104.95264,-5.40344]]]}},{"type":"Feature","properties":{"kode":"1810020008","kecamatan":"Ambarawa","desa":"Ambarawa Timur","penduduk":1853,"luas_km2":1.54,"kepadatan":1203.0,"jarak_pkm":1.88,"pkm_terdekat":"Puskesmas Ambarawa","jarak_fktp":1.88,"fktp_terdekat":"Puskesmas Ambarawa","jarak_rs":4.36,"rs_terdekat":"RS Wisma Rini","jarak_poned":1.88},"geometry":{"type":"Polygon","coordinates":[[[104.97395,-5.40322],[104.97315,-5.40614],[104.97229,-5.4068],[104.97336,-5.40893],[104.97627,-5.41098],[104.97705,-5.41257],[104.97542,-5.41502],[104.97643,-5.41876],[104.97574,-5.41937],[104.97554,-5.42095],[104.97239,-5.42042],[104.96747,-5.42072],[104.96767,-5.41858],[104.96936,-5.41714],[104.96827,-5.41699],[104.96832,-5.41589],[104.9702,-5.41156],[104.96732,-5.41301],[104.96726,-5.41376],[104.96732,-5.40982],[104.96588,-5.40947],[104.96568,-5.40708],[104.96898,-5.40562],[104.96903,-5.40291],[104.97395,-5.40322]]]}},{"type":"Feature","properties":{"kode":"1810080005","kecamatan":"Adi Luwih","desa":"Bandung Baru","penduduk":6419,"luas_km2":5.17,"kepadatan":1242.0,"jarak_pkm":1.55,"pkm_terdekat":"Puskesmas Bandung Baru","jarak_fktp":1.55,"fktp_terdekat":"Puskesmas Bandung Baru","jarak_rs":11.0,"rs_terdekat":"RSUD Pringsewu","jarak_poned":3.7},"geometry":{"type":"Polygon","coordinates":[[[104.98896,-5.24122],[104.98796,-5.24357],[104.98806,-5.24543],[104.98407,-5.24692],[104.98349,-5.24758],[104.98342,-5.25058],[104.98092,-5.25197],[104.98141,-5.25576],[104.98071,-5.25859],[104.97892,-5.25941],[104.98252,-5.26607],[104.97704,-5.26797],[104.971,-5.27177],[104.96335,-5.27492],[104.95978,-5.26737],[104.95747,-5.25793],[104.96994,-5.25741],[104.97159,-5.25702],[104.97163,-5.25465],[104.97466,-5.25437],[104.97498,-5.25342],[104.97782,-5.25315],[104.97754,-5.25054],[104.97265,-5.24983],[104.96942,-5.24797],[104.96783,-5.2463],[104.96764,-5.2455],[104.96999,-5.24397],[104.97235,-5.24445],[104.97184,-5.24623],[104.97216,-5.24947],[104.98053,-5.24418],[104.98896,-5.24122]]]}},{"type":"Feature","properties":{"kode":"1810080014","kecamatan":"Adi Luwih","desa":"Bandung Baru Barat","penduduk":2194,"luas_km2":5.45,"kepadatan":403.0,"jarak_pkm":2.63,"pkm_terdekat":"Puskesmas Sukoharjo","jarak_fktp":2.63,"fktp_terdekat":"Puskesmas Sukoharjo","jarak_rs":9.66,"rs_terdekat":"RSUD Pringsewu","jarak_poned":2.63},"geometry":{"type":"Polygon","coordinates":[[[104.96335,-5.27492],[104.95321,-5.27897],[104.94652,-5.28077],[104.93966,-5.28068],[104.93886,-5.27632],[104.93785,-5.27552],[104.938,-5.27329],[104.93713,-5.27096],[104.93666,-5.26115],[104.94931,-5.26101],[104.95311,-5.2584],[104.95747,-5.25793],[104.95978,-5.26737],[104.96335,-5.27492]]]}},{"type":"Feature","properties":{"kode":"1810070005","kecamatan":"Banyumas","desa":"Banjarejo","penduduk":2465,"luas_km2":7.78,"kepadatan":317.0,"jarak_pkm":1.37,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":1.37,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":6.06,"rs_terdekat":"RSUD Pringsewu","jarak_poned":3.77},"geometry":{"type":"Polygon","coordinates":[[[104.92614,-5.31784],[104.92127,-5.3268],[104.92239,-5.33037],[104.92172,-5.3325],[104.92217,-5.33894],[104.91868,-5.33952],[104.91926,-5.33838],[104.91897,-5.33712],[104.91781,-5.33638],[104.91014,-5.33536],[104.90233,-5.33166],[104.90118,-5.32892],[104.90667,-5.32824],[104.90667,-5.32773],[104.90494,-5.32568],[104.90494,-5.32448],[104.90226,-5.32326],[104.90096,-5.32092],[104.90125,-5.31705],[104.89865,-5.31597],[104.89836,-5.31506],[104.89923,-5.31238],[104.89648,-5.31073],[104.89545,-5.30912],[104.8987,-5.30752],[104.90161,-5.30798],[104.90559,-5.30744],[104.91621,-5.30352],[104.92115,-5.30307],[104.91721,-5.30842],[104.92319,-5.31217],[104.92614,-5.31784]]]}},{"type":"Feature","properties":{"kode":"1810070011","kecamatan":"Banyumas","desa":"Banyu Urip","penduduk":2071,"luas_km2":1.03,"kepadatan":2011.0,"jarak_pkm":1.46,"pkm_terdekat":"Puskesmas Banyumas","jarak_fktp":1.46,"fktp_terdekat":"Puskesmas Banyumas","jarak_rs":8.94,"rs_terdekat":"RSUD Pringsewu","jarak_poned":1.46},"geometry":{"type":"Polygon","coordinates":[[[104.91179,-5.27791],[104.91686,-5.28434],[104.91668,-5.29395],[104.91545,-5.296],[104.91197,-5.29597],[104.91036,-5.27806],[104.91179,-5.27791]]]}},{"type":"Feature","properties":{"kode":"1810070008","kecamatan":"Banyumas","desa":"Banyumas","penduduk":3610,"luas_km2":3.21,"kepadatan":1125.0,"jarak_pkm":2.52,"pkm_terdekat":"Puskesmas Banyumas","jarak_fktp":2.52,"fktp_terdekat":"Puskesmas Banyumas","jarak_rs":9.53,"rs_terdekat":"RSUD Pringsewu","jarak_poned":2.52},"geometry":{"type":"Polygon","coordinates":[[[104.90184,-5.27847],[104.91036,-5.27806],[104.91197,-5.29597],[104.90806,-5.29619],[104.90515,-5.29756],[104.90391,-5.29624],[104.90305,-5.29007],[104.90127,-5.29052],[104.89946,-5.28924],[104.89684,-5.29061],[104.89377,-5.29051],[104.89831,-5.2882],[104.89684,-5.28631],[104.8914,-5.28381],[104.89072,-5.27719],[104.89246,-5.27608],[104.89252,-5.27655],[104.90185,-5.27901],[104.90184,-5.27847]]]}},{"type":"Feature","properties":{"kode":"1810070007","kecamatan":"Banyumas","desa":"Banyuwangi","penduduk":4471,"luas_km2":4.22,"kepadatan":1059.0,"jarak_pkm":4.82,"pkm_terdekat":"Puskesmas Banyumas","jarak_fktp":4.82,"fktp_terdekat":"Puskesmas Banyumas","jarak_rs":12.18,"rs_terdekat":"RSUD Pringsewu","jarak_poned":4.82},"geometry":{"type":"Polygon","coordinates":[[[104.88556,-5.25775],[104.88599,-5.25707],[104.88765,-5.25787],[104.88998,-5.25732],[104.89096,-5.25898],[104.89933,-5.25802],[104.8992,-5.26024],[104.89824,-5.26209],[104.89855,-5.27117],[104.89937,-5.2732],[104.90192,-5.27572],[104.90185,-5.27901],[104.89252,-5.27655],[104.89222,-5.27602],[104.88865,-5.27603],[104.88505,-5.27752],[104.88238,-5.27719],[104.88004,-5.26799],[104.88004,-5.26498],[104.88194,-5.25877],[104.88347,-5.25861],[104.8839,-5.25707],[104.88556,-5.25775]]]}},{"type":"Feature","properties":{"kode":"1810050002","kecamatan":"Gading Rejo","desa":"Blitarejo","penduduk":3451,"luas_km2":5.71,"kepadatan":604.0,"jarak_pkm":1.35,"pkm_terdekat":"Puskesmas Ambarawa","jarak_fktp":1.35,"fktp_terdekat":"Puskesmas Ambarawa","jarak_rs":2.0,"rs_terdekat":"RS Mitra Husada","jarak_poned":1.35},"geometry":{"type":"Polygon","coordinates":[[[104.97954,-5.37719],[104.98005,-5.38174],[104.98275,-5.38437],[104.98338,-5.38311],[104.98772,-5.38244],[104.98933,-5.38265],[104.99062,-5.38469],[104.99139,-5.38458],[104.99206,-5.38539],[104.99453,-5.3844],[104.996,-5.38606],[104.99705,-5.38862],[105.00045,-5.39091],[104.99523,-5.39678],[104.99191,-5.39647],[104.98961,-5.39896],[104.98471,-5.39956],[104.98177,-5.39899],[104.97489,-5.40004],[104.97412,-5.39963],[104.97324,-5.39895],[104.97328,-5.39685],[104.97397,-5.39605],[104.97218,-5.39413],[104.96807,-5.39407],[104.96474,-5.3923],[104.96423,-5.38726],[104.96882,-5.38688],[104.97209,-5.38764],[104.9727,-5.38711],[104.97263,-5.38031],[104.97357,-5.37885],[104.97339,-5.3773],[104.97482,-5.37622],[104.97611,-5.37625],[104.9784,-5.3775],[104.97954,-5.37719]]]}},{"type":"Feature","properties":{"kode":"1810050004","kecamatan":"Gading Rejo","desa":"Bulukarto","penduduk":4068,"luas_km2":1.52,"kepadatan":2676.0,"jarak_pkm":3.28,"pkm_terdekat":"Puskesmas Wates","jarak_fktp":2.83,"fktp_terdekat":"Klinik Teluk Pringsewu","jarak_rs":2.72,"rs_terdekat":"RS Mitra Husada","jarak_poned":3.28},"geometry":{"type":"Polygon","coordinates":[[[105.00681,-5.35016],[105.0106,-5.35331],[105.01081,-5.35559],[105.00971,-5.36016],[105.00907,-5.35959],[105.00951,-5.3587],[105.00718,-5.35865],[105.00603,-5.36061],[105.00428,-5.3611],[105.00183,-5.36335],[104.9999,-5.36359],[104.9981,-5.36229],[105.00046,-5.35872],[104.99857,-5.35161],[104.99896,-5.35002],[105.00394,-5.34872],[105.0053,-5.34955],[105.00702,-5.34823],[105.00754,-5.34893],[105.00681,-5.35016]]]}},{"type":"Feature","properties":{"kode":"1810050006","kecamatan":"Gading Rejo","desa":"Bulurejo","penduduk":3890,"luas_km2":2.88,"kepadatan":1351.0,"jarak_pkm":2.59,"pkm_terdekat":"Puskesmas Wates","jarak_fktp":2.59,"fktp_terdekat":"Puskesmas Wates","jarak_rs":3.72,"rs_terdekat":"RS Mitra Husada","jarak_poned":2.59},"geometry":{"type":"Polygon","coordinates":[[[105.01095,-5.35138],[105.01665,-5.35384],[105.02253,-5.35468],[105.02463,-5.35959],[105.02668,-5.36161],[105.03301,-5.36164],[105.03872,-5.36288],[105.03566,-5.36606],[105.0349,-5.36882],[105.03455,-5.36759],[105.02951,-5.36696],[105.02702,-5.36541],[105.02478,-5.3651],[105.01887,-5.36503],[105.01488,-5.36689],[105.01163,-5.3671],[105.01075,-5.36594],[105.0104,-5.36124],[105.00964,-5.36023],[105.01081,-5.35559],[105.0106,-5.35331],[105.00809,-5.35116],[105.01095,-5.35138]]]}},{"type":"Feature","properties":{"kode":"1810040013","kecamatan":"Pringsewu","desa":"Bumi Arum","penduduk":3872,"luas_km2":5.13,"kepadatan":755.0,"jarak_pkm":2.67,"pkm_terdekat":"Puskesmas Rejosari","jarak_fktp":2.67,"fktp_terdekat":"Puskesmas Rejosari","jarak_rs":2.41,"rs_terdekat":"RSUD Pringsewu","jarak_poned":5.31},"geometry":{"type":"Polygon","coordinates":[[[104.94851,-5.32017],[104.9506,-5.32409],[104.95408,-5.32504],[104.95586,-5.32673],[104.95468,-5.33241],[104.9543,-5.34329],[104.95235,-5.34486],[104.94837,-5.34549],[104.94737,-5.34616],[104.94672,-5.3481],[104.94397,-5.34891],[104.94032,-5.35203],[104.93759,-5.34305],[104.93796,-5.34064],[104.93691,-5.33928],[104.93812,-5.33837],[104.93813,-5.33472],[104.9375,-5.33293],[104.93672,-5.33306],[104.93694,-5.33014],[104.93822,-5.32756],[104.93926,-5.32678],[104.93928,-5.32491],[104.94123,-5.3234],[104.94234,-5.32101],[104.94392,-5.32132],[104.94851,-5.32017]]]}},{"type":"Feature","properties":{"kode":"1810040021","kecamatan":"Pringsewu","desa":"Bumi Ayu","penduduk":1982,"luas_km2":4.57,"kepadatan":434.0,"jarak_pkm":4.2,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":4.2,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":3.04,"rs_terdekat":"RSUD Pringsewu","jarak_poned":4.72},"geometry":{"type":"Polygon","coordinates":[[[104.9338,-5.33354],[104.9375,-5.33293],[104.93813,-5.33472],[104.93812,-5.33837],[104.93691,-5.33928],[104.93796,-5.34064],[104.93759,-5.34305],[104.94032,-5.35203],[104.93748,-5.35341],[104.93651,-5.35669],[104.93409,-5.3566],[104.93314,-5.3576],[104.92446,-5.35576],[104.92299,-5.3524],[104.9222,-5.34711],[104.92265,-5.34187],[104.92172,-5.3325],[104.92239,-5.33037],[104.92633,-5.32993],[104.92584,-5.33227],[104.93069,-5.33452],[104.93238,-5.33463],[104.9338,-5.33354]]]}},{"type":"Feature","properties":{"kode":"1810030012","kecamatan":"Pagelaran","desa":"Bumi Ratu","penduduk":3132,"luas_km2":1.34,"kepadatan":2337.0,"jarak_pkm":3.14,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":3.14,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":3.79,"rs_terdekat":"RSUD Pringsewu","jarak_poned":3.14},"geometry":{"type":"Polygon","coordinates":[[[104.92324,-5.35304],[104.92446,-5.35576],[104.93047,-5.35743],[104.93337,-5.35752],[104.93048,-5.35954],[104.92804,-5.36037],[104.92113,-5.35958],[104.9214,-5.36111],[104.91209,-5.36117],[104.91236,-5.35881],[104.91113,-5.35832],[104.91262,-5.35568],[104.91408,-5.35606],[104.91539,-5.35448],[104.91922,-5.35278],[104.92324,-5.35304]]]}},{"type":"Feature","properties":{"kode":"1810030032","kecamatan":"Pagelaran","desa":"Bumi Rejo","penduduk":1602,"luas_km2":0.14,"kepadatan":11443.0,"jarak_pkm":2.74,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":2.74,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":3.38,"rs_terdekat":"RSUD Pringsewu","jarak_poned":2.74},"geometry":{"type":"Polygon","coordinates":[[[104.92804,-5.36037],[104.92692,-5.36157],[104.92336,-5.36214],[104.9214,-5.36111],[104.92113,-5.35958],[104.92804,-5.36037]]]}},{"type":"Feature","properties":{"kode":"1810030001","kecamatan":"Pagelaran","desa":"Candi Retno","penduduk":3038,"luas_km2":3.02,"kepadatan":1006.0,"jarak_pkm":1.54,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":1.54,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":6.28,"rs_terdekat":"RSUD Pringsewu","jarak_poned":1.54},"geometry":{"type":"Polygon","coordinates":[[[104.92207,-5.38784],[104.92145,-5.39103],[104.92181,-5.39728],[104.92126,-5.39855],[104.92199,-5.39992],[104.92154,-5.40156],[104.92189,-5.40652],[104.91705,-5.4099],[104.91109,-5.4109],[104.91033,-5.41225],[104.90784,-5.40776],[104.90996,-5.40658],[104.91134,-5.40454],[104.91213,-5.39998],[104.91049,-5.38613],[104.91521,-5.38628],[104.92207,-5.38784]]]}},{"type":"Feature","properties":{"kode":"1810080008","kecamatan":"Adi Luwih","desa":"Enggal Rejo","penduduk":1561,"luas_km2":2.4,"kepadatan":650.0,"jarak_pkm":2.44,"pkm_terdekat":"Puskesmas Adiluwih","jarak_fktp":2.44,"fktp_terdekat":"Puskesmas Adiluwih","jarak_rs":14.64,"rs_terdekat":"RS Harapan Bunda","jarak_poned":2.44},"geometry":{"type":"Polygon","coordinates":[[[105.03894,-5.23517],[105.04189,-5.2373],[105.04595,-5.23667],[105.04741,-5.23803],[105.04689,-5.23928],[105.04429,-5.24022],[105.04531,-5.24893],[105.03197,-5.24635],[105.02646,-5.24681],[105.02607,-5.24367],[105.02659,-5.24221],[105.02784,-5.24106],[105.03179,-5.23939],[105.03315,-5.23782],[105.0319,-5.23542],[105.03377,-5.23313],[105.03894,-5.23517]]]}},{"type":"Feature","properties":{"kode":"1810040023","kecamatan":"Pringsewu","desa":"Fajar Agung Barat","penduduk":3192,"luas_km2":4.52,"kepadatan":706.0,"jarak_pkm":1.29,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":1.29,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":3.74,"rs_terdekat":"RSUD Pringsewu","jarak_poned":1.29},"geometry":{"type":"Polygon","coordinates":[[[104.93751,-5.36515],[104.93954,-5.37004],[104.93481,-5.37102],[104.93049,-5.37424],[104.93291,-5.3771],[104.93473,-5.37756],[104.93451,-5.38038],[104.93952,-5.39031],[104.93541,-5.39073],[104.93304,-5.39018],[104.93109,-5.3908],[104.92918,-5.39016],[104.92184,-5.39093],[104.9224,-5.38743],[104.92047,-5.38441],[104.92291,-5.38048],[104.92121,-5.37513],[104.91853,-5.37374],[104.91896,-5.37117],[104.92012,-5.37013],[104.92462,-5.37071],[104.9245,-5.36771],[104.92611,-5.36781],[104.92789,-5.36405],[104.93526,-5.36181],[104.93716,-5.36265],[104.93751,-5.36515]]]}},{"type":"Feature","properties":{"kode":"1810031013","kecamatan":"Pagelaran Utara","desa":"Fajar Baru","penduduk":1611,"luas_km2":17.64,"kepadatan":91.0,"jarak_pkm":1.9,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":1.9,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":8.25,"rs_terdekat":"RSUD Pringsewu","jarak_poned":6.24},"geometry":{"type":"Polygon","coordinates":[[[104.8951,-5.30916],[104.89923,-5.31238],[104.89836,-5.31506],[104.89865,-5.31597],[104.90125,-5.31705],[104.90096,-5.32092],[104.90226,-5.32326],[104.90494,-5.32448],[104.90494,-5.32568],[104.90667,-5.32773],[104.90667,-5.32824],[104.90118,-5.32892],[104.90233,-5.33166],[104.91014,-5.33536],[104.91781,-5.33638],[104.91897,-5.33712],[104.91926,-5.33838],[104.91868,-5.33952],[104.90639,-5.34099],[104.90343,-5.34247],[104.90328,-5.34514],[104.89974,-5.34691],[104.89678,-5.34573],[104.89516,-5.34691],[104.89087,-5.3475],[104.88969,-5.34854],[104.88171,-5.34914],[104.87979,-5.34824],[104.87816,-5.34928],[104.87299,-5.34898],[104.87166,-5.34943],[104.87003,-5.3472],[104.86613,-5.34604],[104.86885,-5.33684],[104.8696,-5.32469],[104.86472,-5.31521],[104.86384,-5.30889],[104.865,-5.30779],[104.88593,-5.30917],[104.8951,-5.30916]]]}},{"type":"Feature","properties":{"kode":"1810031021","kecamatan":"Pagelaran Utara","desa":"Fajar Mulia","penduduk":2258,"luas_km2":5.6,"kepadatan":403.0,"jarak_pkm":3.41,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":3.41,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":10.59,"rs_terdekat":"RSUD Pringsewu","jarak_poned":5.56},"geometry":{"type":"Polygon","coordinates":[[[104.88912,-5.29255],[104.88971,-5.29319],[104.88907,-5.29639],[104.88953,-5.29791],[104.89313,-5.30146],[104.89371,-5.30717],[104.8951,-5.30916],[104.88593,-5.30917],[104.865,-5.30779],[104.86384,-5.30889],[104.8631,-5.30188],[104.8639,-5.29664],[104.86827,-5.29433],[104.87255,-5.29315],[104.87374,-5.29092],[104.87891,-5.29033],[104.88912,-5.29255]]]}},{"type":"Feature","properties":{"kode":"1810050009","kecamatan":"Gading Rejo","desa":"Gading Rejo","penduduk":6841,"luas_km2":2.2,"kepadatan":3110.0,"jarak_pkm":2.98,"pkm_terdekat":"Puskesmas Gadingrejo","jarak_fktp":2.98,"fktp_terdekat":"Puskesmas Gadingrejo","jarak_rs":8.57,"rs_terdekat":"RS Mitra Husada","jarak_poned":2.98},"geometry":{"type":"Polygon","coordinates":[[[105.06679,-5.36993],[105.06683,-5.37269],[105.06812,-5.3727],[105.06701,-5.37674],[105.06716,-5.37949],[105.06578,-5.38785],[105.06417,-5.39171],[105.06272,-5.39228],[105.06027,-5.39149],[105.05987,-5.38907],[105.06065,-5.38568],[105.05959,-5.38542],[105.05876,-5.38604],[105.05407,-5.38554],[105.05582,-5.38227],[105.0575,-5.38132],[105.05923,-5.37516],[105.05801,-5.37246],[105.05389,-5.37146],[105.05629,-5.37146],[105.05632,-5.37007],[105.06036,-5.37006],[105.06036,-5.36906],[105.06218,-5.36899],[105.06222,-5.37269],[105.0643,-5.37269],[105.06445,-5.3703],[105.06679,-5.36993]]]}},{"type":"Feature","properties":{"kode":"1810050019","kecamatan":"Gading Rejo","desa":"Gading Rejo Timur","penduduk":1996,"luas_km2":0.96,"kepadatan":2079.0,"jarak_pkm":4.16,"pkm_terdekat":"Puskesmas Gadingrejo","jarak_fktp":4.16,"fktp_terdekat":"Puskesmas Gadingrejo","jarak_rs":9.38,"rs_terdekat":"RS Mitra Husada","jarak_poned":4.16},"geometry":{"type":"Polygon","coordinates":[[[105.07247,-5.3612],[105.0735,-5.36391],[105.07366,-5.37148],[105.06683,-5.37269],[105.06672,-5.36583],[105.06734,-5.36506],[105.06734,-5.3629],[105.06634,-5.36121],[105.06638,-5.35943],[105.07117,-5.36037],[105.07247,-5.3612]]]}},{"type":"Feature","properties":{"kode":"1810050020","kecamatan":"Gading Rejo","desa":"Gading Rejo Utara","penduduk":3689,"luas_km2":1.89,"kepadatan":1952.0,"jarak_pkm":3.22,"pkm_terdekat":"Puskesmas Gadingrejo","jarak_fktp":3.22,"fktp_terdekat":"Puskesmas Gadingrejo","jarak_rs":8.3,"rs_terdekat":"RS Mitra Husada","jarak_poned":3.22},"geometry":{"type":"Polygon","coordinates":[[[105.05945,-5.35816],[105.06638,-5.35943],[105.06634,-5.36121],[105.06734,-5.3629],[105.06679,-5.36993],[105.06445,-5.3703],[105.0643,-5.37269],[105.06222,-5.37269],[105.06218,-5.36899],[105.06036,-5.36906],[105.06036,-5.37006],[105.05632,-5.37007],[105.05629,-5.37146],[105.05389,-5.37146],[105.05276,-5.3706],[105.05388,-5.36969],[105.05344,-5.36344],[105.05294,-5.36281],[105.05367,-5.36026],[105.05798,-5.35935],[105.05945,-5.35816]]]}},{"type":"Feature","properties":{"kode":"1810030031","kecamatan":"Pagelaran","desa":"Ganjaran","penduduk":1415,"luas_km2":0.75,"kepadatan":1887.0,"jarak_pkm":2.72,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":2.72,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":2.95,"rs_terdekat":"RSUD Pringsewu","jarak_poned":2.72},"geometry":{"type":"Polygon","coordinates":[[[104.93651,-5.35669],[104.93545,-5.35823],[104.93563,-5.35896],[104.93618,-5.3603],[104.93751,-5.36071],[104.92789,-5.36405],[104.92611,-5.36781],[104.92311,-5.36782],[104.92315,-5.36204],[104.92692,-5.36157],[104.92732,-5.36077],[104.93202,-5.35868],[104.93409,-5.3566],[104.93651,-5.35669]]]}},{"type":"Feature","properties":{"kode":"1810030019","kecamatan":"Pagelaran","desa":"Gemah Ripah","penduduk":1842,"luas_km2":1.15,"kepadatan":1602.0,"jarak_pkm":2.41,"pkm_terdekat":"Puskesmas Bumiratu","jarak_fktp":2.41,"fktp_terdekat":"Puskesmas Bumiratu","jarak_rs":7.98,"rs_terdekat":"RSUD Pringsewu","jarak_poned":2.41},"geometry":{"type":"Polygon","coordinates":[[[104.89322,-5.38341],[104.89492,-5.39135],[104.88888,-5.39278],[104.88441,-5.3879],[104.88371,-5.3836],[104.88195,-5.38212],[104.88837,-5.38095],[104.88832,-5.38282],[104.89242,-5.38282],[104.89322,-5.38341]]]}},{"type":"Feature","properties":{"kode":"1810031017","kecamatan":"Pagelaran Utara","desa":"Giri Tunggal","penduduk":2002,"luas_km2":10.69,"kepadatan":187.0,"jarak_pkm":5.57,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":5.57,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":12.62,"rs_terdekat":"RSUD Pringsewu","jarak_poned":6.42},"geometry":{"type":"Polygon","coordinates":[[[104.84364,-5.26794],[104.84685,-5.26826],[104.84833,-5.26974],[104.85971,-5.27018],[104.86946,-5.273],[104.88121,-5.27132],[104.88274,-5.27756],[104.88505,-5.27752],[104.88865,-5.27603],[104.89246,-5.27608],[104.89072,-5.27719],[104.8914,-5.28381],[104.89684,-5.28631],[104.89831,-5.2882],[104.88912,-5.29255],[104.87891,-5.29033],[104.87374,-5.29092],[104.87255,-5.29315],[104.8689,-5.2942],[104.86189,-5.29261],[104.85266,-5.28864],[104.85069,-5.28588],[104.84478,-5.27581],[104.84364,-5.26794]]]}},{"type":"Feature","properties":{"kode":"1810030005","kecamatan":"Pagelaran","desa":"Gumuk Mas","penduduk":3484,"luas_km2":2.28,"kepadatan":1528.0,"jarak_pkm":2.38,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":2.38,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":5.31,"rs_terdekat":"RSUD Pringsewu","jarak_poned":2.38},"geometry":{"type":"Polygon","coordinates":[[[104.90992,-5.35833],[104.91236,-5.35881],[104.91209,-5.36117],[104.91317,-5.36137],[104.91313,-5.36873],[104.9122,-5.37354],[104.91402,-5.37745],[104.90292,-5.37726],[104.9024,-5.36],[104.90767,-5.35891],[104.90815,-5.35971],[104.90901,-5.35977],[104.90992,-5.35833]]]}},{"type":"Feature","properties":{"kode":"1810030024","kecamatan":"Pagelaran","desa":"Gumuk Rejo","penduduk":3096,"luas_km2":1.99,"kepadatan":1556.0,"jarak_pkm":1.72,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":1.72,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":4.48,"rs_terdekat":"RSUD Pringsewu","jarak_poned":1.72},"geometry":{"type":"Polygon","coordinates":[[[104.9214,-5.36111],[104.92315,-5.36204],[104.92311,-5.36782],[104.92451,-5.36795],[104.92462,-5.37071],[104.92012,-5.37013],[104.91896,-5.37117],[104.91847,-5.37331],[104.92121,-5.37513],[104.9225,-5.37904],[104.91441,-5.37962],[104.91406,-5.37724],[104.9122,-5.37354],[104.91313,-5.36873],[104.91316,-5.36137],[104.9214,-5.36111]]]}},{"type":"Feature","properties":{"kode":"1810031025","kecamatan":"Pagelaran Utara","desa":"Gunung Raya","penduduk":838,"luas_km2":7.18,"kepadatan":117.0,"jarak_pkm":5.69,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":5.69,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":12.35,"rs_terdekat":"RSUD Pringsewu","jarak_poned":9.22},"geometry":{"type":"MultiPolygon","coordinates":[[[[104.86129,-5.29987],[104.86319,-5.30039],[104.86472,-5.31521],[104.86825,-5.32172],[104.86565,-5.32264],[104.86184,-5.32171],[104.85989,-5.31901],[104.86129,-5.29987]]],[[[104.85016,-5.29575],[104.85489,-5.29784],[104.85497,-5.32198],[104.85311,-5.32319],[104.85375,-5.32958],[104.84773,-5.34452],[104.84565,-5.34442],[104.84415,-5.34358],[104.84465,-5.3404],[104.84115,-5.33956],[104.83776,-5.33742],[104.83768,-5.33385],[104.8393,-5.33046],[104.8427,-5.32617],[104.84329,-5.32261],[104.84316,-5.3171],[104.84698,-5.29627],[104.85016,-5.29575]]]]}},{"type":"Feature","properties":{"kode":"1810030999","kecamatan":"Pagelaran","desa":"Hutan","penduduk":0,"luas_km2":90.73,"kepadatan":0.0,"jarak_pkm":13.95,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":13.95,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":21.13,"rs_terdekat":"RSUD Pringsewu","jarak_poned":14.82},"geometry":{"type":"Polygon","coordinates":[[[104.79454,-5.17099],[104.79882,-5.17163],[104.80132,-5.17096],[104.80432,-5.1728],[104.80966,-5.17983],[104.81133,-5.18334],[104.82884,-5.20107],[104.84619,-5.20877],[104.86087,-5.21396],[104.86779,-5.22191],[104.86806,-5.22479],[104.86486,-5.22657],[104.85763,-5.22868],[104.85105,-5.23145],[104.84947,-5.23026],[104.84776,-5.22736],[104.84368,-5.23026],[104.84328,-5.23316],[104.8396,-5.23936],[104.83894,-5.24332],[104.83723,-5.24714],[104.83722,-5.25414],[104.84143,-5.25691],[104.8442,-5.26073],[104.8451,-5.26808],[104.82779,-5.26736],[104.82499,-5.26869],[104.8111,-5.26736],[104.8012,-5.26336],[104.8046,-5.27106],[104.80563,-5.27713],[104.81095,-5.28543],[104.81287,-5.28643],[104.81286,-5.30276],[104.81461,-5.30952],[104.81448,-5.31158],[104.81364,-5.3137],[104.81287,-5.31355],[104.81037,-5.31505],[104.81104,-5.3179],[104.81037,-5.31806],[104.8077,-5.31522],[104.80703,-5.31104],[104.80436,-5.30786],[104.79969,-5.30685],[104.79886,-5.30501],[104.79803,-5.30033],[104.79619,-5.29732],[104.7967,-5.28812],[104.79269,-5.28411],[104.79236,-5.28277],[104.79253,-5.28143],[104.79353,-5.28026],[104.79269,-5.27925],[104.79103,-5.27875],[104.78994,-5.27716],[104.78694,-5.27599],[104.77993,-5.2683],[104.77643,-5.26595],[104.77459,-5.26562],[104.76559,-5.25692],[104.76542,-5.25558],[104.76375,-5.25508],[104.76108,-5.25273],[104.76432,-5.24874],[104.76526,-5.24638],[104.76526,-5.24337],[104.76426,-5.24053],[104.76693,-5.23869],[104.76743,-5.23618],[104.7686,-5.23551],[104.77144,-5.23584],[104.77386,-5.21954],[104.7742,-5.21352],[104.7732,-5.20816],[104.7697,-5.20147],[104.76303,-5.19461],[104.76169,-5.19093],[104.76203,-5.18541],[104.76353,-5.18173],[104.77513,-5.17045],[104.77697,-5.16644],[104.77947,-5.16426],[104.78264,-5.16694],[104.78898,-5.16845],[104.79454,-5.17099]]]}},{"type":"Feature","properties":{"kode":"1810020006","kecamatan":"Ambarawa","desa":"Jati Agung","penduduk":3464,"luas_km2":3.83,"kepadatan":904.0,"jarak_pkm":2.62,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":2.62,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":3.94,"rs_terdekat":"RS Wisma Rini","jarak_poned":2.62},"geometry":{"type":"Polygon","coordinates":[[[104.95582,-5.38402],[104.95239,-5.39001],[104.95354,-5.39636],[104.95264,-5.40344],[104.93418,-5.40351],[104.93237,-5.40275],[104.93237,-5.40047],[104.93146,-5.3991],[104.93146,-5.39067],[104.93304,-5.39018],[104.93541,-5.39073],[104.94001,-5.39025],[104.94183,-5.39065],[104.94518,-5.389],[104.94733,-5.38871],[104.94787,-5.38803],[104.94925,-5.38878],[104.94947,-5.387],[104.95112,-5.38618],[104.95285,-5.38355],[104.95512,-5.3834],[104.95582,-5.38402]]]}},{"type":"Feature","properties":{"kode":"1810050012","kecamatan":"Gading Rejo","desa":"Jogyakarta","penduduk":3396,"luas_km2":2.26,"kepadatan":1503.0,"jarak_pkm":4.74,"pkm_terdekat":"Puskesmas Pringsewu","jarak_fktp":4.39,"fktp_terdekat":"Klinik Teluk Pringsewu","jarak_rs":4.35,"rs_terdekat":"RS Harapan Bunda","jarak_poned":4.91},"geometry":{"type":"Polygon","coordinates":[[[105.02347,-5.34641],[105.0109,-5.34593],[105.01085,-5.3394],[105.00868,-5.33966],[105.00131,-5.33864],[105.00274,-5.33786],[105.0026,-5.3359],[105.00392,-5.33506],[105.0037,-5.33402],[105.00208,-5.33383],[105.00206,-5.33311],[105.00786,-5.3332],[105.0096,-5.33732],[105.01367,-5.33463],[105.01902,-5.3366],[105.01985,-5.33542],[105.02027,-5.33142],[105.0231,-5.33364],[105.02302,-5.33886],[105.02367,-5.33907],[105.02416,-5.34078],[105.0231,-5.34495],[105.02347,-5.34641]]]}},{"type":"Feature","properties":{"kode":"1810030004","kecamatan":"Pagelaran","desa":"Karangsari","penduduk":3991,"luas_km2":1.96,"kepadatan":2036.0,"jarak_pkm":1.01,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":1.01,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":5.56,"rs_terdekat":"RSUD Pringsewu","jarak_poned":1.01},"geometry":{"type":"Polygon","coordinates":[[[104.90505,-5.37721],[104.91398,-5.37746],[104.91441,-5.37962],[104.9225,-5.37904],[104.92291,-5.38048],[104.92047,-5.38441],[104.92242,-5.38791],[104.91521,-5.38628],[104.90944,-5.38605],[104.90351,-5.38665],[104.90136,-5.38552],[104.90136,-5.38125],[104.90194,-5.38036],[104.90472,-5.38022],[104.90522,-5.37954],[104.90505,-5.37721]]]}},{"type":"Feature","properties":{"kode":"1810010005","kecamatan":"Pardasuka","desa":"Kedaung","penduduk":2200,"luas_km2":14.58,"kepadatan":151.0,"jarak_pkm":9.72,"pkm_terdekat":"Puskesmas Pardasuka","jarak_fktp":9.72,"fktp_terdekat":"Puskesmas Pardasuka","jarak_rs":19.27,"rs_terdekat":"RS Wisma Rini","jarak_poned":9.72},"geometry":{"type":"Polygon","coordinates":[[[104.91815,-5.50639],[104.92,-5.51827],[104.91959,-5.52245],[104.91812,-5.52463],[104.91894,-5.52709],[104.91839,-5.5278],[104.91845,-5.53097],[104.92346,-5.5367],[104.92283,-5.5399],[104.9237,-5.54176],[104.923,-5.5441],[104.92376,-5.54847],[104.92523,-5.5506],[104.92468,-5.55612],[104.92583,-5.56262],[104.92932,-5.56595],[104.9351,-5.56727],[104.93312,-5.56727],[104.93121,-5.56811],[104.92524,-5.56787],[104.91259,-5.56332],[104.89572,-5.55087],[104.89217,-5.54657],[104.89267,-5.54666],[104.89301,-5.54498],[104.89607,-5.5394],[104.89904,-5.53146],[104.90051,-5.53015],[104.90187,-5.52752],[104.90618,-5.52458],[104.90684,-5.52092],[104.90684,-5.51169],[104.90766,-5.50939],[104.91087,-5.50584],[104.91126,-5.50448],[104.9136,-5.50453],[104.91452,-5.50393],[104.91692,-5.5065],[104.91815,-5.50639]]]}},{"type":"Feature","properties":{"kode":"1810050013","kecamatan":"Gading Rejo","desa":"Kediri","penduduk":3139,"luas_km2":2.31,"kepadatan":1359.0,"jarak_pkm":4.28,"pkm_terdekat":"Puskesmas Gadingrejo","jarak_fktp":4.28,"fktp_terdekat":"Puskesmas Gadingrejo","jarak_rs":5.61,"rs_terdekat":"RS Harapan Bunda","jarak_poned":4.28},"geometry":{"type":"Polygon","coordinates":[[[105.02618,-5.33131],[105.03088,-5.34073],[105.03372,-5.34424],[105.03603,-5.3458],[105.03262,-5.35358],[105.02977,-5.35611],[105.02665,-5.35663],[105.02631,-5.34906],[105.02515,-5.34733],[105.02314,-5.34598],[105.02416,-5.34078],[105.02367,-5.33907],[105.02302,-5.33886],[105.0231,-5.33364],[105.02027,-5.33142],[105.02046,-5.33013],[105.02299,-5.32864],[105.02532,-5.33113],[105.02618,-5.33131]]]}},{"type":"Feature","properties":{"kode":"1810031014","kecamatan":"Pagelaran Utara","desa":"Kemilin","penduduk":1915,"luas_km2":6.33,"kepadatan":303.0,"jarak_pkm":4.62,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":4.62,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":11.28,"rs_terdekat":"RSUD Pringsewu","jarak_poned":8.3},"geometry":{"type":"Polygon","coordinates":[[[104.86129,-5.29987],[104.85989,-5.31901],[104.86184,-5.32171],[104.86565,-5.32264],[104.86825,-5.32172],[104.8696,-5.32469],[104.86885,-5.33684],[104.86693,-5.3438],[104.86613,-5.34604],[104.86161,-5.34513],[104.86028,-5.3438],[104.85466,-5.34358],[104.853,-5.34509],[104.85166,-5.34525],[104.84773,-5.34452],[104.85375,-5.32958],[104.85311,-5.32319],[104.85497,-5.32198],[104.85489,-5.29784],[104.86129,-5.29987]]]}},{"type":"Feature","properties":{"kode":"1810060010","kecamatan":"Sukoharjo","desa":"Keputran","penduduk":2864,"luas_km2":3.73,"kepadatan":768.0,"jarak_pkm":2.02,"pkm_terdekat":"Puskesmas Bandung Baru","jarak_fktp":2.02,"fktp_terdekat":"Puskesmas Bandung Baru","jarak_rs":8.44,"rs_terdekat":"RS Harapan Bunda","jarak_poned":2.34},"geometry":{"type":"Polygon","coordinates":[[[104.99505,-5.27699],[104.99518,-5.28206],[104.98582,-5.28542],[104.98892,-5.29132],[104.97981,-5.29105],[104.97986,-5.29295],[104.97914,-5.29393],[104.9628,-5.2932],[104.96274,-5.28904],[104.96159,-5.28635],[104.96724,-5.28535],[104.97062,-5.28549],[104.97796,-5.28307],[104.98082,-5.2805],[104.9905,-5.27592],[104.99398,-5.27538],[104.99409,-5.27627],[104.99505,-5.27699]]]}},{"type":"Feature","properties":{"kode":"1810050016","kecamatan":"Gading Rejo","desa":"Klaten","penduduk":1776,"luas_km2":2.56,"kepadatan":694.0,"jarak_pkm":3.49,"pkm_terdekat":"Puskesmas Pringsewu","jarak_fktp":3.18,"fktp_terdekat":"Klinik Teluk Pringsewu","jarak_rs":3.16,"rs_terdekat":"RS Harapan Bunda","jarak_poned":4.83},"geometry":{"type":"Polygon","coordinates":[[[104.99983,-5.33879],[105.00868,-5.33966],[105.01085,-5.3394],[105.01095,-5.35138],[105.00779,-5.35125],[105.00681,-5.35016],[105.00754,-5.34893],[105.0066,-5.3482],[105.0053,-5.34955],[105.00394,-5.34872],[104.99896,-5.35002],[104.99857,-5.35161],[104.99648,-5.34864],[104.9961,-5.34504],[104.99124,-5.33817],[104.99085,-5.33282],[104.99177,-5.33289],[104.9918,-5.33405],[104.99544,-5.33279],[104.99706,-5.33536],[104.99887,-5.3362],[104.99983,-5.33879]]]}},{"type":"Feature","properties":{"kode":"1810020001","kecamatan":"Ambarawa","desa":"Kresnomulyo","penduduk":7687,"luas_km2":5.98,"kepadatan":1285.0,"jarak_pkm":2.84,"pkm_terdekat":"Puskesmas Pardasuka","jarak_fktp":2.84,"fktp_terdekat":"Puskesmas Pardasuka","jarak_rs":7.59,"rs_terdekat":"RS Wisma Rini","jarak_poned":2.84},"geometry":{"type":"Polygon","coordinates":[[[104.90394,-5.41534],[104.92252,-5.41751],[104.93398,-5.41674],[104.93499,-5.41718],[104.93571,-5.41938],[104.94079,-5.42051],[104.9411,-5.42861],[104.93707,-5.43483],[104.93585,-5.43551],[104.93388,-5.4353],[104.93189,-5.43144],[104.92972,-5.43058],[104.92854,-5.43085],[104.9271,-5.42983],[104.92549,-5.43069],[104.92432,-5.4323],[104.91888,-5.43183],[104.91727,-5.42806],[104.91455,-5.42524],[104.91267,-5.42522],[104.9119,-5.42348],[104.90828,-5.42351],[104.90614,-5.42262],[104.90414,-5.42265],[104.90255,-5.42147],[104.90106,-5.42172],[104.89799,-5.42036],[104.89782,-5.41786],[104.89953,-5.41445],[104.90189,-5.41425],[104.90394,-5.41534]]]}},{"type":"Feature","properties":{"kode":"1810080016","kecamatan":"Adi Luwih","desa":"Kuta Waringin","penduduk":3230,"luas_km2":4.46,"kepadatan":724.0,"jarak_pkm":3.59,"pkm_terdekat":"Puskesmas Bandung Baru","jarak_fktp":3.59,"fktp_terdekat":"Puskesmas Bandung Baru","jarak_rs":13.2,"rs_terdekat":"RS Harapan Bunda","jarak_poned":4.57},"geometry":{"type":"Polygon","coordinates":[[[105.02299,-5.2406],[105.01792,-5.24548],[105.00973,-5.24883],[105.0071,-5.25064],[105.00006,-5.24999],[104.99685,-5.25336],[104.99086,-5.25336],[104.98876,-5.24979],[104.98796,-5.24357],[104.98896,-5.24122],[105.00994,-5.23819],[105.01695,-5.23367],[105.02299,-5.2406]]]}},{"type":"Feature","properties":{"kode":"1810030010","kecamatan":"Pagelaran","desa":"Lugusari","penduduk":3234,"luas_km2":3.75,"kepadatan":862.0,"jarak_pkm":4.88,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":4.88,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":9.22,"rs_terdekat":"RSUD Pringsewu","jarak_poned":6.44},"geometry":{"type":"Polygon","coordinates":[[[104.86161,-5.34513],[104.87003,-5.3472],[104.87166,-5.34943],[104.87299,-5.34898],[104.87816,-5.34928],[104.87974,-5.34828],[104.88281,-5.3557],[104.88178,-5.35863],[104.87937,-5.35925],[104.87837,-5.36259],[104.86595,-5.36131],[104.86254,-5.36169],[104.86141,-5.36297],[104.86202,-5.35966],[104.86,-5.35178],[104.85717,-5.34492],[104.85768,-5.34402],[104.86028,-5.3438],[104.86161,-5.34513]]]}},{"type":"Feature","properties":{"kode":"1810031022","kecamatan":"Pagelaran Utara","desa":"Madaraya","penduduk":1373,"luas_km2":11.65,"kepadatan":118.0,"jarak_pkm":9.14,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":9.14,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":16.33,"rs_terdekat":"RSUD Pringsewu","jarak_poned":10.99},"geometry":{"type":"Polygon","coordinates":[[[104.84364,-5.26794],[104.84478,-5.27581],[104.85266,-5.28864],[104.86189,-5.29261],[104.8689,-5.2942],[104.8639,-5.29664],[104.86319,-5.3004],[104.8542,-5.29762],[104.85016,-5.29575],[104.84448,-5.29654],[104.84299,-5.2959],[104.84359,-5.29264],[104.84229,-5.29052],[104.83953,-5.29003],[104.8332,-5.28629],[104.83092,-5.28384],[104.82183,-5.28449],[104.81874,-5.28612],[104.81865,-5.28866],[104.81095,-5.28543],[104.80563,-5.27713],[104.8046,-5.27106],[104.8012,-5.26336],[104.8111,-5.26736],[104.82499,-5.26869],[104.82779,-5.26736],[104.84364,-5.26794]]]}},{"type":"Feature","properties":{"kode":"1810040007","kecamatan":"Pringsewu","desa":"Margakaya","penduduk":4984,"luas_km2":3.97,"kepadatan":1255.0,"jarak_pkm":1.77,"pkm_terdekat":"Puskesmas Pringsewu","jarak_fktp":1.02,"fktp_terdekat":"Klinik Kosasih Pringsewu","jarak_rs":0.56,"rs_terdekat":"RS Wisma Rini","jarak_poned":2.39},"geometry":{"type":"Polygon","coordinates":[[[104.99556,-5.36388],[104.98673,-5.36653],[104.9878,-5.37323],[104.98532,-5.37483],[104.98188,-5.37923],[104.97995,-5.37953],[104.97919,-5.37883],[104.97976,-5.37734],[104.9784,-5.3775],[104.97611,-5.37625],[104.97482,-5.37622],[104.97339,-5.3773],[104.97357,-5.37885],[104.97263,-5.38031],[104.9727,-5.38711],[104.97209,-5.38764],[104.96882,-5.38688],[104.96423,-5.38726],[104.96438,-5.38574],[104.96377,-5.38587],[104.96329,-5.38241],[104.96475,-5.37876],[104.96502,-5.37531],[104.963,-5.36809],[104.9675,-5.36806],[104.97141,-5.37131],[104.97436,-5.36903],[104.97983,-5.36956],[104.98301,-5.36464],[104.98499,-5.36573],[104.99119,-5.36032],[104.99556,-5.36388]]]}},{"type":"Feature","properties":{"kode":"1810020007","kecamatan":"Ambarawa","desa":"Margodadi","penduduk":5697,"luas_km2":3.44,"kepadatan":1656.0,"jarak_pkm":1.15,"pkm_terdekat":"Puskesmas Ambarawa","jarak_fktp":1.15,"fktp_terdekat":"Puskesmas Ambarawa","jarak_rs":2.63,"rs_terdekat":"RS Wisma Rini","jarak_poned":1.15},"geometry":{"type":"Polygon","coordinates":[[[104.95582,-5.38402],[104.95902,-5.38511],[104.96055,-5.38668],[104.96438,-5.38574],[104.96438,-5.3904],[104.9653,-5.39292],[104.96807,-5.39407],[104.97218,-5.39413],[104.97397,-5.39605],[104.97328,-5.39685],[104.97346,-5.39831],[104.97264,-5.40059],[104.97395,-5.40322],[104.96739,-5.40287],[104.95264,-5.40344],[104.95354,-5.39636],[104.95239,-5.39001],[104.95582,-5.38402]]]}},{"type":"Feature","properties":{"kode":"1810031018","kecamatan":"Pagelaran Utara","desa":"Margosari","penduduk":3346,"luas_km2":19.01,"kepadatan":176.0,"jarak_pkm":8.72,"pkm_terdekat":"Puskesmas Banyumas","jarak_fktp":8.72,"fktp_terdekat":"Puskesmas Banyumas","jarak_rs":15.89,"rs_terdekat":"RSUD Pringsewu","jarak_poned":8.72},"geometry":{"type":"Polygon","coordinates":[[[104.86806,-5.22479],[104.86879,-5.23261],[104.8838,-5.25084],[104.88138,-5.25377],[104.88205,-5.25845],[104.88004,-5.26498],[104.88004,-5.26799],[104.88121,-5.27132],[104.86946,-5.273],[104.85971,-5.27018],[104.84833,-5.26974],[104.84685,-5.26826],[104.8451,-5.26808],[104.8442,-5.26073],[104.84143,-5.25691],[104.83722,-5.25414],[104.83723,-5.24714],[104.83894,-5.24332],[104.8396,-5.23936],[104.84328,-5.23316],[104.84368,-5.23026],[104.84776,-5.22736],[104.84947,-5.23026],[104.85105,-5.23145],[104.85763,-5.22868],[104.86486,-5.22657],[104.86806,-5.22479]]]}},{"type":"Feature","properties":{"kode":"1810050014","kecamatan":"Gading Rejo","desa":"Mataram","penduduk":5170,"luas_km2":5.33,"kepadatan":970.0,"jarak_pkm":5.12,"pkm_terdekat":"Puskesmas Gadingrejo","jarak_fktp":5.12,"fktp_terdekat":"Puskesmas Gadingrejo","jarak_rs":7.26,"rs_terdekat":"RS Harapan Bunda","jarak_poned":5.12},"geometry":{"type":"Polygon","coordinates":[[[105.05451,-5.32445],[105.05515,-5.32645],[105.05473,-5.32818],[105.05525,-5.33215],[105.05433,-5.33322],[105.0543,-5.33661],[105.05297,-5.33677],[105.04964,-5.33912],[105.04814,-5.33915],[105.04077,-5.34503],[105.03654,-5.34718],[105.03543,-5.34501],[105.03372,-5.34424],[105.03088,-5.34073],[105.02618,-5.33131],[105.02834,-5.33174],[105.03676,-5.33096],[105.03729,-5.33039],[105.03628,-5.32478],[105.03494,-5.32387],[105.03912,-5.32245],[105.04348,-5.32304],[105.04894,-5.32179],[105.05164,-5.3218],[105.05293,-5.32249],[105.0534,-5.32407],[105.05451,-5.32445]]]}},{"type":"Feature","properties":{"kode":"1810070010","kecamatan":"Banyumas","desa":"Mulyorejo","penduduk":1024,"luas_km2":3.0,"kepadatan":341.0,"jarak_pkm":5.53,"pkm_terdekat":"Puskesmas Banyumas","jarak_fktp":5.53,"fktp_terdekat":"Puskesmas Banyumas","jarak_rs":13.38,"rs_terdekat":"RSUD Pringsewu","jarak_poned":5.53},"geometry":{"type":"Polygon","coordinates":[[[104.90071,-5.24642],[104.90231,-5.24652],[104.9051,-5.24865],[104.90788,-5.25195],[104.90763,-5.25269],[104.909,-5.25338],[104.90017,-5.25402],[104.89933,-5.25802],[104.89096,-5.25898],[104.88998,-5.25732],[104.88765,-5.25787],[104.88599,-5.25707],[104.88556,-5.25775],[104.88391,-5.25707],[104.88347,-5.25861],[104.88194,-5.25877],[104.88138,-5.25377],[104.88539,-5.24922],[104.89797,-5.24311],[104.89941,-5.24444],[104.89947,-5.24559],[104.90071,-5.24642]]]}},{"type":"Feature","properties":{"kode":"1810031015","kecamatan":"Pagelaran Utara","desa":"Neglasari","penduduk":1367,"luas_km2":6.56,"kepadatan":208.0,"jarak_pkm":7.23,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":7.23,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":13.95,"rs_terdekat":"RSUD Pringsewu","jarak_poned":10.5},"geometry":{"type":"Polygon","coordinates":[[[104.83479,-5.29214],[104.84448,-5.29654],[104.84698,-5.29627],[104.84316,-5.3171],[104.84329,-5.32261],[104.8427,-5.32617],[104.8393,-5.33046],[104.83768,-5.33385],[104.83776,-5.33706],[104.83548,-5.33736],[104.83431,-5.33669],[104.83431,-5.33385],[104.83164,-5.32917],[104.82964,-5.32816],[104.82605,-5.32456],[104.8256,-5.32134],[104.82746,-5.32129],[104.82736,-5.31446],[104.8291,-5.3145],[104.82902,-5.30838],[104.83201,-5.3084],[104.83189,-5.30048],[104.83464,-5.30056],[104.83479,-5.29214]]]}},{"type":"Feature","properties":{"kode":"1810070003","kecamatan":"Banyumas","desa":"Nusa Wungu","penduduk":1443,"luas_km2":1.99,"kepadatan":725.0,"jarak_pkm":4.04,"pkm_terdekat":"Puskesmas Banyumas","jarak_fktp":4.04,"fktp_terdekat":"Puskesmas Banyumas","jarak_rs":11.94,"rs_terdekat":"RSUD Pringsewu","jarak_poned":4.04},"geometry":{"type":"Polygon","coordinates":[[[104.91292,-5.26243],[104.91346,-5.26711],[104.91133,-5.26758],[104.90855,-5.26766],[104.90457,-5.26606],[104.90121,-5.26562],[104.8992,-5.26444],[104.89829,-5.2633],[104.89824,-5.26209],[104.8992,-5.26024],[104.90017,-5.25402],[104.909,-5.25338],[104.91092,-5.25496],[104.91163,-5.26193],[104.91292,-5.26243]]]}},{"type":"Feature","properties":{"kode":"1810030028","kecamatan":"Pagelaran","desa":"Padang Rejo","penduduk":1552,"luas_km2":1.35,"kepadatan":1150.0,"jarak_pkm":2.44,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":2.44,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":6.87,"rs_terdekat":"RSUD Pringsewu","jarak_poned":2.44},"geometry":{"type":"Polygon","coordinates":[[[104.90505,-5.37721],[104.90522,-5.37954],[104.90472,-5.38022],[104.90194,-5.38036],[104.90136,-5.38125],[104.90136,-5.38552],[104.90327,-5.38653],[104.89492,-5.39135],[104.89322,-5.38341],[104.89689,-5.38204],[104.89555,-5.37825],[104.89886,-5.37716],[104.89823,-5.37401],[104.90269,-5.37309],[104.90292,-5.37726],[104.90505,-5.37721]]]}},{"type":"Feature","properties":{"kode":"1810030007","kecamatan":"Pagelaran","desa":"Pagelaran","penduduk":4985,"luas_km2":2.97,"kepadatan":1678.0,"jarak_pkm":4.58,"pkm_terdekat":"Puskesmas Bumiratu","jarak_fktp":4.58,"fktp_terdekat":"Puskesmas Bumiratu","jarak_rs":8.21,"rs_terdekat":"RSUD Pringsewu","jarak_poned":4.58},"geometry":{"type":"Polygon","coordinates":[[[104.88628,-5.3554],[104.88605,-5.35639],[104.88678,-5.35671],[104.887,-5.35823],[104.88627,-5.37084],[104.88435,-5.37204],[104.88322,-5.3768],[104.88158,-5.37912],[104.88181,-5.38211],[104.8752,-5.38023],[104.86872,-5.37927],[104.86953,-5.376],[104.87117,-5.37496],[104.8725,-5.37187],[104.87327,-5.37181],[104.87378,-5.37024],[104.87329,-5.36967],[104.87654,-5.36859],[104.88012,-5.36396],[104.87966,-5.36313],[104.87758,-5.3635],[104.87775,-5.36271],[104.8787,-5.36225],[104.87937,-5.35925],[104.88178,-5.35863],[104.88278,-5.35571],[104.88628,-5.3554]]]}},{"type":"Feature","properties":{"kode":"1810040015","kecamatan":"Pringsewu","desa":"Pajar Agung","penduduk":3002,"luas_km2":3.63,"kepadatan":827.0,"jarak_pkm":2.3,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":2.3,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":2.67,"rs_terdekat":"RSUD Pringsewu","jarak_poned":2.3},"geometry":{"type":"Polygon","coordinates":[[[104.95633,-5.36406],[104.95849,-5.36909],[104.95518,-5.36962],[104.94749,-5.36747],[104.94444,-5.37052],[104.94128,-5.37487],[104.93946,-5.38002],[104.9397,-5.38346],[104.94179,-5.39053],[104.93952,-5.39031],[104.93451,-5.38038],[104.93473,-5.37756],[104.93291,-5.3771],[104.93049,-5.37424],[104.93481,-5.37102],[104.93954,-5.37004],[104.93751,-5.36515],[104.93754,-5.36326],[104.93526,-5.36181],[104.93823,-5.36022],[104.94025,-5.35714],[104.94124,-5.35737],[104.94262,-5.35634],[104.94571,-5.35611],[104.94836,-5.3618],[104.95633,-5.36406]]]}},{"type":"Feature","properties":{"kode":"1810040009","kecamatan":"Pringsewu","desa":"Pajar Esuk","penduduk":7848,"luas_km2":4.29,"kepadatan":1829.0,"jarak_pkm":2.9,"pkm_terdekat":"Puskesmas Rejosari","jarak_fktp":2.9,"fktp_terdekat":"Puskesmas Rejosari","jarak_rs":0.65,"rs_terdekat":"RSUD Pringsewu","jarak_poned":4.59},"geometry":{"type":"Polygon","coordinates":[[[104.96057,-5.34284],[104.96066,-5.34357],[104.95845,-5.34495],[104.95852,-5.3467],[104.95914,-5.35083],[104.96022,-5.35175],[104.96021,-5.35398],[104.96097,-5.35588],[104.95985,-5.35695],[104.96191,-5.35864],[104.96297,-5.36219],[104.963,-5.36809],[104.96029,-5.36771],[104.95848,-5.3684],[104.95633,-5.36406],[104.94836,-5.3618],[104.94571,-5.35611],[104.94262,-5.35634],[104.94124,-5.35737],[104.94025,-5.35714],[104.93823,-5.36022],[104.93751,-5.36071],[104.93618,-5.3603],[104.93545,-5.35823],[104.93685,-5.35625],[104.93806,-5.3528],[104.9407,-5.35197],[104.94397,-5.34891],[104.94672,-5.3481],[104.94737,-5.34616],[104.94837,-5.34549],[104.95065,-5.34549],[104.95297,-5.34462],[104.95488,-5.3427],[104.95613,-5.34239],[104.95863,-5.34357],[104.96057,-5.34284]]]}},{"type":"Feature","properties":{"kode":"1810030020","kecamatan":"Pagelaran","desa":"Pamenang","penduduk":4740,"luas_km2":5.13,"kepadatan":924.0,"jarak_pkm":3.38,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":3.38,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":5.12,"rs_terdekat":"RSUD Pringsewu","jarak_poned":4.13},"geometry":{"type":"Polygon","coordinates":[[[104.92324,-5.35304],[104.91922,-5.35278],[104.91539,-5.35448],[104.91408,-5.35606],[104.91262,-5.35568],[104.91113,-5.35832],[104.90992,-5.35833],[104.90901,-5.35977],[104.90815,-5.35971],[104.90767,-5.35891],[104.90003,-5.36087],[104.89694,-5.36068],[104.89678,-5.35684],[104.8956,-5.35595],[104.89482,-5.34696],[104.89678,-5.34573],[104.89974,-5.34691],[104.90328,-5.34514],[104.90343,-5.34247],[104.90639,-5.34099],[104.92217,-5.33894],[104.92265,-5.34187],[104.9222,-5.34711],[104.92324,-5.35304]]]}},{"type":"Feature","properties":{"kode":"1810060008","kecamatan":"Sukoharjo","desa":"Pandan Surat","penduduk":4309,"luas_km2":5.59,"kepadatan":771.0,"jarak_pkm":3.28,"pkm_terdekat":"Puskesmas Bandung Baru","jarak_fktp":3.28,"fktp_terdekat":"Puskesmas Bandung Baru","jarak_rs":8.21,"rs_terdekat":"RS Harapan Bunda","jarak_poned":4.37},"geometry":{"type":"Polygon","coordinates":[[[105.01223,-5.28572],[105.0101,-5.29373],[105.00902,-5.29591],[105.0063,-5.29738],[105.00566,-5.3013],[105.00507,-5.30175],[105.00306,-5.30291],[104.9977,-5.30391],[104.98913,-5.30301],[104.98839,-5.30048],[104.99147,-5.29415],[104.99136,-5.2919],[104.99105,-5.29131],[104.98892,-5.29132],[104.98582,-5.28542],[104.99518,-5.28206],[104.99513,-5.2795],[104.99681,-5.27942],[104.99916,-5.27825],[105.00027,-5.27556],[105.00245,-5.27445],[105.00583,-5.2746],[105.00537,-5.28069],[105.00615,-5.2855],[105.00738,-5.28603],[105.01223,-5.28572]]]}},{"type":"Feature","properties":{"kode":"1810060007","kecamatan":"Sukoharjo","desa":"Pandansari","penduduk":3468,"luas_km2":3.91,"kepadatan":887.0,"jarak_pkm":5.16,"pkm_terdekat":"Puskesmas Bandung Baru","jarak_fktp":5.16,"fktp_terdekat":"Puskesmas Bandung Baru","jarak_rs":8.19,"rs_terdekat":"RS Harapan Bunda","jarak_poned":6.27},"geometry":{"type":"Polygon","coordinates":[[[105.01948,-5.28505],[105.02425,-5.28548],[105.02542,-5.29041],[105.02377,-5.29718],[105.01945,-5.30216],[105.02001,-5.30494],[105.01505,-5.3055],[105.01128,-5.30685],[105.00171,-5.30612],[105.00174,-5.30318],[105.00566,-5.3013],[105.0063,-5.29738],[105.00902,-5.29591],[105.01101,-5.29144],[105.01223,-5.28572],[105.01948,-5.28505]]]}},{"type":"Feature","properties":{"kode":"1810060023","kecamatan":"Sukoharjo","desa":"Pandansari Selatan","penduduk":3615,"luas_km2":4.11,"kepadatan":880.0,"jarak_pkm":5.19,"pkm_terdekat":"Puskesmas Rejosari","jarak_fktp":5.19,"fktp_terdekat":"Puskesmas Rejosari","jarak_rs":6.11,"rs_terdekat":"RS Harapan Bunda","jarak_poned":5.87},"geometry":{"type":"Polygon","coordinates":[[[105.00174,-5.30318],[105.00171,-5.30612],[105.0042,-5.30667],[105.01128,-5.30685],[105.01505,-5.3055],[105.02001,-5.30494],[105.0202,-5.30651],[105.01831,-5.30965],[105.01798,-5.31154],[105.01869,-5.31684],[105.02037,-5.32093],[105.01368,-5.32213],[105.00245,-5.32081],[104.99663,-5.32267],[104.99827,-5.31758],[104.99763,-5.31661],[104.99811,-5.31542],[104.99757,-5.30748],[104.998,-5.30375],[105.00174,-5.30318]]]}},{"type":"Feature","properties":{"kode":"1810060006","kecamatan":"Sukoharjo","desa":"Panggung Rejo","penduduk":2753,"luas_km2":4.55,"kepadatan":605.0,"jarak_pkm":6.93,"pkm_terdekat":"Puskesmas Rejosari","jarak_fktp":6.93,"fktp_terdekat":"Puskesmas Rejosari","jarak_rs":7.22,"rs_terdekat":"RS Harapan Bunda","jarak_poned":7.26},"geometry":{"type":"Polygon","coordinates":[[[105.03595,-5.3097],[105.03742,-5.31999],[105.03485,-5.32094],[105.03391,-5.32292],[105.03628,-5.32478],[105.03729,-5.33058],[105.03297,-5.33153],[105.02834,-5.33174],[105.02532,-5.33113],[105.02299,-5.32864],[105.02666,-5.32406],[105.02651,-5.32279],[105.02557,-5.32118],[105.02037,-5.32093],[105.01869,-5.31684],[105.01798,-5.31154],[105.01831,-5.30965],[105.0202,-5.30651],[105.01945,-5.30216],[105.02237,-5.29904],[105.02356,-5.30446],[105.02488,-5.30685],[105.03175,-5.30819],[105.03595,-5.3097]]]}},{"type":"Feature","properties":{"kode":"1810060025","kecamatan":"Sukoharjo","desa":"Panggung Rejo Utara","penduduk":2112,"luas_km2":2.61,"kepadatan":809.0,"jarak_pkm":6.32,"pkm_terdekat":"Puskesmas Bandung Baru","jarak_fktp":6.32,"fktp_terdekat":"Puskesmas Bandung Baru","jarak_rs":8.75,"rs_terdekat":"RS Harapan Bunda","jarak_poned":7.59},"geometry":{"type":"Polygon","coordinates":[[[105.03256,-5.28541],[105.0323,-5.28747],[105.03342,-5.29216],[105.03254,-5.29399],[105.03341,-5.2987],[105.03422,-5.29958],[105.03595,-5.3097],[105.03175,-5.30819],[105.02488,-5.30685],[105.02356,-5.30446],[105.02237,-5.29904],[105.02422,-5.2962],[105.0252,-5.29266],[105.02542,-5.29041],[105.02425,-5.28548],[105.03138,-5.28583],[105.03256,-5.28541]]]}},{"type":"Feature","properties":{"kode":"1810050003","kecamatan":"Gading Rejo","desa":"Panjerejo","penduduk":2970,"luas_km2":2.47,"kepadatan":1202.0,"jarak_pkm":2.49,"pkm_terdekat":"Puskesmas Pringsewu","jarak_fktp":1.81,"fktp_terdekat":"Klinik Kosasih Pringsewu","jarak_rs":0.68,"rs_terdekat":"RS Mitra Husada","jarak_poned":3.04},"geometry":{"type":"Polygon","coordinates":[[[105.00192,-5.37827],[104.99872,-5.38429],[104.9956,-5.38278],[104.99453,-5.3844],[104.99206,-5.38539],[104.99139,-5.38458],[104.99062,-5.38469],[104.9888,-5.38251],[104.98551,-5.38244],[104.98338,-5.38311],[104.98275,-5.38437],[104.98005,-5.38174],[104.97946,-5.37963],[104.98188,-5.37923],[104.98532,-5.37483],[104.9878,-5.37323],[104.98673,-5.36653],[104.99141,-5.36543],[104.99129,-5.36754],[104.99367,-5.37262],[104.99423,-5.37522],[104.99591,-5.37617],[104.9986,-5.37627],[105.00192,-5.37827]]]}},{"type":"Feature","properties":{"kode":"1810030011","kecamatan":"Pagelaran","desa":"Panutan","penduduk":3222,"luas_km2":1.85,"kepadatan":1742.0,"jarak_pkm":3.8,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":3.8,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":6.67,"rs_terdekat":"RSUD Pringsewu","jarak_poned":3.8},"geometry":{"type":"Polygon","coordinates":[[[104.89654,-5.35666],[104.89694,-5.36068],[104.90003,-5.36087],[104.90241,-5.36014],[104.90251,-5.3639],[104.90121,-5.36479],[104.89643,-5.36548],[104.8952,-5.36635],[104.89507,-5.36758],[104.89584,-5.36876],[104.89502,-5.36927],[104.89375,-5.36762],[104.88627,-5.37084],[104.887,-5.35823],[104.88678,-5.35671],[104.88605,-5.35639],[104.88628,-5.3554],[104.88947,-5.35639],[104.89196,-5.35545],[104.89402,-5.35694],[104.89654,-5.35666]]]}},{"type":"Feature","properties":{"kode":"1810010008","kecamatan":"Pardasuka","desa":"Pardasuka","penduduk":6310,"luas_km2":4.57,"kepadatan":1381.0,"jarak_pkm":1.87,"pkm_terdekat":"Puskesmas Pardasuka","jarak_fktp":1.87,"fktp_terdekat":"Puskesmas Pardasuka","jarak_rs":11.46,"rs_terdekat":"RS Wisma Rini","jarak_poned":1.87},"geometry":{"type":"Polygon","coordinates":[[[104.93755,-5.45836],[104.94015,-5.46392],[104.94015,-5.46703],[104.93848,-5.46921],[104.93085,-5.47534],[104.93071,-5.47769],[104.92765,-5.47923],[104.92337,-5.4764],[104.9203,-5.47644],[104.92032,-5.47345],[104.91835,-5.47367],[104.91793,-5.47294],[104.91755,-5.46769],[104.91499,-5.46371],[104.91407,-5.46037],[104.9142,-5.45483],[104.91832,-5.45661],[104.91974,-5.45797],[104.91962,-5.45973],[104.92033,-5.46014],[104.92164,-5.45983],[104.92519,-5.46054],[104.92738,-5.45891],[104.92831,-5.46029],[104.92952,-5.45891],[104.93053,-5.45972],[104.93197,-5.4583],[104.93331,-5.45945],[104.93442,-5.45717],[104.9363,-5.45863],[104.93755,-5.45836]]]}},{"type":"Feature","properties":{"kode":"1810010021","kecamatan":"Pardasuka","desa":"Pardasuka Selatan","penduduk":1477,"luas_km2":0.37,"kepadatan":3992.0,"jarak_pkm":3.15,"pkm_terdekat":"Puskesmas Pardasuka","jarak_fktp":3.15,"fktp_terdekat":"Puskesmas Pardasuka","jarak_rs":12.81,"rs_terdekat":"RS Wisma Rini","jarak_poned":3.15},"geometry":{"type":"Polygon","coordinates":[[[104.92765,-5.47923],[104.92254,-5.48012],[104.91959,-5.48149],[104.91835,-5.47367],[104.92032,-5.47345],[104.9203,-5.47644],[104.92337,-5.4764],[104.92765,-5.47923]]]}},{"type":"Feature","properties":{"kode":"1810010019","kecamatan":"Pardasuka","desa":"Pardasuka Timur","penduduk":1833,"luas_km2":2.38,"kepadatan":770.0,"jarak_pkm":4.17,"pkm_terdekat":"Puskesmas Pardasuka","jarak_fktp":4.17,"fktp_terdekat":"Puskesmas Pardasuka","jarak_rs":13.7,"rs_terdekat":"RS Wisma Rini","jarak_poned":4.17},"geometry":{"type":"Polygon","coordinates":[[[104.93194,-5.48173],[104.93114,-5.48798],[104.9289,-5.49615],[104.92597,-5.49721],[104.92014,-5.49437],[104.91763,-5.48662],[104.91768,-5.48495],[104.91848,-5.48479],[104.91984,-5.48249],[104.91959,-5.48149],[104.92254,-5.48012],[104.9275,-5.4793],[104.93071,-5.47769],[104.93194,-5.48173]]]}},{"type":"Feature","properties":{"kode":"1810050001","kecamatan":"Gading Rejo","desa":"Parerejo","penduduk":5072,"luas_km2":3.65,"kepadatan":1390.0,"jarak_pkm":2.55,"pkm_terdekat":"Puskesmas Ambarawa","jarak_fktp":2.55,"fktp_terdekat":"Puskesmas Ambarawa","jarak_rs":4.51,"rs_terdekat":"RS Mitra Husada","jarak_poned":2.55},"geometry":{"type":"Polygon","coordinates":[[[104.99747,-5.41006],[104.99027,-5.41858],[104.98875,-5.4185],[104.98657,-5.41601],[104.98503,-5.41585],[104.9841,-5.41636],[104.9847,-5.41852],[104.98429,-5.42016],[104.98,-5.42044],[104.97643,-5.41876],[104.97542,-5.41502],[104.97705,-5.41257],[104.97627,-5.41098],[104.97336,-5.40893],[104.97231,-5.40662],[104.97315,-5.40614],[104.974,-5.40293],[104.97606,-5.4037],[104.98294,-5.40266],[104.98735,-5.40329],[104.9904,-5.40266],[104.98949,-5.40503],[104.99093,-5.40555],[104.99217,-5.40713],[104.99083,-5.40782],[104.99404,-5.40732],[104.99519,-5.40541],[104.99597,-5.40539],[104.99907,-5.40949],[104.99747,-5.41006]]]}},{"type":"Feature","properties":{"kode":"1810030023","kecamatan":"Pagelaran","desa":"Pasir Ukir","penduduk":2065,"luas_km2":1.3,"kepadatan":1588.0,"jarak_pkm":3.77,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":3.77,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":7.33,"rs_terdekat":"RSUD Pringsewu","jarak_poned":5.06},"geometry":{"type":"Polygon","coordinates":[[[104.89654,-5.35666],[104.89402,-5.35694],[104.89196,-5.35545],[104.88947,-5.35639],[104.88735,-5.35541],[104.88281,-5.3557],[104.87974,-5.34828],[104.88171,-5.34914],[104.88969,-5.34854],[104.89087,-5.3475],[104.89482,-5.34696],[104.8956,-5.35595],[104.89654,-5.35666]]]}},{"type":"Feature","properties":{"kode":"1810030006","kecamatan":"Pagelaran","desa":"Patoman","penduduk":4408,"luas_km2":2.86,"kepadatan":1541.0,"jarak_pkm":3.46,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":3.46,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":7.27,"rs_terdekat":"RSUD Pringsewu","jarak_poned":3.46},"geometry":{"type":"Polygon","coordinates":[[[104.90269,-5.37309],[104.89823,-5.37401],[104.89886,-5.37716],[104.89555,-5.37825],[104.89689,-5.38204],[104.89322,-5.38341],[104.89242,-5.38282],[104.88832,-5.38282],[104.88837,-5.38095],[104.88181,-5.38214],[104.88158,-5.37912],[104.88322,-5.3768],[104.88435,-5.37204],[104.89375,-5.36762],[104.89502,-5.36927],[104.89584,-5.36876],[104.89509,-5.36646],[104.89643,-5.36548],[104.90121,-5.36479],[104.90251,-5.3639],[104.90269,-5.37309]]]}},{"type":"Feature","properties":{"kode":"1810040012","kecamatan":"Pringsewu","desa":"Podomoro","penduduk":5322,"luas_km2":4.3,"kepadatan":1238.0,"jarak_pkm":1.91,"pkm_terdekat":"Puskesmas Pringsewu","jarak_fktp":1.74,"fktp_terdekat":"Klinik Teluk Pringsewu","jarak_rs":1.78,"rs_terdekat":"RS Harapan Bunda","jarak_poned":5.17},"geometry":{"type":"Polygon","coordinates":[[[104.99075,-5.33353],[104.99141,-5.33857],[104.9961,-5.34504],[104.99648,-5.34864],[104.99889,-5.35227],[105.00041,-5.35778],[104.99989,-5.36027],[104.99596,-5.35969],[104.99168,-5.3554],[104.98772,-5.35373],[104.9868,-5.35208],[104.98491,-5.35223],[104.98344,-5.35479],[104.98177,-5.35253],[104.98171,-5.35088],[104.97817,-5.35004],[104.97788,-5.34868],[104.97937,-5.34736],[104.97929,-5.34475],[104.97105,-5.34128],[104.97799,-5.33943],[104.98484,-5.33447],[104.98862,-5.33278],[104.98892,-5.3344],[104.99075,-5.33353]]]}},{"type":"Feature","properties":{"kode":"1810040022","kecamatan":"Pringsewu","desa":"Podosari","penduduk":4868,"luas_km2":1.56,"kepadatan":3121.0,"jarak_pkm":1.43,"pkm_terdekat":"Puskesmas Rejosari","jarak_fktp":1.43,"fktp_terdekat":"Puskesmas Rejosari","jarak_rs":3.1,"rs_terdekat":"RS Harapan Bunda","jarak_poned":5.22},"geometry":{"type":"Polygon","coordinates":[[[104.97601,-5.32629],[104.9843,-5.32693],[104.98725,-5.32882],[104.9878,-5.3304],[104.989,-5.33075],[104.98913,-5.33178],[104.98862,-5.33278],[104.98484,-5.33447],[104.97799,-5.33943],[104.976,-5.33988],[104.97613,-5.33793],[104.97504,-5.33691],[104.9744,-5.33378],[104.97213,-5.33134],[104.97412,-5.33107],[104.97408,-5.33013],[104.97535,-5.32965],[104.97596,-5.33015],[104.9756,-5.32884],[104.97657,-5.32726],[104.97601,-5.32629]]]}},{"type":"Feature","properties":{"kode":"1810040018","kecamatan":"Pringsewu","desa":"Pringsewu Barat","penduduk":10401,"luas_km2":1.64,"kepadatan":6342.0,"jarak_pkm":1.15,"pkm_terdekat":"Puskesmas Rejosari","jarak_fktp":1.15,"fktp_terdekat":"Puskesmas Rejosari","jarak_rs":1.4,"rs_terdekat":"RSUD Pringsewu","jarak_poned":5.14},"geometry":{"type":"Polygon","coordinates":[[[104.96925,-5.3424],[104.96889,-5.34307],[104.97066,-5.35295],[104.97234,-5.35594],[104.96701,-5.35446],[104.96069,-5.35515],[104.96022,-5.35175],[104.95894,-5.35004],[104.95845,-5.34495],[104.95931,-5.34478],[104.96134,-5.34253],[104.96462,-5.34205],[104.96925,-5.3424]]]}},{"type":"Feature","properties":{"kode":"1810040017","kecamatan":"Pringsewu","desa":"Pringsewu Selatan","penduduk":10557,"luas_km2":1.84,"kepadatan":5738.0,"jarak_pkm":0.98,"pkm_terdekat":"Puskesmas Pringsewu","jarak_fktp":0.98,"fktp_terdekat":"Puskesmas Pringsewu","jarak_rs":1.1,"rs_terdekat":"RS Wisma Rini","jarak_poned":3.55},"geometry":{"type":"Polygon","coordinates":[[[104.97234,-5.35594],[104.97224,-5.36137],[104.97443,-5.36904],[104.97141,-5.37131],[104.9675,-5.36806],[104.963,-5.36809],[104.96297,-5.36219],[104.96191,-5.35864],[104.95985,-5.35695],[104.96097,-5.35588],[104.96069,-5.35515],[104.96463,-5.35447],[104.96701,-5.35446],[104.97234,-5.35594]]]}},{"type":"Feature","properties":{"kode":"1810040019","kecamatan":"Pringsewu","desa":"Pringsewu Timur","penduduk":7621,"luas_km2":1.48,"kepadatan":5149.0,"jarak_pkm":0.6,"pkm_terdekat":"Puskesmas Pringsewu","jarak_fktp":0.24,"fktp_terdekat":"Klinik Kosasih Pringsewu","jarak_rs":0.4,"rs_terdekat":"RS Surya Asih","jarak_poned":3.65},"geometry":{"type":"Polygon","coordinates":[[[104.98378,-5.35787],[104.98465,-5.35973],[104.98175,-5.36208],[104.983,-5.36317],[104.98227,-5.36426],[104.98301,-5.36464],[104.97983,-5.36956],[104.97443,-5.36904],[104.97224,-5.36137],[104.97234,-5.35594],[104.98378,-5.35787]]]}},{"type":"Feature","properties":{"kode":"1810040016","kecamatan":"Pringsewu","desa":"Pringsewu Utara","penduduk":9430,"luas_km2":1.76,"kepadatan":5358.0,"jarak_pkm":0.95,"pkm_terdekat":"Puskesmas Pringsewu","jarak_fktp":0.95,"fktp_terdekat":"Puskesmas Pringsewu","jarak_rs":1.48,"rs_terdekat":"RS Harapan Bunda","jarak_poned":5.05},"geometry":{"type":"Polygon","coordinates":[[[104.98378,-5.35466],[104.98431,-5.35454],[104.98345,-5.35702],[104.98378,-5.35787],[104.97234,-5.35594],[104.97066,-5.35295],[104.96889,-5.34307],[104.9698,-5.34136],[104.97526,-5.3427],[104.97929,-5.34475],[104.97935,-5.34743],[104.97786,-5.34877],[104.97823,-5.35018],[104.98171,-5.35088],[104.98177,-5.35253],[104.98378,-5.35466]]]}},{"type":"Feature","properties":{"kode":"1810030027","kecamatan":"Pagelaran","desa":"Puji Harjo","penduduk":1593,"luas_km2":1.45,"kepadatan":1099.0,"jarak_pkm":5.06,"pkm_terdekat":"Puskesmas Bumiratu","jarak_fktp":5.06,"fktp_terdekat":"Puskesmas Bumiratu","jarak_rs":10.26,"rs_terdekat":"RSUD Pringsewu","jarak_poned":5.06},"geometry":{"type":"Polygon","coordinates":[[[104.86872,-5.37927],[104.86796,-5.3792],[104.86633,-5.38053],[104.86589,-5.38423],[104.86513,-5.38491],[104.86383,-5.38473],[104.86417,-5.38122],[104.85883,-5.37703],[104.85799,-5.3777],[104.85716,-5.37603],[104.85733,-5.37319],[104.85866,-5.37319],[104.85866,-5.37218],[104.86083,-5.37218],[104.86167,-5.37038],[104.86516,-5.37145],[104.87321,-5.3698],[104.87378,-5.37024],[104.87327,-5.37181],[104.8725,-5.37187],[104.87117,-5.37496],[104.86953,-5.376],[104.86872,-5.37927]]]}},{"type":"Feature","properties":{"kode":"1810010014","kecamatan":"Pardasuka","desa":"Pujodadi","penduduk":4715,"luas_km2":4.88,"kepadatan":966.0,"jarak_pkm":1.28,"pkm_terdekat":"Puskesmas Pardasuka","jarak_fktp":1.28,"fktp_terdekat":"Puskesmas Pardasuka","jarak_rs":8.69,"rs_terdekat":"RS Wisma Rini","jarak_poned":1.28},"geometry":{"type":"Polygon","coordinates":[[[104.94961,-5.42766],[104.95063,-5.42848],[104.95055,-5.431],[104.94791,-5.43574],[104.94514,-5.43742],[104.94347,-5.44263],[104.94338,-5.44473],[104.94556,-5.44893],[104.94433,-5.45035],[104.94127,-5.44667],[104.93401,-5.44393],[104.9331,-5.44585],[104.92955,-5.44497],[104.92952,-5.44387],[104.93054,-5.44387],[104.93075,-5.44316],[104.92901,-5.44295],[104.92962,-5.4405],[104.92258,-5.43917],[104.92179,-5.44319],[104.91615,-5.44183],[104.91645,-5.4408],[104.91233,-5.44031],[104.91388,-5.43475],[104.91728,-5.43242],[104.91667,-5.43145],[104.9176,-5.42964],[104.91888,-5.43183],[104.92176,-5.43242],[104.92286,-5.4319],[104.92432,-5.4323],[104.92549,-5.43069],[104.9271,-5.42983],[104.92854,-5.43085],[104.92972,-5.43058],[104.93189,-5.43144],[104.93388,-5.4353],[104.93585,-5.43551],[104.93707,-5.43483],[104.94108,-5.42861],[104.94481,-5.42867],[104.94961,-5.42766]]]}},{"type":"Feature","properties":{"kode":"1810080011","kecamatan":"Adi Luwih","desa":"Purwodadi","penduduk":3477,"luas_km2":3.15,"kepadatan":1104.0,"jarak_pkm":3.7,"pkm_terdekat":"Puskesmas Bandung Baru","jarak_fktp":3.7,"fktp_terdekat":"Puskesmas Bandung Baru","jarak_rs":10.04,"rs_terdekat":"RS Harapan Bunda","jarak_poned":6.03},"geometry":{"type":"Polygon","coordinates":[[[105.02108,-5.26599],[105.02024,-5.26871],[105.02051,-5.27149],[105.01948,-5.27145],[105.01948,-5.28505],[105.00907,-5.28598],[105.00624,-5.2856],[105.00541,-5.28187],[105.00583,-5.2746],[105.00245,-5.27445],[105.00208,-5.27161],[105.00896,-5.27009],[105.01679,-5.26641],[105.02108,-5.26599]]]}},{"type":"Feature","properties":{"kode":"1810010007","kecamatan":"Pardasuka","desa":"Rantau Tijang","penduduk":2398,"luas_km2":15.95,"kepadatan":150.0,"jarak_pkm":9.28,"pkm_terdekat":"Puskesmas Pardasuka","jarak_fktp":9.28,"fktp_terdekat":"Puskesmas Pardasuka","jarak_rs":18.34,"rs_terdekat":"RS Wisma Rini","jarak_poned":9.28},"geometry":{"type":"Polygon","coordinates":[[[104.9289,-5.49615],[104.92485,-5.50117],[104.92645,-5.50411],[104.93705,-5.5139],[104.93671,-5.52095],[104.93721,-5.52599],[104.94539,-5.53284],[104.94698,-5.54963],[104.94421,-5.56215],[104.94429,-5.56853],[104.94516,-5.57394],[104.9387,-5.56815],[104.92932,-5.56595],[104.92615,-5.56317],[104.92468,-5.55612],[104.92523,-5.5506],[104.92376,-5.54847],[104.923,-5.5441],[104.9237,-5.54176],[104.92283,-5.5399],[104.92346,-5.5367],[104.91845,-5.53097],[104.91839,-5.5278],[104.91894,-5.52709],[104.91812,-5.52463],[104.91959,-5.52245],[104.92,-5.51827],[104.91775,-5.5032],[104.91839,-5.49984],[104.92019,-5.49634],[104.92025,-5.49445],[104.92597,-5.49721],[104.9289,-5.49615]]]}},{"type":"Feature","properties":{"kode":"1810040020","kecamatan":"Pringsewu","desa":"Rejosari","penduduk":5018,"luas_km2":2.94,"kepadatan":1707.0,"jarak_pkm":0.82,"pkm_terdekat":"Puskesmas Rejosari","jarak_fktp":0.82,"fktp_terdekat":"Puskesmas Rejosari","jarak_rs":2.64,"rs_terdekat":"RSUD Pringsewu","jarak_poned":4.96},"geometry":{"type":"Polygon","coordinates":[[[104.97601,-5.32629],[104.97657,-5.32726],[104.9756,-5.32884],[104.97596,-5.33015],[104.97535,-5.32965],[104.97408,-5.33013],[104.97412,-5.33107],[104.97213,-5.33134],[104.9744,-5.33378],[104.97504,-5.33691],[104.97613,-5.33793],[104.976,-5.33988],[104.97295,-5.34116],[104.9698,-5.34136],[104.96925,-5.3424],[104.96402,-5.34208],[104.95863,-5.34357],[104.95675,-5.34229],[104.9543,-5.34329],[104.95468,-5.33241],[104.95586,-5.32673],[104.95667,-5.32776],[104.95905,-5.32871],[104.96052,-5.33123],[104.96503,-5.3327],[104.97114,-5.3317],[104.97208,-5.33021],[104.97295,-5.32993],[104.97225,-5.32857],[104.9733,-5.32658],[104.97601,-5.32629]]]}},{"type":"Feature","properties":{"kode":"1810010004","kecamatan":"Pardasuka","desa":"Selapan","penduduk":2321,"luas_km2":13.04,"kepadatan":178.0,"jarak_pkm":8.27,"pkm_terdekat":"Puskesmas Pardasuka","jarak_fktp":8.27,"fktp_terdekat":"Puskesmas Pardasuka","jarak_rs":17.96,"rs_terdekat":"RS Wisma Rini","jarak_poned":8.27},"geometry":{"type":"Polygon","coordinates":[[[104.91126,-5.50448],[104.91087,-5.50584],[104.90706,-5.51037],[104.90684,-5.52092],[104.90618,-5.52458],[104.90187,-5.52752],[104.90051,-5.53015],[104.89904,-5.53146],[104.89573,-5.53988],[104.88889,-5.53358],[104.88122,-5.52304],[104.8803,-5.51775],[104.87888,-5.51414],[104.88253,-5.50293],[104.87926,-5.49579],[104.88085,-5.49512],[104.88085,-5.49411],[104.88177,-5.49377],[104.88311,-5.49142],[104.88596,-5.49134],[104.88806,-5.49025],[104.892,-5.49016],[104.8973,-5.49268],[104.90243,-5.49273],[104.90662,-5.49574],[104.91038,-5.49721],[104.91044,-5.50202],[104.91126,-5.50448]]]}},{"type":"Feature","properties":{"kode":"1810010018","kecamatan":"Pardasuka","desa":"Sidodadi","penduduk":3709,"luas_km2":3.71,"kepadatan":1000.0,"jarak_pkm":1.49,"pkm_terdekat":"Puskesmas Pardasuka","jarak_fktp":1.49,"fktp_terdekat":"Puskesmas Pardasuka","jarak_rs":9.97,"rs_terdekat":"RS Wisma Rini","jarak_poned":1.49},"geometry":{"type":"Polygon","coordinates":[[[104.91233,-5.44031],[104.91645,-5.4408],[104.91615,-5.44183],[104.92179,-5.44319],[104.92258,-5.43917],[104.92962,-5.4405],[104.92901,-5.44295],[104.93075,-5.44316],[104.93054,-5.44387],[104.92952,-5.44387],[104.92955,-5.44497],[104.9331,-5.44585],[104.93401,-5.44393],[104.94127,-5.44667],[104.94359,-5.44893],[104.94498,-5.45191],[104.94351,-5.45267],[104.94177,-5.45257],[104.93442,-5.45083],[104.92993,-5.45175],[104.92908,-5.4507],[104.92785,-5.45043],[104.92676,-5.44878],[104.91829,-5.44878],[104.91339,-5.44991],[104.90747,-5.44776],[104.9066,-5.44551],[104.90552,-5.4456],[104.90458,-5.44473],[104.90282,-5.44086],[104.90258,-5.43817],[104.907,-5.43848],[104.91233,-5.44031]]]}},{"type":"Feature","properties":{"kode":"1810030029","kecamatan":"Pagelaran","desa":"Sidodadi","penduduk":1499,"luas_km2":0.96,"kepadatan":1561.0,"jarak_pkm":3.11,"pkm_terdekat":"Puskesmas Bumiratu","jarak_fktp":3.11,"fktp_terdekat":"Puskesmas Bumiratu","jarak_rs":8.87,"rs_terdekat":"RSUD Pringsewu","jarak_poned":3.11},"geometry":{"type":"Polygon","coordinates":[[[104.88181,-5.38211],[104.88371,-5.3836],[104.88392,-5.38646],[104.88515,-5.38893],[104.88441,-5.38907],[104.88477,-5.39162],[104.88111,-5.39244],[104.87827,-5.3865],[104.87528,-5.38586],[104.87376,-5.38438],[104.87273,-5.37986],[104.88181,-5.38211]]]}},{"type":"Feature","properties":{"kode":"1810040011","kecamatan":"Pringsewu","desa":"Sidoharjo","penduduk":6792,"luas_km2":1.34,"kepadatan":5069.0,"jarak_pkm":1.61,"pkm_terdekat":"Puskesmas Pringsewu","jarak_fktp":1.09,"fktp_terdekat":"Klinik Teluk Pringsewu","jarak_rs":1.0,"rs_terdekat":"RS Harapan Bunda","jarak_poned":4.03},"geometry":{"type":"Polygon","coordinates":[[[104.99989,-5.36027],[104.99856,-5.36191],[104.99556,-5.36388],[104.99119,-5.36032],[104.98499,-5.36573],[104.98227,-5.36426],[104.983,-5.36317],[104.98175,-5.36208],[104.98465,-5.35973],[104.98343,-5.35716],[104.98431,-5.35454],[104.98378,-5.35466],[104.98491,-5.35223],[104.98619,-5.352],[104.9868,-5.35208],[104.98772,-5.35373],[104.99168,-5.3554],[104.99596,-5.35969],[104.99989,-5.36027]]]}},{"type":"Feature","properties":{"kode":"1810060012","kecamatan":"Sukoharjo","desa":"Siliwangi","penduduk":2699,"luas_km2":2.64,"kepadatan":1022.0,"jarak_pkm":0.94,"pkm_terdekat":"Puskesmas Banyumas","jarak_fktp":0.94,"fktp_terdekat":"Puskesmas Banyumas","jarak_rs":8.19,"rs_terdekat":"RSUD Pringsewu","jarak_poned":0.94},"geometry":{"type":"Polygon","coordinates":[[[104.9396,-5.2806],[104.9427,-5.28582],[104.94211,-5.29034],[104.94267,-5.29339],[104.9361,-5.29483],[104.9333,-5.29182],[104.93046,-5.28989],[104.92601,-5.28963],[104.92512,-5.28471],[104.92782,-5.28073],[104.92759,-5.2785],[104.93704,-5.27735],[104.93887,-5.27635],[104.9396,-5.2806]]]}},{"type":"Feature","properties":{"kode":"1810060002","kecamatan":"Sukoharjo","desa":"Sinar Baru","penduduk":2036,"luas_km2":5.51,"kepadatan":370.0,"jarak_pkm":1.65,"pkm_terdekat":"Puskesmas Banyumas","jarak_fktp":1.65,"fktp_terdekat":"Puskesmas Banyumas","jarak_rs":6.33,"rs_terdekat":"RSUD Pringsewu","jarak_poned":1.65},"geometry":{"type":"Polygon","coordinates":[[[104.94267,-5.29339],[104.94311,-5.29479],[104.94478,-5.29594],[104.93968,-5.30952],[104.93763,-5.31815],[104.92614,-5.31784],[104.92319,-5.31217],[104.91721,-5.30842],[104.92115,-5.30307],[104.92491,-5.30178],[104.92686,-5.29781],[104.92508,-5.29597],[104.92664,-5.29182],[104.9305,-5.2917],[104.93177,-5.29062],[104.9361,-5.29483],[104.94267,-5.29339]]]}},{"type":"Feature","properties":{"kode":"1810060024","kecamatan":"Sukoharjo","desa":"Sinar Baru Timur","penduduk":2241,"luas_km2":5.57,"kepadatan":402.0,"jarak_pkm":3.3,"pkm_terdekat":"Puskesmas Banyumas","jarak_fktp":3.3,"fktp_terdekat":"Puskesmas Banyumas","jarak_rs":4.75,"rs_terdekat":"RSUD Pringsewu","jarak_poned":3.3},"geometry":{"type":"Polygon","coordinates":[[[104.95306,-5.29698],[104.95252,-5.29776],[104.95284,-5.29917],[104.95134,-5.3003],[104.95171,-5.30187],[104.95304,-5.30229],[104.95284,-5.30485],[104.95201,-5.30565],[104.9512,-5.30508],[104.94926,-5.3055],[104.94841,-5.30645],[104.94917,-5.30777],[104.949,-5.30993],[104.94682,-5.31123],[104.9469,-5.31677],[104.94871,-5.31925],[104.94851,-5.32017],[104.94392,-5.32132],[104.94234,-5.32101],[104.94123,-5.3234],[104.93928,-5.32491],[104.93926,-5.32678],[104.93822,-5.32756],[104.93694,-5.33014],[104.93672,-5.33306],[104.9338,-5.33354],[104.93238,-5.33463],[104.93069,-5.33452],[104.92584,-5.33227],[104.92633,-5.32993],[104.92226,-5.33029],[104.92127,-5.3268],[104.92614,-5.31784],[104.93763,-5.31815],[104.93968,-5.30952],[104.94478,-5.29594],[104.95116,-5.29718],[104.95306,-5.29698]]]}},{"type":"Feature","properties":{"kode":"1810070009","kecamatan":"Banyumas","desa":"Sinar Mulia","penduduk":1968,"luas_km2":2.87,"kepadatan":686.0,"jarak_pkm":2.35,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":2.35,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":8.91,"rs_terdekat":"RSUD Pringsewu","jarak_poned":3.32},"geometry":{"type":"Polygon","coordinates":[[[104.90515,-5.29756],[104.90559,-5.30744],[104.90161,-5.30798],[104.8987,-5.30752],[104.89516,-5.30926],[104.89371,-5.30717],[104.89313,-5.30146],[104.88953,-5.29791],[104.88907,-5.29639],[104.88971,-5.29319],[104.88912,-5.29255],[104.89296,-5.29053],[104.89684,-5.29061],[104.89946,-5.28924],[104.90127,-5.29052],[104.90305,-5.29007],[104.90391,-5.29624],[104.90515,-5.29756]]]}},{"type":"Feature","properties":{"kode":"1810080004","kecamatan":"Adi Luwih","desa":"Sinar Waya","penduduk":979,"luas_km2":2.19,"kepadatan":447.0,"jarak_pkm":2.07,"pkm_terdekat":"Puskesmas Bandung Baru","jarak_fktp":2.07,"fktp_terdekat":"Puskesmas Bandung Baru","jarak_rs":11.52,"rs_terdekat":"RSUD Pringsewu","jarak_poned":4.19},"geometry":{"type":"Polygon","coordinates":[[[104.97159,-5.25702],[104.95311,-5.2584],[104.94931,-5.26101],[104.94853,-5.25835],[104.95704,-5.25358],[104.95891,-5.25059],[104.96764,-5.2455],[104.96877,-5.24736],[104.97116,-5.24916],[104.97785,-5.2509],[104.97782,-5.25315],[104.97498,-5.25342],[104.97466,-5.25437],[104.97163,-5.25465],[104.97159,-5.25702]]]}},{"type":"Feature","properties":{"kode":"1810070002","kecamatan":"Banyumas","desa":"Sri Rahayu","penduduk":1829,"luas_km2":3.38,"kepadatan":541.0,"jarak_pkm":2.7,"pkm_terdekat":"Puskesmas Banyumas","jarak_fktp":2.7,"fktp_terdekat":"Puskesmas Banyumas","jarak_rs":10.6,"rs_terdekat":"RSUD Pringsewu","jarak_poned":2.7},"geometry":{"type":"Polygon","coordinates":[[[104.89829,-5.2633],[104.90121,-5.26562],[104.90457,-5.26606],[104.90855,-5.26766],[104.91274,-5.26736],[104.91862,-5.26556],[104.92033,-5.2657],[104.92157,-5.26659],[104.92215,-5.26818],[104.92435,-5.26938],[104.92579,-5.27571],[104.92703,-5.27671],[104.92745,-5.27827],[104.92339,-5.27787],[104.92139,-5.2761],[104.91826,-5.27539],[104.91626,-5.27546],[104.91227,-5.2779],[104.90184,-5.27847],[104.90192,-5.27572],[104.89867,-5.27199],[104.89829,-5.2633]]]}},{"type":"Feature","properties":{"kode":"1810080012","kecamatan":"Adi Luwih","desa":"Srikaton","penduduk":3394,"luas_km2":5.19,"kepadatan":654.0,"jarak_pkm":1.12,"pkm_terdekat":"Puskesmas Adiluwih","jarak_fktp":1.12,"fktp_terdekat":"Puskesmas Adiluwih","jarak_rs":16.92,"rs_terdekat":"RS Harapan Bunda","jarak_poned":1.12},"geometry":{"type":"Polygon","coordinates":[[[105.05171,-5.20689],[105.06637,-5.2155],[105.06138,-5.21574],[105.05484,-5.2175],[105.05021,-5.22206],[105.05376,-5.22369],[105.05334,-5.22491],[105.06482,-5.22674],[105.06482,-5.22803],[105.06407,-5.22888],[105.0552,-5.22953],[105.05024,-5.23454],[105.04934,-5.23634],[105.04717,-5.23781],[105.04595,-5.23667],[105.04189,-5.2373],[105.03894,-5.23517],[105.04103,-5.23234],[105.03818,-5.23198],[105.04014,-5.22656],[105.03911,-5.22684],[105.0379,-5.22488],[105.04246,-5.21993],[105.04693,-5.20737],[105.05171,-5.20689]]]}},{"type":"Feature","properties":{"kode":"1810070006","kecamatan":"Banyumas","desa":"Sriwungu","penduduk":1464,"luas_km2":2.39,"kepadatan":613.0,"jarak_pkm":1.62,"pkm_terdekat":"Puskesmas Banyumas","jarak_fktp":1.62,"fktp_terdekat":"Puskesmas Banyumas","jarak_rs":7.63,"rs_terdekat":"RSUD Pringsewu","jarak_poned":1.62},"geometry":{"type":"Polygon","coordinates":[[[104.92625,-5.29288],[104.92508,-5.29597],[104.92686,-5.29781],[104.92471,-5.30203],[104.92245,-5.30304],[104.91621,-5.30352],[104.90559,-5.30735],[104.90515,-5.29756],[104.90602,-5.29691],[104.90927,-5.29596],[104.91646,-5.29593],[104.91872,-5.29463],[104.91879,-5.29322],[104.92239,-5.29229],[104.92477,-5.29216],[104.92625,-5.29288]]]}},{"type":"Feature","properties":{"kode":"1810010006","kecamatan":"Pardasuka","desa":"Suka Negeri","penduduk":535,"luas_km2":0.99,"kepadatan":540.0,"jarak_pkm":5.05,"pkm_terdekat":"Puskesmas Pardasuka","jarak_fktp":5.05,"fktp_terdekat":"Puskesmas Pardasuka","jarak_rs":14.69,"rs_terdekat":"RS Wisma Rini","jarak_poned":5.05},"geometry":{"type":"Polygon","coordinates":[[[104.92025,-5.49445],[104.92019,-5.49634],[104.91839,-5.49984],[104.91785,-5.50322],[104.91392,-5.50196],[104.91371,-5.49738],[104.91447,-5.49557],[104.91404,-5.49257],[104.91518,-5.49121],[104.91502,-5.48913],[104.91399,-5.48728],[104.91592,-5.48528],[104.91768,-5.48495],[104.91763,-5.48662],[104.92025,-5.49445]]]}},{"type":"Feature","properties":{"kode":"1810070004","kecamatan":"Banyumas","desa":"Sukamulya","penduduk":2719,"luas_km2":2.33,"kepadatan":1167.0,"jarak_pkm":0.79,"pkm_terdekat":"Puskesmas Banyumas","jarak_fktp":0.79,"fktp_terdekat":"Puskesmas Banyumas","jarak_rs":8.67,"rs_terdekat":"RSUD Pringsewu","jarak_poned":0.79},"geometry":{"type":"Polygon","coordinates":[[[104.92745,-5.27827],[104.92797,-5.27896],[104.92782,-5.28073],[104.92512,-5.28471],[104.92601,-5.28963],[104.93046,-5.28989],[104.93177,-5.29062],[104.9305,-5.2917],[104.92664,-5.29182],[104.92625,-5.29288],[104.92477,-5.29216],[104.91906,-5.2931],[104.91872,-5.29463],[104.91545,-5.296],[104.91668,-5.29395],[104.91686,-5.28434],[104.91177,-5.27788],[104.9135,-5.27749],[104.91626,-5.27546],[104.91826,-5.27539],[104.92139,-5.2761],[104.92339,-5.27787],[104.92745,-5.27827]]]}},{"type":"Feature","properties":{"kode":"1810030008","kecamatan":"Pagelaran","desa":"Sukaratu","penduduk":2216,"luas_km2":1.39,"kepadatan":1594.0,"jarak_pkm":5.38,"pkm_terdekat":"Puskesmas Bumiratu","jarak_fktp":5.38,"fktp_terdekat":"Puskesmas Bumiratu","jarak_rs":9.28,"rs_terdekat":"RSUD Pringsewu","jarak_poned":5.38},"geometry":{"type":"Polygon","coordinates":[[[104.87773,-5.36277],[104.87758,-5.3635],[104.87966,-5.36313],[104.88012,-5.36396],[104.87654,-5.36859],[104.87128,-5.37032],[104.86366,-5.37132],[104.86549,-5.36156],[104.87099,-5.36161],[104.87773,-5.36277]]]}},{"type":"Feature","properties":{"kode":"1810030009","kecamatan":"Pagelaran","desa":"Sukawangi","penduduk":773,"luas_km2":0.51,"kepadatan":1516.0,"jarak_pkm":6.08,"pkm_terdekat":"Puskesmas Bumiratu","jarak_fktp":6.08,"fktp_terdekat":"Puskesmas Bumiratu","jarak_rs":10.32,"rs_terdekat":"RSUD Pringsewu","jarak_poned":6.08},"geometry":{"type":"Polygon","coordinates":[[[104.86549,-5.36166],[104.86373,-5.37101],[104.85909,-5.36923],[104.85875,-5.36719],[104.8605,-5.36381],[104.86254,-5.36169],[104.86549,-5.36166]]]}},{"type":"Feature","properties":{"kode":"1810060003","kecamatan":"Sukoharjo","desa":"Sukoharjo I","penduduk":5512,"luas_km2":9.77,"kepadatan":564.0,"jarak_pkm":2.69,"pkm_terdekat":"Puskesmas Sukoharjo","jarak_fktp":2.69,"fktp_terdekat":"Puskesmas Sukoharjo","jarak_rs":4.71,"rs_terdekat":"RSUD Pringsewu","jarak_poned":2.69},"geometry":{"type":"Polygon","coordinates":[[[104.95815,-5.29673],[104.96335,-5.29845],[104.96552,-5.30194],[104.96803,-5.30338],[104.97848,-5.30533],[104.97774,-5.30788],[104.97813,-5.31035],[104.97704,-5.31639],[104.97765,-5.31756],[104.97869,-5.31784],[104.97879,-5.31946],[104.97651,-5.32042],[104.97572,-5.32282],[104.9764,-5.32581],[104.97788,-5.3264],[104.9733,-5.32658],[104.97225,-5.32857],[104.97295,-5.32993],[104.97208,-5.33021],[104.97114,-5.3317],[104.96503,-5.3327],[104.96052,-5.33123],[104.95905,-5.32871],[104.95667,-5.32776],[104.95458,-5.32536],[104.9506,-5.32409],[104.94851,-5.32017],[104.94871,-5.31925],[104.9469,-5.31677],[104.94682,-5.31123],[104.949,-5.30993],[104.94935,-5.3091],[104.94841,-5.30645],[104.94926,-5.3055],[104.9512,-5.30508],[104.95201,-5.30565],[104.95284,-5.30485],[104.95304,-5.30229],[104.95171,-5.30187],[104.95134,-5.30063],[104.95166,-5.29963],[104.95284,-5.29917],[104.95284,-5.29714],[104.95815,-5.29673]]]}},{"type":"Feature","properties":{"kode":"1810060004","kecamatan":"Sukoharjo","desa":"Sukoharjo II","penduduk":3653,"luas_km2":5.29,"kepadatan":691.0,"jarak_pkm":3.31,"pkm_terdekat":"Puskesmas Rejosari","jarak_fktp":3.31,"fktp_terdekat":"Puskesmas Rejosari","jarak_rs":5.04,"rs_terdekat":"RS Harapan Bunda","jarak_poned":4.13},"geometry":{"type":"Polygon","coordinates":[[[104.98913,-5.30301],[104.99801,-5.30381],[104.99757,-5.30748],[104.99811,-5.31542],[104.99763,-5.31661],[104.99827,-5.31758],[104.99717,-5.32189],[104.99664,-5.32265],[104.9939,-5.32362],[104.98666,-5.3253],[104.98723,-5.32882],[104.9843,-5.32693],[104.97908,-5.3267],[104.9764,-5.32581],[104.97587,-5.3214],[104.97651,-5.32042],[104.97879,-5.31946],[104.97869,-5.31784],[104.97765,-5.31756],[104.97704,-5.31639],[104.97813,-5.31035],[104.97774,-5.30788],[104.97853,-5.30517],[104.98064,-5.30654],[104.98201,-5.30654],[104.9832,-5.30572],[104.98402,-5.30389],[104.98913,-5.30301]]]}},{"type":"Feature","properties":{"kode":"1810060009","kecamatan":"Sukoharjo","desa":"Sukoharjo III","penduduk":4885,"luas_km2":2.28,"kepadatan":2143.0,"jarak_pkm":2.62,"pkm_terdekat":"Puskesmas Sukoharjo","jarak_fktp":2.62,"fktp_terdekat":"Puskesmas Sukoharjo","jarak_rs":6.85,"rs_terdekat":"RS Harapan Bunda","jarak_poned":2.62},"geometry":{"type":"Polygon","coordinates":[[[104.97981,-5.29105],[104.99105,-5.29131],[104.99147,-5.29415],[104.98839,-5.30048],[104.98913,-5.30301],[104.98402,-5.30389],[104.9832,-5.30572],[104.98201,-5.30654],[104.97482,-5.30456],[104.97582,-5.29386],[104.97914,-5.29393],[104.97986,-5.29295],[104.97981,-5.29105]]]}},{"type":"Feature","properties":{"kode":"1810060026","kecamatan":"Sukoharjo","desa":"Sukoharjo III Barat","penduduk":4683,"luas_km2":1.48,"kepadatan":3164.0,"jarak_pkm":1.4,"pkm_terdekat":"Puskesmas Sukoharjo","jarak_fktp":1.4,"fktp_terdekat":"Puskesmas Sukoharjo","jarak_rs":6.59,"rs_terdekat":"RSUD Pringsewu","jarak_poned":1.4},"geometry":{"type":"Polygon","coordinates":[[[104.97582,-5.29386],[104.97482,-5.30456],[104.96803,-5.30338],[104.96552,-5.30194],[104.96335,-5.29845],[104.95999,-5.29715],[104.9628,-5.2932],[104.97582,-5.29386]]]}},{"type":"Feature","properties":{"kode":"1810060005","kecamatan":"Sukoharjo","desa":"Sukoharjo IV","penduduk":1802,"luas_km2":5.59,"kepadatan":322.0,"jarak_pkm":3.94,"pkm_terdekat":"Puskesmas Rejosari","jarak_fktp":3.94,"fktp_terdekat":"Puskesmas Rejosari","jarak_rs":4.29,"rs_terdekat":"RS Harapan Bunda","jarak_poned":6.07},"geometry":{"type":"Polygon","coordinates":[[[105.02037,-5.32093],[105.02557,-5.32118],[105.02666,-5.32406],[105.02413,-5.32776],[105.02046,-5.33013],[105.01985,-5.33542],[105.01902,-5.3366],[105.01367,-5.33463],[105.0096,-5.33732],[105.00786,-5.3332],[105.00279,-5.33292],[105.00206,-5.33311],[105.00208,-5.33383],[105.0037,-5.33402],[105.00392,-5.33506],[105.0026,-5.3359],[105.00274,-5.33786],[104.99983,-5.33879],[104.99887,-5.3362],[104.99706,-5.33536],[104.99544,-5.33279],[104.99245,-5.33403],[104.99168,-5.33392],[104.99139,-5.33258],[104.9898,-5.33435],[104.98892,-5.3344],[104.98851,-5.33376],[104.98919,-5.33123],[104.98734,-5.32971],[104.98666,-5.3253],[104.99867,-5.32232],[105.00245,-5.32081],[105.01368,-5.32213],[105.02037,-5.32093]]]}},{"type":"Feature","properties":{"kode":"1810080009","kecamatan":"Adi Luwih","desa":"Sukoharum","penduduk":2115,"luas_km2":3.12,"kepadatan":678.0,"jarak_pkm":3.02,"pkm_terdekat":"Puskesmas Adiluwih","jarak_fktp":3.02,"fktp_terdekat":"Puskesmas Adiluwih","jarak_rs":15.85,"rs_terdekat":"RS Harapan Bunda","jarak_poned":3.02},"geometry":{"type":"Polygon","coordinates":[[[105.06544,-5.23145],[105.06538,-5.23662],[105.06385,-5.23808],[105.06146,-5.24343],[105.0555,-5.24381],[105.05104,-5.2474],[105.04531,-5.24893],[105.04429,-5.24022],[105.04689,-5.23928],[105.04717,-5.23781],[105.04934,-5.23634],[105.05024,-5.23454],[105.05475,-5.22989],[105.06309,-5.22898],[105.06544,-5.23145]]]}},{"type":"Feature","properties":{"kode":"1810010015","kecamatan":"Pardasuka","desa":"Sukorejo","penduduk":3761,"luas_km2":4.25,"kepadatan":885.0,"jarak_pkm":2.79,"pkm_terdekat":"Puskesmas Bumiratu","jarak_fktp":2.79,"fktp_terdekat":"Puskesmas Bumiratu","jarak_rs":9.71,"rs_terdekat":"RS Wisma Rini","jarak_poned":2.79},"geometry":{"type":"Polygon","coordinates":[[[104.9176,-5.42964],[104.91667,-5.43145],[104.91728,-5.43242],[104.91388,-5.43475],[104.91233,-5.44031],[104.91177,-5.44032],[104.907,-5.43848],[104.90215,-5.43801],[104.89218,-5.43011],[104.8895,-5.42676],[104.89279,-5.42138],[104.89799,-5.42036],[104.90106,-5.42172],[104.90255,-5.42147],[104.90414,-5.42265],[104.90614,-5.42262],[104.90828,-5.42351],[104.9119,-5.42348],[104.91267,-5.42522],[104.91455,-5.42524],[104.91727,-5.42806],[104.9176,-5.42964]]]}},{"type":"Feature","properties":{"kode":"1810060011","kecamatan":"Sukoharjo","desa":"Sukoyoso","penduduk":2041,"luas_km2":2.63,"kepadatan":776.0,"jarak_pkm":0.85,"pkm_terdekat":"Puskesmas Sukoharjo","jarak_fktp":0.85,"fktp_terdekat":"Puskesmas Sukoharjo","jarak_rs":7.24,"rs_terdekat":"RSUD Pringsewu","jarak_poned":0.85},"geometry":{"type":"Polygon","coordinates":[[[104.96159,-5.28635],[104.96274,-5.28904],[104.9628,-5.2932],[104.95999,-5.29715],[104.95815,-5.29673],[104.95116,-5.29718],[104.94462,-5.2959],[104.94311,-5.29479],[104.94211,-5.29097],[104.94261,-5.28572],[104.95525,-5.28548],[104.96159,-5.28635]]]}},{"type":"Feature","properties":{"kode":"1810020002","kecamatan":"Ambarawa","desa":"Sumber Agung","penduduk":7002,"luas_km2":3.69,"kepadatan":1898.0,"jarak_pkm":2.85,"pkm_terdekat":"Puskesmas Bumiratu","jarak_fktp":2.85,"fktp_terdekat":"Puskesmas Bumiratu","jarak_rs":6.71,"rs_terdekat":"RS Wisma Rini","jarak_poned":2.85},"geometry":{"type":"Polygon","coordinates":[[[104.93477,-5.40343],[104.93677,-5.40496],[104.93978,-5.40939],[104.93973,-5.41831],[104.94079,-5.42051],[104.93571,-5.41938],[104.93499,-5.41718],[104.93398,-5.41674],[104.92252,-5.41751],[104.90799,-5.41547],[104.90837,-5.41395],[104.90969,-5.41322],[104.91109,-5.4109],[104.91705,-5.4099],[104.92395,-5.40533],[104.93084,-5.40594],[104.93477,-5.40343]]]}},{"type":"Feature","properties":{"kode":"1810031016","kecamatan":"Pagelaran Utara","desa":"Sumber Bandung","penduduk":1441,"luas_km2":1.69,"kepadatan":853.0,"jarak_pkm":8.57,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":8.57,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":15.71,"rs_terdekat":"RSUD Pringsewu","jarak_poned":10.76},"geometry":{"type":"Polygon","coordinates":[[[104.84299,-5.2959],[104.83532,-5.29225],[104.83178,-5.29151],[104.82439,-5.29121],[104.82203,-5.29032],[104.81865,-5.28866],[104.81874,-5.28612],[104.82183,-5.28449],[104.83092,-5.28384],[104.8332,-5.28629],[104.83953,-5.29003],[104.84229,-5.29052],[104.84359,-5.29264],[104.84299,-5.2959]]]}},{"type":"Feature","properties":{"kode":"1810030030","kecamatan":"Pagelaran","desa":"Sumber Rejo","penduduk":2064,"luas_km2":0.44,"kepadatan":4691.0,"jarak_pkm":1.02,"pkm_terdekat":"Puskesmas Bumiratu","jarak_fktp":1.02,"fktp_terdekat":"Puskesmas Bumiratu","jarak_rs":8.07,"rs_terdekat":"RSUD Pringsewu","jarak_poned":1.02},"geometry":{"type":"Polygon","coordinates":[[[104.9077,-5.41569],[104.90394,-5.41534],[104.9035,-5.41259],[104.90356,-5.41063],[104.90784,-5.40776],[104.91033,-5.41225],[104.9084,-5.41391],[104.9077,-5.41569]]]}},{"type":"Feature","properties":{"kode":"1810050021","kecamatan":"Gading Rejo","desa":"Tambah Rejo Barat","penduduk":2194,"luas_km2":0.43,"kepadatan":5102.0,"jarak_pkm":0.59,"pkm_terdekat":"Puskesmas Wates","jarak_fktp":0.59,"fktp_terdekat":"Puskesmas Wates","jarak_rs":3.47,"rs_terdekat":"RS Mitra Husada","jarak_poned":0.59},"geometry":{"type":"Polygon","coordinates":[[[105.01886,-5.38438],[105.01371,-5.37971],[105.01192,-5.37922],[105.01444,-5.37761],[105.01616,-5.37561],[105.01614,-5.37166],[105.01761,-5.37487],[105.01752,-5.37669],[105.01832,-5.37696],[105.01894,-5.37926],[105.01886,-5.38438]]]}},{"type":"Feature","properties":{"kode":"1810050007","kecamatan":"Gading Rejo","desa":"Tambak Rejo","penduduk":4374,"luas_km2":3.55,"kepadatan":1232.0,"jarak_pkm":1.18,"pkm_terdekat":"Puskesmas Gadingrejo","jarak_fktp":1.18,"fktp_terdekat":"Puskesmas Gadingrejo","jarak_rs":4.5,"rs_terdekat":"RS Mitra Husada","jarak_poned":1.18},"geometry":{"type":"Polygon","coordinates":[[[105.0349,-5.36882],[105.03437,-5.36943],[105.03427,-5.37662],[105.0336,-5.37739],[105.02864,-5.37834],[105.0278,-5.37925],[105.0279,-5.38216],[105.02926,-5.38361],[105.02268,-5.38656],[105.02196,-5.38552],[105.01908,-5.38488],[105.01894,-5.37926],[105.01832,-5.37696],[105.01752,-5.37669],[105.01761,-5.37487],[105.01569,-5.37057],[105.01205,-5.36857],[105.01163,-5.3671],[105.01488,-5.36689],[105.01887,-5.36503],[105.02478,-5.3651],[105.02702,-5.36541],[105.02951,-5.36696],[105.03455,-5.36759],[105.0349,-5.36882]]]}},{"type":"Feature","properties":{"kode":"1810020005","kecamatan":"Ambarawa","desa":"Tanjung Anom","penduduk":2537,"luas_km2":1.94,"kepadatan":1308.0,"jarak_pkm":1.57,"pkm_terdekat":"Puskesmas Pagelaran","jarak_fktp":1.57,"fktp_terdekat":"Puskesmas Pagelaran","jarak_rs":5.53,"rs_terdekat":"RSUD Pringsewu","jarak_poned":1.57},"geometry":{"type":"Polygon","coordinates":[[[104.92918,-5.39016],[104.93146,-5.39067],[104.93146,-5.3991],[104.93237,-5.40047],[104.93237,-5.40275],[104.93454,-5.40348],[104.93084,-5.40594],[104.92395,-5.40533],[104.92189,-5.40652],[104.92154,-5.40156],[104.92199,-5.39992],[104.92126,-5.39855],[104.92181,-5.39728],[104.92145,-5.39103],[104.92918,-5.39016]]]}},{"type":"Feature","properties":{"kode":"1810030002","kecamatan":"Pagelaran","desa":"Tanjung Dalam","penduduk":1971,"luas_km2":3.18,"kepadatan":620.0,"jarak_pkm":1.09,"pkm_terdekat":"Puskesmas Bumiratu","jarak_fktp":1.09,"fktp_terdekat":"Puskesmas Bumiratu","jarak_rs":7.0,"rs_terdekat":"RSUD Pringsewu","jarak_poned":1.09},"geometry":{"type":"Polygon","coordinates":[[[104.91049,-5.38613],[104.91213,-5.39998],[104.91134,-5.40454],[104.90996,-5.40658],[104.90356,-5.41063],[104.89714,-5.40847],[104.89321,-5.40607],[104.89239,-5.40451],[104.89415,-5.40123],[104.90056,-5.39956],[104.90262,-5.39833],[104.90414,-5.39195],[104.90384,-5.38662],[104.91049,-5.38613]]]}},{"type":"Feature","properties":{"kode":"1810010009","kecamatan":"Pardasuka","desa":"Tanjung Rusia","penduduk":3448,"luas_km2":6.77,"kepadatan":509.0,"jarak_pkm":3.29,"pkm_terdekat":"Puskesmas Pardasuka","jarak_fktp":3.29,"fktp_terdekat":"Puskesmas Pardasuka","jarak_rs":12.85,"rs_terdekat":"RS Wisma Rini","jarak_poned":3.29},"geometry":{"type":"Polygon","coordinates":[[[104.9142,-5.45483],[104.91407,-5.46037],[104.91499,-5.46371],[104.91755,-5.46769],[104.9181,-5.46993],[104.91793,-5.47294],[104.91984,-5.48249],[104.91935,-5.48337],[104.91848,-5.48479],[104.91592,-5.48528],[104.91273,-5.4882],[104.90973,-5.48831],[104.90472,-5.48651],[104.89997,-5.48607],[104.89546,-5.48703],[104.89523,-5.48197],[104.89682,-5.47635],[104.8985,-5.4745],[104.90001,-5.46795],[104.90437,-5.46308],[104.90592,-5.4585],[104.9065,-5.45649],[104.90552,-5.45341],[104.90796,-5.45262],[104.90976,-5.45344],[104.91058,-5.45464],[104.9142,-5.45483]]]}},{"type":"Feature","properties":{"kode":"1810010020","kecamatan":"Pardasuka","desa":"Tanjung Rusia Timur","penduduk":1777,"luas_km2":2.31,"kepadatan":769.0,"jarak_pkm":5.53,"pkm_terdekat":"Puskesmas Pardasuka","jarak_fktp":5.53,"fktp_terdekat":"Puskesmas Pardasuka","jarak_rs":15.21,"rs_terdekat":"RS Wisma Rini","jarak_poned":5.53},"geometry":{"type":"Polygon","coordinates":[[[104.91399,-5.48728],[104.91502,-5.48913],[104.91518,-5.49121],[104.91404,-5.49257],[104.91447,-5.49557],[104.91371,-5.49738],[104.91392,-5.50196],[104.91775,-5.5032],[104.91823,-5.50481],[104.91779,-5.50666],[104.91605,-5.5059],[104.91452,-5.50393],[104.9136,-5.50453],[104.91114,-5.50448],[104.91044,-5.50202],[104.91038,-5.49721],[104.90662,-5.49574],[104.90243,-5.49273],[104.8973,-5.49268],[104.892,-5.49016],[104.89546,-5.48703],[104.89921,-5.48607],[104.90472,-5.48651],[104.90973,-5.48831],[104.91273,-5.4882],[104.91399,-5.48728]]]}},{"type":"Feature","properties":{"kode":"1810050010","kecamatan":"Gading Rejo","desa":"Tegalsari","penduduk":5255,"luas_km2":3.3,"kepadatan":1592.0,"jarak_pkm":4.3,"pkm_terdekat":"Puskesmas Gadingrejo","jarak_fktp":4.3,"fktp_terdekat":"Puskesmas Gadingrejo","jarak_rs":8.24,"rs_terdekat":"RS Mitra Husada","jarak_poned":4.3},"geometry":{"type":"Polygon","coordinates":[[[105.06079,-5.34295],[105.06379,-5.34671],[105.06252,-5.3477],[105.06374,-5.3478],[105.06201,-5.35845],[105.05945,-5.35816],[105.05798,-5.35935],[105.0537,-5.36025],[105.05185,-5.35318],[105.05018,-5.3526],[105.0498,-5.35173],[105.04994,-5.34903],[105.04868,-5.34745],[105.04637,-5.34657],[105.04693,-5.34538],[105.04931,-5.34447],[105.04962,-5.34345],[105.04651,-5.34141],[105.0464,-5.34065],[105.04814,-5.33915],[105.04964,-5.33912],[105.05297,-5.33677],[105.0543,-5.33661],[105.05431,-5.33529],[105.05666,-5.33583],[105.05889,-5.33784],[105.06079,-5.34295]]]}},{"type":"Feature","properties":{"kode":"1810080015","kecamatan":"Adi Luwih","desa":"Toto Karto","penduduk":2905,"luas_km2":3.25,"kepadatan":894.0,"jarak_pkm":1.63,"pkm_terdekat":"Puskesmas Bandung Baru","jarak_fktp":1.63,"fktp_terdekat":"Puskesmas Bandung Baru","jarak_rs":11.7,"rs_terdekat":"RS Harapan Bunda","jarak_poned":5.12},"geometry":{"type":"Polygon","coordinates":[[[105.0071,-5.25064],[105.00042,-5.25473],[104.99494,-5.26136],[104.99454,-5.26237],[104.99646,-5.26583],[104.98849,-5.26493],[104.98773,-5.26564],[104.98548,-5.26518],[104.98252,-5.26607],[104.97892,-5.25941],[104.98071,-5.25859],[104.98141,-5.25576],[104.98092,-5.25197],[104.98342,-5.25058],[104.98349,-5.24758],[104.98806,-5.24543],[104.98876,-5.24979],[104.99086,-5.25336],[104.99685,-5.25336],[105.00006,-5.24999],[105.0071,-5.25064]]]}},{"type":"Feature","properties":{"kode":"1810080007","kecamatan":"Adi Luwih","desa":"Tritunggal Mulya","penduduk":2170,"luas_km2":7.27,"kepadatan":298.0,"jarak_pkm":5.42,"pkm_terdekat":"Puskesmas Bandung Baru","jarak_fktp":5.42,"fktp_terdekat":"Puskesmas Bandung Baru","jarak_rs":11.66,"rs_terdekat":"RS Harapan Bunda","jarak_poned":5.43},"geometry":{"type":"Polygon","coordinates":[[[105.04531,-5.24893],[105.04374,-5.25876],[105.04067,-5.2613],[105.03266,-5.28239],[105.03309,-5.28432],[105.03256,-5.28541],[105.03138,-5.28583],[105.01948,-5.28505],[105.01948,-5.27145],[105.02051,-5.27149],[105.02024,-5.26871],[105.02108,-5.26599],[105.02683,-5.26401],[105.02772,-5.25949],[105.02772,-5.25333],[105.02842,-5.25313],[105.02812,-5.24853],[105.02859,-5.24678],[105.03197,-5.24635],[105.04531,-5.24893]]]}},{"type":"Feature","properties":{"kode":"1810050011","kecamatan":"Gading Rejo","desa":"Tulung Agung","penduduk":5446,"luas_km2":4.54,"kepadatan":1200.0,"jarak_pkm":3.17,"pkm_terdekat":"Puskesmas Gadingrejo","jarak_fktp":3.17,"fktp_terdekat":"Puskesmas Gadingrejo","jarak_rs":6.53,"rs_terdekat":"RS Mitra Husada","jarak_poned":3.17},"geometry":{"type":"Polygon","coordinates":[[[105.0537,-5.36025],[105.05294,-5.36281],[105.05216,-5.3618],[105.04957,-5.36194],[105.04341,-5.36405],[105.03907,-5.36244],[105.03872,-5.36288],[105.03301,-5.36164],[105.02668,-5.36161],[105.02463,-5.35959],[105.02378,-5.35707],[105.03054,-5.35569],[105.03262,-5.35358],[105.03588,-5.34636],[105.03654,-5.34718],[105.0369,-5.34656],[105.03886,-5.34635],[105.0464,-5.34065],[105.04651,-5.34141],[105.04962,-5.34345],[105.04931,-5.34447],[105.04693,-5.34538],[105.04637,-5.34657],[105.04868,-5.34745],[105.04994,-5.34903],[105.0498,-5.35173],[105.05018,-5.3526],[105.05185,-5.35318],[105.0537,-5.36025]]]}},{"type":"Feature","properties":{"kode":"1810080013","kecamatan":"Adi Luwih","desa":"Tunggul Pawenang","penduduk":1765,"luas_km2":1.47,"kepadatan":1201.0,"jarak_pkm":2.44,"pkm_terdekat":"Puskesmas Adiluwih","jarak_fktp":2.44,"fktp_terdekat":"Puskesmas Adiluwih","jarak_rs":17.75,"rs_terdekat":"RS Harapan Bunda","jarak_poned":2.44},"geometry":{"type":"Polygon","coordinates":[[[105.06482,-5.22674],[105.05334,-5.22491],[105.05376,-5.22369],[105.05021,-5.22206],[105.05484,-5.2175],[105.06138,-5.21574],[105.06637,-5.2155],[105.06491,-5.22241],[105.06482,-5.22674]]]}},{"type":"Feature","properties":{"kode":"1810040008","kecamatan":"Pringsewu","desa":"Waluyojati","penduduk":5136,"luas_km2":5.07,"kepadatan":1013.0,"jarak_pkm":2.69,"pkm_terdekat":"Puskesmas Ambarawa","jarak_fktp":2.69,"fktp_terdekat":"Puskesmas Ambarawa","jarak_rs":2.2,"rs_terdekat":"RS Wisma Rini","jarak_poned":2.69},"geometry":{"type":"Polygon","coordinates":[[[104.95848,-5.3684],[104.96029,-5.36771],[104.96272,-5.36794],[104.964,-5.37108],[104.96502,-5.37531],[104.96475,-5.37876],[104.96329,-5.38241],[104.96377,-5.38587],[104.96055,-5.38668],[104.95902,-5.38511],[104.95512,-5.3834],[104.95335,-5.3834],[104.95213,-5.38423],[104.95112,-5.38618],[104.94947,-5.387],[104.94925,-5.38878],[104.94787,-5.38803],[104.94733,-5.38871],[104.94518,-5.389],[104.94183,-5.39065],[104.9397,-5.38346],[104.93941,-5.38031],[104.94105,-5.37534],[104.94256,-5.37284],[104.94749,-5.36747],[104.95518,-5.36962],[104.95849,-5.36909],[104.95848,-5.3684]]]}},{"type":"Feature","properties":{"kode":"1810010013","kecamatan":"Pardasuka","desa":"Wargo Mulyo","penduduk":4821,"luas_km2":3.47,"kepadatan":1389.0,"jarak_pkm":0.55,"pkm_terdekat":"Puskesmas Pardasuka","jarak_fktp":0.55,"fktp_terdekat":"Puskesmas Pardasuka","jarak_rs":10.19,"rs_terdekat":"RS Wisma Rini","jarak_poned":0.55},"geometry":{"type":"Polygon","coordinates":[[[104.94498,-5.45191],[104.94112,-5.45599],[104.93911,-5.45624],[104.93755,-5.45836],[104.9363,-5.45863],[104.93442,-5.45717],[104.93331,-5.45945],[104.93197,-5.4583],[104.93053,-5.45972],[104.92952,-5.45891],[104.92831,-5.46029],[104.92738,-5.45891],[104.92617,-5.46027],[104.92448,-5.46065],[104.92164,-5.45983],[104.92027,-5.46011],[104.91962,-5.45973],[104.91974,-5.45797],[104.91832,-5.45661],[104.91429,-5.45486],[104.91058,-5.45464],[104.90976,-5.45344],[104.90796,-5.45262],[104.90552,-5.45341],[104.90424,-5.45237],[104.90407,-5.44943],[104.90483,-5.44809],[104.90483,-5.44641],[104.90552,-5.4456],[104.9066,-5.44551],[104.90747,-5.44776],[104.91339,-5.44991],[104.91829,-5.44878],[104.92676,-5.44878],[104.92785,-5.45043],[104.92908,-5.4507],[104.92993,-5.45175],[104.93442,-5.45083],[104.94177,-5.45257],[104.94351,-5.45267],[104.94498,-5.45191]]]}},{"type":"Feature","properties":{"kode":"1810060022","kecamatan":"Sukoharjo","desa":"Waringinsari Barat","penduduk":6828,"luas_km2":7.6,"kepadatan":898.0,"jarak_pkm":1.09,"pkm_terdekat":"Puskesmas Bandung Baru","jarak_fktp":1.09,"fktp_terdekat":"Puskesmas Bandung Baru","jarak_rs":9.31,"rs_terdekat":"RSUD Pringsewu","jarak_poned":2.49},"geometry":{"type":"Polygon","coordinates":[[[104.99646,-5.26583],[104.99921,-5.27124],[105.00208,-5.2716],[105.00245,-5.27445],[105.00027,-5.27556],[104.99916,-5.27825],[104.99681,-5.27942],[104.99513,-5.2795],[104.99505,-5.27699],[104.99409,-5.27627],[104.99398,-5.27538],[104.9905,-5.27592],[104.98082,-5.2805],[104.97796,-5.28307],[104.97062,-5.28549],[104.96724,-5.28535],[104.96159,-5.28635],[104.95525,-5.28548],[104.94261,-5.28572],[104.9396,-5.2806],[104.94652,-5.28077],[104.95321,-5.27897],[104.96623,-5.27406],[104.97704,-5.26797],[104.98548,-5.26518],[104.98773,-5.26564],[104.98849,-5.26493],[104.99646,-5.26583]]]}},{"type":"Feature","properties":{"kode":"1810080006","kecamatan":"Adi Luwih","desa":"Waringinsari Timur","penduduk":5761,"luas_km2":8.01,"kepadatan":719.0,"jarak_pkm":4.06,"pkm_terdekat":"Puskesmas Bandung Baru","jarak_fktp":4.06,"fktp_terdekat":"Puskesmas Bandung Baru","jarak_rs":12.45,"rs_terdekat":"RS Harapan Bunda","jarak_poned":4.54},"geometry":{"type":"Polygon","coordinates":[[[105.02859,-5.24678],[105.02812,-5.24853],[105.02842,-5.25313],[105.02772,-5.25333],[105.02772,-5.25949],[105.02683,-5.26401],[105.02128,-5.266],[105.01465,-5.26707],[105.00896,-5.27009],[105.00208,-5.27161],[104.9988,-5.2708],[104.99454,-5.26237],[104.99901,-5.25622],[105.0028,-5.25307],[105.00973,-5.24883],[105.01792,-5.24548],[105.02099,-5.24229],[105.02776,-5.23699],[105.03199,-5.23532],[105.03315,-5.23782],[105.03179,-5.23939],[105.02784,-5.24106],[105.02607,-5.24367],[105.02646,-5.24681],[105.02859,-5.24678]]]}},{"type":"Feature","properties":{"kode":"1810050005","kecamatan":"Gading Rejo","desa":"Wates","penduduk":2411,"luas_km2":3.51,"kepadatan":687.0,"jarak_pkm":2.45,"pkm_terdekat":"Puskesmas Wates","jarak_fktp":2.38,"fktp_terdekat":"Klinik Teluk Pringsewu","jarak_rs":1.44,"rs_terdekat":"RS Mitra Husada","jarak_poned":2.45},"geometry":{"type":"MultiPolygon","coordinates":[[[[105.01748,-5.39076],[105.01661,-5.39208],[105.01413,-5.39159],[105.01235,-5.38998],[105.00608,-5.38723],[105.00306,-5.39057],[105.00045,-5.39091],[104.99705,-5.38862],[104.996,-5.38606],[104.99453,-5.3844],[104.9956,-5.38278],[104.99872,-5.38429],[104.99977,-5.38186],[105.00216,-5.38286],[105.00216,-5.38197],[105.00349,-5.38167],[105.00422,-5.38249],[105.00253,-5.38345],[105.00289,-5.38693],[105.00533,-5.38597],[105.01154,-5.38545],[105.01748,-5.39076]]],[[[105.00065,-5.3633],[105.00204,-5.36462],[105.00346,-5.36756],[105.00303,-5.36829],[105.00473,-5.37123],[105.00556,-5.37218],[105.00734,-5.37147],[105.0104,-5.37548],[105.01044,-5.3765],[105.0126,-5.37843],[105.01196,-5.37934],[105.00136,-5.37966],[105.00192,-5.37827],[104.9986,-5.37627],[104.99591,-5.37617],[104.99423,-5.37522],[104.99367,-5.37262],[104.99129,-5.36754],[104.99141,-5.36543],[104.99592,-5.36377],[104.9981,-5.36229],[104.99959,-5.36349],[105.00065,-5.3633]]]]}},{"type":"Feature","properties":{"kode":"1810050018","kecamatan":"Gading Rejo","desa":"Wates Selatan","penduduk":1979,"luas_km2":1.45,"kepadatan":1365.0,"jarak_pkm":0.69,"pkm_terdekat":"Puskesmas Wates","jarak_fktp":0.69,"fktp_terdekat":"Puskesmas Wates","jarak_rs":3.22,"rs_terdekat":"RS Mitra Husada","jarak_poned":0.69},"geometry":{"type":"Polygon","coordinates":[[[105.00136,-5.37966],[105.01371,-5.37971],[105.01908,-5.38488],[105.02196,-5.38552],[105.0226,-5.38651],[105.0222,-5.388],[105.01721,-5.38826],[105.01748,-5.39076],[105.01154,-5.38545],[105.00533,-5.38597],[105.00289,-5.38693],[105.00253,-5.38345],[105.00422,-5.38249],[105.00422,-5.3819],[105.00216,-5.38197],[105.00216,-5.38286],[104.99979,-5.38186],[105.00082,-5.38116],[105.00136,-5.37966]]]}},{"type":"Feature","properties":{"kode":"1810050017","kecamatan":"Gading Rejo","desa":"Wates Timur","penduduk":2483,"luas_km2":1.72,"kepadatan":1444.0,"jarak_pkm":1.94,"pkm_terdekat":"Puskesmas Wates","jarak_fktp":1.94,"fktp_terdekat":"Puskesmas Wates","jarak_rs":2.44,"rs_terdekat":"RS Mitra Husada","jarak_poned":1.94},"geometry":{"type":"Polygon","coordinates":[[[105.00907,-5.35959],[105.0104,-5.36124],[105.01075,-5.36594],[105.01166,-5.36812],[105.01517,-5.37006],[105.01614,-5.37159],[105.01616,-5.37561],[105.01444,-5.37761],[105.0126,-5.37843],[105.01044,-5.3765],[105.0104,-5.37548],[105.00734,-5.37147],[105.00556,-5.37218],[105.00473,-5.37123],[105.00303,-5.36829],[105.00346,-5.36756],[105.00204,-5.36462],[105.00065,-5.3633],[105.00249,-5.36303],[105.00428,-5.3611],[105.00603,-5.36061],[105.00718,-5.35865],[105.00951,-5.3587],[105.00907,-5.35959]]]}},{"type":"Feature","properties":{"kode":"1810031026","kecamatan":"Pagelaran Utara","desa":"Way Kunir","penduduk":950,"luas_km2":6.68,"kepadatan":142.0,"jarak_pkm":8.79,"pkm_terdekat":"Puskesmas Fajar Mulia","jarak_fktp":8.79,"fktp_terdekat":"Puskesmas Fajar Mulia","jarak_rs":15.69,"rs_terdekat":"RSUD Pringsewu","jarak_poned":11.65},"geometry":{"type":"Polygon","coordinates":[[[104.81287,-5.28643],[104.82439,-5.29121],[104.83479,-5.29214],[104.83464,-5.30056],[104.83189,-5.30048],[104.83201,-5.3084],[104.82902,-5.30838],[104.8291,-5.3145],[104.82736,-5.31446],[104.82746,-5.32129],[104.8256,-5.32134],[104.82338,-5.32038],[104.82188,-5.32105],[104.82138,-5.32256],[104.82021,-5.32256],[104.81654,-5.32038],[104.81521,-5.31837],[104.81471,-5.31503],[104.81364,-5.31334],[104.81461,-5.30952],[104.81286,-5.30276],[104.81287,-5.28643]]]}},{"type":"Feature","properties":{"kode":"1810030003","kecamatan":"Pagelaran","desa":"Way Ngisom","penduduk":1776,"luas_km2":2.43,"kepadatan":731.0,"jarak_pkm":1.56,"pkm_terdekat":"Puskesmas Bumiratu","jarak_fktp":1.56,"fktp_terdekat":"Puskesmas Bumiratu","jarak_rs":8.01,"rs_terdekat":"RSUD Pringsewu","jarak_poned":1.56},"geometry":{"type":"Polygon","coordinates":[[[104.90384,-5.38662],[104.90414,-5.39195],[104.90291,-5.39554],[104.90291,-5.3975],[104.90262,-5.39833],[104.90056,-5.39956],[104.89403,-5.4015],[104.88978,-5.40157],[104.88547,-5.39745],[104.88189,-5.39715],[104.88145,-5.39647],[104.88111,-5.39244],[104.88477,-5.39162],[104.88441,-5.38907],[104.88515,-5.38893],[104.88888,-5.39278],[104.89641,-5.3909],[104.90384,-5.38662]]]}},{"type":"Feature","properties":{"kode":"1810070001","kecamatan":"Banyumas","desa":"Waya Krui","penduduk":987,"luas_km2":2.23,"kepadatan":443.0,"jarak_pkm":2.29,"pkm_terdekat":"Puskesmas Banyumas","jarak_fktp":2.29,"fktp_terdekat":"Puskesmas Banyumas","jarak_rs":9.95,"rs_terdekat":"RSUD Pringsewu","jarak_poned":2.29},"geometry":{"type":"Polygon","coordinates":[[[104.93884,-5.27635],[104.93704,-5.27735],[104.92756,-5.27851],[104.92703,-5.27671],[104.92579,-5.27571],[104.92435,-5.26938],[104.92215,-5.26818],[104.92157,-5.26659],[104.92023,-5.26563],[104.92896,-5.26511],[104.93421,-5.26187],[104.93666,-5.26115],[104.93713,-5.27096],[104.938,-5.27329],[104.93785,-5.27552],[104.93884,-5.27635]]]}},{"type":"Feature","properties":{"kode":"1810050008","kecamatan":"Gading Rejo","desa":"Wonodadi","penduduk":9298,"luas_km2":4.24,"kepadatan":2193.0,"jarak_pkm":1.56,"pkm_terdekat":"Puskesmas Gadingrejo","jarak_fktp":1.56,"fktp_terdekat":"Puskesmas Gadingrejo","jarak_rs":6.91,"rs_terdekat":"RS Mitra Husada","jarak_poned":1.56},"geometry":{"type":"Polygon","coordinates":[[[105.05009,-5.36765],[105.05451,-5.37187],[105.05801,-5.37246],[105.05923,-5.37516],[105.0575,-5.38132],[105.05582,-5.38227],[105.05448,-5.3854],[105.05385,-5.38551],[105.04367,-5.38589],[105.04365,-5.38455],[105.04442,-5.38388],[105.04312,-5.38048],[105.04299,-5.37741],[105.04351,-5.37618],[105.03606,-5.37366],[105.03423,-5.3721],[105.03437,-5.36943],[105.03566,-5.36606],[105.03907,-5.36244],[105.04394,-5.36405],[105.04959,-5.36194],[105.04898,-5.36642],[105.04738,-5.36635],[105.0476,-5.36748],[105.05009,-5.36765]]]}},{"type":"Feature","properties":{"kode":"1810050023","kecamatan":"Gading Rejo","desa":"Wonodadi Utara","penduduk":2356,"luas_km2":0.4,"kepadatan":5890.0,"jarak_pkm":2.41,"pkm_terdekat":"Puskesmas Gadingrejo","jarak_fktp":2.41,"fktp_terdekat":"Puskesmas Gadingrejo","jarak_rs":7.3,"rs_terdekat":"RS Mitra Husada","jarak_poned":2.41},"geometry":{"type":"Polygon","coordinates":[[[105.05216,-5.3618],[105.05344,-5.36344],[105.05388,-5.36969],[105.05284,-5.3705],[105.05009,-5.36765],[105.04788,-5.3679],[105.04738,-5.36635],[105.04898,-5.36642],[105.04959,-5.36194],[105.05216,-5.3618]]]}},{"type":"Feature","properties":{"kode":"1810050015","kecamatan":"Gading Rejo","desa":"Wonosari","penduduk":3381,"luas_km2":1.6,"kepadatan":2113.0,"jarak_pkm":0.18,"pkm_terdekat":"Puskesmas Gadingrejo","jarak_fktp":0.18,"fktp_terdekat":"Puskesmas Gadingrejo","jarak_rs":5.61,"rs_terdekat":"RS Mitra Husada","jarak_poned":0.18},"geometry":{"type":"Polygon","coordinates":[[[105.04442,-5.38388],[105.04085,-5.38513],[105.03553,-5.38371],[105.03023,-5.38421],[105.0279,-5.38216],[105.0278,-5.37925],[105.02881,-5.37823],[105.0336,-5.37739],[105.03427,-5.37662],[105.03456,-5.37261],[105.0417,-5.37594],[105.04351,-5.37618],[105.04299,-5.37741],[105.04312,-5.38048],[105.04442,-5.38388]]]}},{"type":"Feature","properties":{"kode":"1810050022","kecamatan":"Gading Rejo","desa":"Yogyakarta Selatan","penduduk":2054,"luas_km2":1.48,"kepadatan":1388.0,"jarak_pkm":3.5,"pkm_terdekat":"Puskesmas Wates","jarak_fktp":3.5,"fktp_terdekat":"Puskesmas Wates","jarak_rs":4.27,"rs_terdekat":"RS Mitra Husada","jarak_poned":3.5},"geometry":{"type":"Polygon","coordinates":[[[105.02347,-5.34641],[105.02515,-5.34733],[105.0264,-5.34934],[105.02665,-5.35663],[105.02378,-5.35707],[105.02253,-5.35468],[105.01665,-5.35384],[105.01095,-5.35138],[105.0109,-5.34593],[105.02347,-5.34641]]]}}]},"kec":{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"kecamatan":"Adi Luwih"},"geometry":{"type":"MultiLineString","coordinates":[[[105.00907,-5.28598],[105.00624,-5.2856],[105.00541,-5.28187],[105.00583,-5.2746],[105.00245,-5.27445],[105.00208,-5.27161],[104.9988,-5.2708],[104.99627,-5.26580],[104.98849,-5.26493],[104.98773,-5.26564],[104.98548,-5.26518],[104.97704,-5.26797],[104.971,-5.27177],[104.95321,-5.27897],[104.94652,-5.28077],[104.93966,-5.28068],[104.93886,-5.27632],[104.93785,-5.27552],[104.938,-5.27329],[104.93713,-5.27096],[104.93666,-5.26115],[104.94931,-5.26101],[104.94853,-5.25835],[104.95704,-5.25358],[104.95891,-5.25059],[104.96999,-5.24397],[104.97235,-5.24445],[104.97184,-5.24623],[104.97221,-5.24943],[104.98053,-5.24418],[104.98896,-5.24122],[105.00994,-5.23819],[105.01695,-5.23367],[105.02053,-5.22966],[105.02547,-5.22689],[105.03273,-5.22005],[105.03389,-5.21539],[105.03786,-5.20916],[105.05171,-5.20689],[105.06637,-5.2155],[105.06491,-5.22241],[105.06482,-5.22803],[105.06407,-5.22888],[105.0552,-5.22953],[105.05485,-5.22987],[105.06309,-5.22898],[105.06544,-5.23145],[105.06538,-5.23662],[105.06385,-5.23808],[105.06146,-5.24343],[105.0555,-5.24381],[105.05104,-5.2474],[105.04531,-5.24893],[105.04374,-5.25876],[105.04067,-5.2613],[105.03266,-5.28239],[105.03309,-5.28432],[105.03256,-5.28541],[105.03138,-5.28583],[105.01948,-5.28505],[105.00907,-5.28598]],[[104.98806,-5.24543],[104.98876,-5.24979],[104.98796,-5.24357],[104.98806,-5.24543]],[[104.98407,-5.24692],[104.98349,-5.24758],[104.98806,-5.24543],[104.98407,-5.24692]],[[105.02776,-5.23699],[105.02299,-5.2406],[105.02229,-5.24126],[105.02776,-5.23699]],[[105.02859,-5.24678],[105.03197,-5.24635],[105.02646,-5.24681],[105.02859,-5.24678]],[[105.01465,-5.26707],[105.00896,-5.27009],[105.01577,-5.26688],[105.01465,-5.26707]],[[104.97159,-5.25702],[104.96184,-5.25774],[104.96994,-5.25741],[104.97159,-5.25702]],[[104.97510,-5.25018],[104.97757,-5.25082],[104.97754,-5.25054],[104.97510,-5.25018]],[[104.97116,-5.24916],[104.97175,-5.24931],[104.97009,-5.24836],[104.97116,-5.24916]],[[104.96877,-5.24736],[104.96901,-5.24754],[104.96864,-5.24715],[104.96877,-5.24736]],[[105.00187,-5.25384],[105.00042,-5.25473],[104.99958,-5.25574],[105.00187,-5.25384]],[[104.99770,-5.25800],[104.99494,-5.26136],[104.99454,-5.26237],[104.99770,-5.25800]]]}},{"type":"Feature","properties":{"kecamatan":"Ambarawa"},"geometry":{"type":"MultiLineString","coordinates":[[[104.97553,-5.42102],[104.97062,-5.42487],[104.96808,-5.42457],[104.96726,-5.42554],[104.96512,-5.42589],[104.96314,-5.42733],[104.96034,-5.42624],[104.95754,-5.42776],[104.95258,-5.42714],[104.94481,-5.42867],[104.9411,-5.42861],[104.93707,-5.43483],[104.93585,-5.43551],[104.93388,-5.4353],[104.93189,-5.43144],[104.92972,-5.43058],[104.92854,-5.43085],[104.9271,-5.42983],[104.92549,-5.43069],[104.92432,-5.4323],[104.91888,-5.43183],[104.91727,-5.42806],[104.91455,-5.42524],[104.91267,-5.42522],[104.9119,-5.42348],[104.90828,-5.42351],[104.90614,-5.42262],[104.90414,-5.42265],[104.90255,-5.42147],[104.90106,-5.42172],[104.89799,-5.42036],[104.89782,-5.41786],[104.89953,-5.41445],[104.90189,-5.41425],[104.90394,-5.41534],[104.92252,-5.41751],[104.90799,-5.41547],[104.90837,-5.41395],[104.90969,-5.41322],[104.91109,-5.4109],[104.91705,-5.4099],[104.92395,-5.40533],[104.92189,-5.40652],[104.92154,-5.40156],[104.92199,-5.39992],[104.92126,-5.39855],[104.92181,-5.39728],[104.92145,-5.39103],[104.92918,-5.39016],[104.93146,-5.39067],[104.93304,-5.39018],[104.93541,-5.39073],[104.94001,-5.39025],[104.94183,-5.39065],[104.94518,-5.389],[104.94733,-5.38871],[104.94787,-5.38803],[104.94925,-5.38878],[104.94947,-5.387],[104.95112,-5.38618],[104.95285,-5.38355],[104.95512,-5.3834],[104.95902,-5.38511],[104.96055,-5.38668],[104.96438,-5.38574],[104.96438,-5.3904],[104.9653,-5.39292],[104.96807,-5.39407],[104.97218,-5.39413],[104.97397,-5.39605],[104.97328,-5.39685],[104.97346,-5.39831],[104.97264,-5.40059],[104.97395,-5.40322],[104.97315,-5.40614],[104.97229,-5.4068],[104.97336,-5.40893],[104.97627,-5.41098],[104.97705,-5.41257],[104.97542,-5.41502],[104.97643,-5.41876],[104.97574,-5.41937],[104.97554,-5.42095],[104.97239,-5.42042],[104.97553,-5.42102]],[[104.94083,-5.4208],[104.94079,-5.42070],[104.9411,-5.42861],[104.94083,-5.4208]],[[104.96847,-5.40292],[104.96739,-5.40287],[104.95264,-5.40344],[104.96847,-5.40292]],[[104.93464,-5.40350],[104.93449,-5.40350],[104.93084,-5.40594],[104.93464,-5.40350]],[[104.93973,-5.41831],[104.94061,-5.42013],[104.93973,-5.41749],[104.93973,-5.41831]]]}},{"type":"Feature","properties":{"kecamatan":"Banyumas"},"geometry":{"type":"MultiLineString","coordinates":[[[104.92172,-5.3325],[104.92217,-5.33894],[104.91868,-5.33952],[104.91926,-5.33838],[104.91897,-5.33712],[104.91781,-5.33638],[104.91014,-5.33536],[104.90233,-5.33166],[104.90118,-5.32892],[104.90667,-5.32824],[104.90667,-5.32773],[104.90494,-5.32568],[104.90494,-5.32448],[104.90226,-5.32326],[104.90096,-5.32092],[104.90125,-5.31705],[104.89865,-5.31597],[104.89836,-5.31506],[104.89923,-5.31238],[104.89648,-5.31073],[104.89545,-5.30912],[104.8987,-5.30752],[104.89516,-5.30926],[104.89371,-5.30717],[104.89313,-5.30146],[104.88953,-5.29791],[104.88907,-5.29639],[104.88971,-5.29319],[104.88912,-5.29255],[104.89296,-5.29053],[104.89684,-5.29061],[104.89377,-5.29051],[104.89831,-5.2882],[104.89684,-5.28631],[104.8914,-5.28381],[104.89072,-5.27719],[104.89222,-5.27602],[104.88865,-5.27603],[104.88505,-5.27752],[104.88238,-5.27719],[104.88004,-5.26799],[104.88004,-5.26498],[104.88194,-5.25877],[104.88138,-5.25377],[104.88539,-5.24922],[104.89797,-5.24311],[104.89941,-5.24444],[104.89947,-5.24559],[104.90071,-5.24642],[104.90231,-5.24652],[104.9051,-5.24865],[104.90788,-5.25195],[104.90763,-5.25269],[104.91092,-5.25496],[104.91163,-5.26193],[104.91292,-5.26243],[104.91346,-5.26711],[104.91212,-5.26740],[104.91274,-5.26736],[104.91862,-5.26556],[104.92896,-5.26511],[104.93421,-5.26187],[104.93666,-5.26115],[104.93713,-5.27096],[104.938,-5.27329],[104.93785,-5.27552],[104.93884,-5.27635],[104.93704,-5.27735],[104.92762,-5.27850],[104.92782,-5.28073],[104.92512,-5.28471],[104.92601,-5.28963],[104.93046,-5.28989],[104.93177,-5.29062],[104.9305,-5.2917],[104.92664,-5.29182],[104.92508,-5.29597],[104.92686,-5.29781],[104.92471,-5.30203],[104.92109,-5.30314],[104.91721,-5.30842],[104.92319,-5.31217],[104.92614,-5.31784],[104.92127,-5.3268],[104.92239,-5.33037],[104.92172,-5.3325]],[[104.88556,-5.25775],[104.88391,-5.25707],[104.88390,-5.25707],[104.88556,-5.25775]],[[104.8992,-5.26024],[104.90017,-5.25402],[104.89933,-5.25802],[104.8992,-5.26024]],[[104.89824,-5.26209],[104.89855,-5.27117],[104.89864,-5.27140],[104.89829,-5.2633],[104.89824,-5.26209]],[[104.89937,-5.2732],[104.90192,-5.27572],[104.89906,-5.27244],[104.89937,-5.2732]],[[104.90186,-5.27846],[104.91036,-5.27806],[104.91146,-5.27794],[104.90186,-5.27846],[104.90186,-5.27846]],[[104.90806,-5.29619],[104.90736,-5.29651],[104.90858,-5.29616],[104.90806,-5.29619]],[[104.90559,-5.30744],[104.91621,-5.30352],[104.90559,-5.30735],[104.90515,-5.29756],[104.90559,-5.30744]],[[104.91180,-5.27792],[104.91180,-5.27792],[104.91686,-5.28434],[104.91180,-5.27792]],[[104.91872,-5.29463],[104.91560,-5.29593],[104.91646,-5.29593],[104.91872,-5.29463]],[[104.91906,-5.2931],[104.91904,-5.29315],[104.91959,-5.29301],[104.91906,-5.2931]],[[104.92745,-5.27827],[104.92751,-5.27835],[104.92703,-5.27671],[104.92745,-5.27827]],[[104.91261,-5.27768],[104.9135,-5.27749],[104.91626,-5.27546],[104.91261,-5.27768]]]}},{"type":"Feature","properties":{"kecamatan":"Gading Rejo"},"geometry":{"type":"MultiLineString","coordinates":[[[104.98503,-5.41585],[104.9841,-5.41636],[104.9847,-5.41852],[104.98429,-5.42016],[104.98,-5.42044],[104.97643,-5.41876],[104.97542,-5.41502],[104.97705,-5.41257],[104.97627,-5.41098],[104.97336,-5.40893],[104.97231,-5.40662],[104.97315,-5.40614],[104.974,-5.40293],[104.97606,-5.4037],[104.98294,-5.40266],[104.98735,-5.40329],[104.9904,-5.40266],[104.98949,-5.40503],[104.99093,-5.40555],[104.99217,-5.40713],[104.99083,-5.40782],[104.99404,-5.40732],[104.99519,-5.40541],[104.99597,-5.40539],[104.99907,-5.40949],[104.99747,-5.41006],[104.99027,-5.41858],[104.98875,-5.4185],[104.98657,-5.41601],[104.98503,-5.41585]],[[105.01235,-5.38998],[105.00608,-5.38723],[105.00306,-5.39057],[105.00045,-5.39091],[104.99523,-5.39678],[104.99191,-5.39647],[104.98961,-5.39896],[104.98471,-5.39956],[104.98177,-5.39899],[104.97489,-5.40004],[104.97324,-5.39895],[104.97328,-5.39685],[104.97397,-5.39605],[104.97218,-5.39413],[104.96807,-5.39407],[104.96474,-5.3923],[104.96423,-5.38726],[104.96882,-5.38688],[104.97209,-5.38764],[104.9727,-5.38711],[104.97263,-5.38031],[104.97357,-5.37885],[104.97339,-5.3773],[104.97482,-5.37622],[104.97611,-5.37625],[104.9784,-5.3775],[104.97954,-5.37719],[104.97980,-5.37957],[104.98188,-5.37923],[104.98532,-5.37483],[104.9878,-5.37323],[104.98673,-5.36653],[104.99592,-5.36377],[104.9981,-5.36229],[105.00046,-5.35872],[104.99857,-5.35161],[104.99648,-5.34864],[104.9961,-5.34504],[104.99124,-5.33817],[104.99085,-5.33282],[104.99177,-5.33289],[104.9918,-5.33405],[104.99544,-5.33279],[104.99706,-5.33536],[104.99887,-5.3362],[104.99983,-5.33879],[105.00868,-5.33966],[105.00131,-5.33864],[105.00274,-5.33786],[105.0026,-5.3359],[105.00392,-5.33506],[105.0037,-5.33402],[105.00208,-5.33383],[105.00206,-5.33311],[105.00786,-5.3332],[105.0096,-5.33732],[105.01367,-5.33463],[105.01902,-5.3366],[105.01985,-5.33542],[105.02046,-5.33013],[105.02299,-5.32864],[105.02532,-5.33113],[105.02834,-5.33174],[105.03676,-5.33096],[105.03729,-5.33039],[105.03628,-5.32478],[105.03494,-5.32387],[105.03912,-5.32245],[105.04348,-5.32304],[105.04894,-5.32179],[105.05164,-5.3218],[105.05293,-5.32249],[105.0534,-5.32407],[105.05451,-5.32445],[105.05515,-5.32645],[105.05473,-5.32818],[105.05525,-5.33215],[105.05433,-5.33322],[105.05431,-5.33529],[105.05666,-5.33583],[105.05889,-5.33784],[105.06079,-5.34295],[105.06379,-5.34671],[105.06252,-5.3477],[105.06374,-5.3478],[105.06201,-5.35845],[105.05945,-5.35816],[105.07117,-5.36037],[105.07247,-5.3612],[105.0735,-5.36391],[105.07366,-5.37148],[105.06683,-5.37269],[105.06812,-5.3727],[105.06701,-5.37674],[105.06716,-5.37949],[105.06578,-5.38785],[105.06417,-5.39171],[105.06272,-5.39228],[105.06027,-5.39149],[105.05987,-5.38907],[105.06065,-5.38568],[105.04367,-5.38589],[105.04365,-5.38455],[105.04442,-5.38388],[105.04085,-5.38513],[105.03553,-5.38371],[105.03023,-5.38421],[105.0279,-5.38216],[105.02926,-5.38361],[105.02268,-5.38656],[105.02196,-5.38552],[105.0226,-5.38651],[105.0222,-5.388],[105.01721,-5.38826],[105.01748,-5.39076],[105.01661,-5.39208],[105.01413,-5.39159],[105.01235,-5.38998]],[[104.99959,-5.36349],[104.99972,-5.36346],[104.9981,-5.36229],[104.99959,-5.36349]],[[105.0231,-5.34495],[105.02323,-5.34548],[105.02416,-5.34078],[105.0231,-5.34495]],[[105.02347,-5.34641],[105.02515,-5.34733],[105.02340,-5.34615],[105.02347,-5.34641]],[[105.02631,-5.34920],[105.02631,-5.34906],[105.02515,-5.34733],[105.02631,-5.34920]],[[105.02253,-5.35468],[105.02463,-5.35959],[105.02378,-5.35707],[105.02253,-5.35468]],[[105.00813,-5.35126],[105.0106,-5.35331],[105.00821,-5.35126],[105.00813,-5.35126]],[[105.00907,-5.35959],[105.0104,-5.36124],[105.00966,-5.36012],[105.00907,-5.35959]],[[105.01166,-5.36812],[105.01163,-5.3671],[105.01075,-5.36594],[105.01166,-5.36812]],[[105.01614,-5.37159],[105.01614,-5.37166],[105.01761,-5.37487],[105.01538,-5.37040],[105.01614,-5.37159]],[[105.01886,-5.38438],[105.01371,-5.37971],[105.01908,-5.38488],[105.01894,-5.37926],[105.01886,-5.38438]],[[105.01202,-5.37924],[105.01196,-5.37934],[105.00136,-5.37966],[105.01371,-5.37971],[105.01202,-5.37924]],[[105.00192,-5.37827],[105.00013,-5.38162],[105.00082,-5.38116],[105.00136,-5.37966],[105.00192,-5.37827]],[[104.98338,-5.38311],[104.98745,-5.38248],[104.98551,-5.38244],[104.98338,-5.38311]],[[104.98815,-5.38249],[104.98886,-5.38258],[104.9888,-5.38251],[104.98815,-5.38249]],[[104.99996,-5.38194],[105.00216,-5.38286],[104.99997,-5.38193],[104.99996,-5.38194]],[[105.00371,-5.38191],[105.00422,-5.38249],[105.00422,-5.3819],[105.00371,-5.38191]],[[105.0126,-5.37843],[105.01214,-5.37907],[105.01444,-5.37761],[105.0126,-5.37843]],[[105.0053,-5.34955],[105.00682,-5.34837],[105.0066,-5.3482],[105.0053,-5.34955]],[[105.00428,-5.3611],[105.00211,-5.36308],[105.00249,-5.36303],[105.00428,-5.3611]],[[105.04959,-5.36194],[105.05216,-5.3618],[105.04957,-5.36194],[105.04367,-5.36396],[105.04959,-5.36194]],[[105.05298,-5.37041],[105.05388,-5.36969],[105.05296,-5.37039],[105.05298,-5.37041]],[[105.06734,-5.3629],[105.06715,-5.36529],[105.06734,-5.36506],[105.06734,-5.3629]],[[105.05801,-5.37246],[105.05414,-5.37152],[105.05451,-5.37187],[105.05801,-5.37246]],[[105.03515,-5.37288],[105.03433,-5.37218],[105.03427,-5.37662],[105.03456,-5.37261],[105.03515,-5.37288]],[[105.03879,-5.37458],[105.0417,-5.37594],[105.04351,-5.37618],[105.03879,-5.37458]],[[105.02864,-5.37834],[105.0278,-5.37925],[105.02871,-5.37832],[105.02864,-5.37834]],[[105.0476,-5.36748],[105.04774,-5.36749],[105.04738,-5.36635],[105.0476,-5.36748]],[[105.03015,-5.35576],[105.03054,-5.35569],[105.03262,-5.35358],[105.03015,-5.35576]],[[105.03588,-5.34636],[105.03654,-5.34718],[105.03593,-5.34600],[105.03262,-5.35358],[105.03588,-5.34636]],[[105.03798,-5.34644],[105.03886,-5.34635],[105.04026,-5.34528],[105.03798,-5.34644]],[[105.04372,-5.34266],[105.0464,-5.34065],[105.04814,-5.33915],[105.04372,-5.34266]],[[105.0537,-5.36025],[105.05369,-5.36025],[105.05798,-5.35935],[105.0537,-5.36025]],[[105.03543,-5.34501],[105.03372,-5.34424],[105.03573,-5.34559],[105.03543,-5.34501]]]}},{"type":"Feature","properties":{"kecamatan":"Pagelaran"},"geometry":{"type":"MultiLineString","coordinates":[[[104.88978,-5.40157],[104.88547,-5.39745],[104.88189,-5.39715],[104.88111,-5.39244],[104.87827,-5.3865],[104.87528,-5.38586],[104.87376,-5.38438],[104.87273,-5.37986],[104.86796,-5.3792],[104.86633,-5.38053],[104.86589,-5.38423],[104.86513,-5.38491],[104.86383,-5.38473],[104.86417,-5.38122],[104.85883,-5.37703],[104.85799,-5.3777],[104.85716,-5.37603],[104.85733,-5.37319],[104.85866,-5.37319],[104.85866,-5.37218],[104.86083,-5.37218],[104.86167,-5.37038],[104.86371,-5.37100],[104.85909,-5.36923],[104.85875,-5.36719],[104.86143,-5.36283],[104.86202,-5.35966],[104.86,-5.35178],[104.85717,-5.34492],[104.85768,-5.34402],[104.86028,-5.3438],[104.86161,-5.34513],[104.87003,-5.3472],[104.87166,-5.34943],[104.87299,-5.34898],[104.87816,-5.34928],[104.87974,-5.34828],[104.88171,-5.34914],[104.88969,-5.34854],[104.89087,-5.3475],[104.89482,-5.34696],[104.89678,-5.34573],[104.89974,-5.34691],[104.90328,-5.34514],[104.90343,-5.34247],[104.90639,-5.34099],[104.92217,-5.33894],[104.92265,-5.34187],[104.9222,-5.34711],[104.92324,-5.35304],[104.92446,-5.35576],[104.93047,-5.35743],[104.93318,-5.35751],[104.93409,-5.3566],[104.93651,-5.35669],[104.93545,-5.35823],[104.93563,-5.35896],[104.93618,-5.3603],[104.93751,-5.36071],[104.92789,-5.36405],[104.92611,-5.36781],[104.92311,-5.36782],[104.92451,-5.36795],[104.92462,-5.37071],[104.92012,-5.37013],[104.91896,-5.37117],[104.91847,-5.37331],[104.92121,-5.37513],[104.92291,-5.38048],[104.92047,-5.38441],[104.92242,-5.38791],[104.91521,-5.38628],[104.92207,-5.38784],[104.92145,-5.39103],[104.92181,-5.39728],[104.92126,-5.39855],[104.92199,-5.39992],[104.92154,-5.40156],[104.92189,-5.40652],[104.91705,-5.4099],[104.91109,-5.4109],[104.9084,-5.41391],[104.9077,-5.41569],[104.90394,-5.41534],[104.90356,-5.41063],[104.89714,-5.40847],[104.89321,-5.40607],[104.89239,-5.40451],[104.89400,-5.40150],[104.88978,-5.40157]],[[104.90944,-5.38605],[104.90351,-5.38665],[104.90136,-5.38552],[104.90327,-5.38653],[104.89515,-5.39121],[104.90384,-5.38662],[104.91521,-5.38628],[104.90944,-5.38605]],[[104.89654,-5.35666],[104.89694,-5.36068],[104.89678,-5.35684],[104.8956,-5.35595],[104.89654,-5.35666]],[[104.90251,-5.3639],[104.90269,-5.37309],[104.90292,-5.37726],[104.90245,-5.36177],[104.90251,-5.3639]],[[104.90291,-5.39554],[104.90291,-5.39711],[104.90414,-5.39195],[104.90291,-5.39554]],[[104.88180,-5.38210],[104.8752,-5.38023],[104.87277,-5.37987],[104.88180,-5.38210],[104.88180,-5.38210]],[[104.88627,-5.37084],[104.88435,-5.37204],[104.89375,-5.36762],[104.88627,-5.37084]],[[104.89507,-5.36758],[104.89584,-5.36876],[104.89516,-5.36668],[104.89507,-5.36758]],[[104.8952,-5.36635],[104.89519,-5.36638],[104.89643,-5.36548],[104.8952,-5.36635]],[[104.88515,-5.38893],[104.88888,-5.39278],[104.88490,-5.38844],[104.88515,-5.38893]],[[104.88429,-5.38722],[104.88371,-5.3836],[104.88392,-5.38646],[104.88429,-5.38722]],[[104.88195,-5.38212],[104.88837,-5.38095],[104.88184,-5.38213],[104.88371,-5.3836],[104.88195,-5.38212]],[[104.86959,-5.37054],[104.86441,-5.37122],[104.86516,-5.37145],[104.86959,-5.37054]],[[104.87378,-5.37024],[104.87329,-5.36967],[104.87654,-5.36859],[104.87228,-5.36998],[104.87378,-5.37024]],[[104.86865,-5.36158],[104.86595,-5.36131],[104.86254,-5.36169],[104.86549,-5.36156],[104.86865,-5.36158]],[[104.87775,-5.36271],[104.87806,-5.36255],[104.87416,-5.36215],[104.87773,-5.36277],[104.87758,-5.3635],[104.87775,-5.36271]],[[104.87843,-5.36237],[104.8787,-5.36225],[104.87937,-5.35925],[104.87843,-5.36237]],[[104.88280,-5.35570],[104.88310,-5.35568],[104.88281,-5.3557],[104.88280,-5.35570]],[[104.88947,-5.35639],[104.88735,-5.35541],[104.88648,-5.35546],[104.88947,-5.35639]],[[104.91441,-5.37962],[104.91406,-5.37724],[104.9122,-5.37354],[104.91402,-5.37745],[104.91299,-5.37743],[104.91398,-5.37746],[104.91441,-5.37962]],[[104.92315,-5.36204],[104.92316,-5.36203],[104.9214,-5.36111],[104.92315,-5.36204]],[[104.91209,-5.36117],[104.91316,-5.36136],[104.9214,-5.36111],[104.91209,-5.36117]],[[104.92791,-5.36050],[104.92880,-5.36011],[104.92804,-5.36037],[104.92791,-5.36050]],[[104.93116,-5.35905],[104.93202,-5.35868],[104.93272,-5.35796],[104.93116,-5.35905]],[[104.90992,-5.35833],[104.91236,-5.35881],[104.91113,-5.35832],[104.90992,-5.35833]],[[104.80966,-5.17983],[104.81133,-5.18334],[104.82884,-5.20107],[104.84619,-5.20877],[104.86087,-5.21396],[104.86779,-5.22191],[104.86806,-5.22479],[104.86486,-5.22657],[104.85763,-5.22868],[104.85105,-5.23145],[104.84947,-5.23026],[104.84776,-5.22736],[104.84368,-5.23026],[104.84328,-5.23316],[104.8396,-5.23936],[104.83894,-5.24332],[104.83723,-5.24714],[104.83722,-5.25414],[104.84143,-5.25691],[104.8442,-5.26073],[104.8451,-5.26808],[104.82779,-5.26736],[104.82499,-5.26869],[104.8111,-5.26736],[104.8012,-5.26336],[104.8046,-5.27106],[104.80563,-5.27713],[104.81095,-5.28543],[104.81287,-5.28643],[104.81286,-5.30276],[104.81461,-5.30952],[104.81448,-5.31158],[104.81364,-5.3137],[104.81287,-5.31355],[104.81037,-5.31505],[104.81104,-5.3179],[104.81037,-5.31806],[104.8077,-5.31522],[104.80703,-5.31104],[104.80436,-5.30786],[104.79969,-5.30685],[104.79886,-5.30501],[104.79803,-5.30033],[104.79619,-5.29732],[104.7967,-5.28812],[104.79269,-5.28411],[104.79236,-5.28277],[104.79253,-5.28143],[104.79353,-5.28026],[104.79269,-5.27925],[104.79103,-5.27875],[104.78994,-5.27716],[104.78694,-5.27599],[104.77993,-5.2683],[104.77643,-5.26595],[104.77459,-5.26562],[104.76559,-5.25692],[104.76542,-5.25558],[104.76375,-5.25508],[104.76108,-5.25273],[104.76432,-5.24874],[104.76526,-5.24638],[104.76526,-5.24337],[104.76426,-5.24053],[104.76693,-5.23869],[104.76743,-5.23618],[104.7686,-5.23551],[104.77144,-5.23584],[104.77386,-5.21954],[104.7742,-5.21352],[104.7732,-5.20816],[104.7697,-5.20147],[104.76303,-5.19461],[104.76169,-5.19093],[104.76203,-5.18541],[104.76353,-5.18173],[104.77513,-5.17045],[104.77697,-5.16644],[104.77947,-5.16426],[104.78264,-5.16694],[104.78898,-5.16845],[104.79454,-5.17099],[104.79882,-5.17163],[104.80132,-5.17096],[104.80432,-5.1728],[104.80966,-5.17983]]]}},{"type":"Feature","properties":{"kecamatan":"Pagelaran Utara"},"geometry":{"type":"MultiLineString","coordinates":[[[104.86161,-5.34513],[104.86028,-5.3438],[104.85466,-5.34358],[104.853,-5.34509],[104.85166,-5.34525],[104.84565,-5.34442],[104.84415,-5.34358],[104.84465,-5.3404],[104.84115,-5.33956],[104.83775,-5.33706],[104.83548,-5.33736],[104.83431,-5.33669],[104.83431,-5.33385],[104.83164,-5.32917],[104.82964,-5.32816],[104.82605,-5.32456],[104.8256,-5.32134],[104.82338,-5.32038],[104.82188,-5.32105],[104.82138,-5.32256],[104.82021,-5.32256],[104.81654,-5.32038],[104.81521,-5.31837],[104.81471,-5.31503],[104.81364,-5.31334],[104.81461,-5.30952],[104.81286,-5.30276],[104.81287,-5.28643],[104.82085,-5.28974],[104.81095,-5.28543],[104.80563,-5.27713],[104.8046,-5.27106],[104.8012,-5.26336],[104.8111,-5.26736],[104.82499,-5.26869],[104.82779,-5.26736],[104.84685,-5.26826],[104.8451,-5.26808],[104.8442,-5.26073],[104.84143,-5.25691],[104.83722,-5.25414],[104.83723,-5.24714],[104.83894,-5.24332],[104.8396,-5.23936],[104.84328,-5.23316],[104.84368,-5.23026],[104.84776,-5.22736],[104.84947,-5.23026],[104.85105,-5.23145],[104.85763,-5.22868],[104.86486,-5.22657],[104.86806,-5.22479],[104.86879,-5.23261],[104.8838,-5.25084],[104.88138,-5.25377],[104.88205,-5.25845],[104.88004,-5.26498],[104.88004,-5.26799],[104.88274,-5.27756],[104.88505,-5.27752],[104.88865,-5.27603],[104.89246,-5.27608],[104.89072,-5.27719],[104.8914,-5.28381],[104.89684,-5.28631],[104.89831,-5.2882],[104.88912,-5.29255],[104.88971,-5.29319],[104.88907,-5.29639],[104.88953,-5.29791],[104.89313,-5.30146],[104.89371,-5.30717],[104.8951,-5.30916],[104.89923,-5.31238],[104.89836,-5.31506],[104.89865,-5.31597],[104.90125,-5.31705],[104.90096,-5.32092],[104.90226,-5.32326],[104.90494,-5.32448],[104.90494,-5.32568],[104.90667,-5.32773],[104.90667,-5.32824],[104.90118,-5.32892],[104.90233,-5.33166],[104.91014,-5.33536],[104.91781,-5.33638],[104.91897,-5.33712],[104.91926,-5.33838],[104.91868,-5.33952],[104.90639,-5.34099],[104.90343,-5.34247],[104.90328,-5.34514],[104.89974,-5.34691],[104.89678,-5.34573],[104.89516,-5.34691],[104.89087,-5.3475],[104.88969,-5.34854],[104.88171,-5.34914],[104.87979,-5.34824],[104.87816,-5.34928],[104.87299,-5.34898],[104.87166,-5.34943],[104.87003,-5.3472],[104.86161,-5.34513]],[[104.86809,-5.32177],[104.86809,-5.32177],[104.86565,-5.32264],[104.86809,-5.32177]],[[104.84698,-5.29627],[104.85016,-5.29575],[104.84448,-5.29654],[104.84698,-5.29627]],[[104.85489,-5.29784],[104.86129,-5.29987],[104.86290,-5.30031],[104.85484,-5.29781],[104.85489,-5.29784]],[[104.83178,-5.29151],[104.82439,-5.29121],[104.83479,-5.29214],[104.84131,-5.29510],[104.83532,-5.29225],[104.83178,-5.29151]],[[104.86881,-5.29418],[104.86189,-5.29261],[104.86881,-5.29418],[104.86881,-5.29418]],[[104.86324,-5.30092],[104.8639,-5.29664],[104.86319,-5.30039],[104.86324,-5.30092]],[[104.865,-5.30779],[104.86404,-5.30869],[104.86404,-5.30869],[104.865,-5.30779]]]}},{"type":"Feature","properties":{"kecamatan":"Pardasuka"},"geometry":{"type":"MultiLineString","coordinates":[[[104.93312,-5.56727],[104.93121,-5.56811],[104.92524,-5.56787],[104.91259,-5.56332],[104.89572,-5.55087],[104.89217,-5.54657],[104.89267,-5.54666],[104.89301,-5.54498],[104.89607,-5.5394],[104.89904,-5.53146],[104.89573,-5.53988],[104.88889,-5.53358],[104.88122,-5.52304],[104.8803,-5.51775],[104.87888,-5.51414],[104.88253,-5.50293],[104.87926,-5.49579],[104.88085,-5.49512],[104.88085,-5.49411],[104.88177,-5.49377],[104.88311,-5.49142],[104.88596,-5.49134],[104.88806,-5.49025],[104.892,-5.49016],[104.89546,-5.48703],[104.89523,-5.48197],[104.89682,-5.47635],[104.8985,-5.4745],[104.90001,-5.46795],[104.90437,-5.46308],[104.9065,-5.45649],[104.90552,-5.45341],[104.90424,-5.45237],[104.90407,-5.44943],[104.90552,-5.4456],[104.90282,-5.44086],[104.90258,-5.43817],[104.907,-5.43848],[104.90215,-5.43801],[104.89218,-5.43011],[104.8895,-5.42676],[104.89279,-5.42138],[104.89799,-5.42036],[104.90106,-5.42172],[104.90255,-5.42147],[104.90414,-5.42265],[104.90614,-5.42262],[104.90828,-5.42351],[104.9119,-5.42348],[104.91267,-5.42522],[104.91455,-5.42524],[104.91727,-5.42806],[104.91888,-5.43183],[104.92432,-5.4323],[104.92549,-5.43069],[104.9271,-5.42983],[104.92854,-5.43085],[104.92972,-5.43058],[104.93189,-5.43144],[104.93388,-5.4353],[104.93585,-5.43551],[104.93707,-5.43483],[104.94108,-5.42861],[104.94481,-5.42867],[104.94961,-5.42766],[104.95063,-5.42848],[104.95055,-5.431],[104.94791,-5.43574],[104.94514,-5.43742],[104.94347,-5.44263],[104.94338,-5.44473],[104.94556,-5.44893],[104.94415,-5.45013],[104.94498,-5.45191],[104.94112,-5.45599],[104.93911,-5.45624],[104.93755,-5.45836],[104.94015,-5.46392],[104.94015,-5.46703],[104.93848,-5.46921],[104.93085,-5.47534],[104.93071,-5.47769],[104.93194,-5.48173],[104.93114,-5.48798],[104.9289,-5.49615],[104.92485,-5.50117],[104.92645,-5.50411],[104.93705,-5.5139],[104.93671,-5.52095],[104.93721,-5.52599],[104.94539,-5.53284],[104.94698,-5.54963],[104.94421,-5.56215],[104.94429,-5.56853],[104.94516,-5.57394],[104.9387,-5.56815],[104.93312,-5.56727]],[[104.92583,-5.56262],[104.92608,-5.56286],[104.92468,-5.55612],[104.92583,-5.56262]],[[104.91939,-5.48028],[104.91835,-5.47367],[104.91793,-5.47294],[104.91939,-5.48028]],[[104.92254,-5.48012],[104.9275,-5.4793],[104.92763,-5.47923],[104.92254,-5.48012]],[[104.91592,-5.48528],[104.91768,-5.48495],[104.91848,-5.48479],[104.91592,-5.48528]],[[104.91273,-5.4882],[104.91399,-5.48728],[104.91592,-5.48528],[104.91273,-5.4882]],[[104.92025,-5.49445],[104.92597,-5.49721],[104.92023,-5.49441],[104.92025,-5.49445]],[[104.91392,-5.50196],[104.91775,-5.5032],[104.91775,-5.50318],[104.91392,-5.50196]],[[104.91784,-5.50641],[104.91815,-5.50639],[104.92,-5.51827],[104.91808,-5.50542],[104.91784,-5.50641]],[[104.89997,-5.48607],[104.89976,-5.48611],[104.90472,-5.48651],[104.89997,-5.48607]],[[104.90704,-5.51111],[104.90749,-5.50985],[104.90706,-5.51037],[104.90704,-5.51111]],[[104.91657,-5.50612],[104.91692,-5.5065],[104.91733,-5.50646],[104.91657,-5.50612]],[[104.91832,-5.45661],[104.91429,-5.45486],[104.91426,-5.45485],[104.91832,-5.45661]],[[104.92033,-5.46014],[104.92164,-5.45983],[104.92027,-5.46010],[104.92033,-5.46014]],[[104.92519,-5.46054],[104.92528,-5.46046],[104.92507,-5.46051],[104.92519,-5.46054]]]}},{"type":"Feature","properties":{"kecamatan":"Pringsewu"},"geometry":{"type":"MultiLineString","coordinates":[[[104.96055,-5.38668],[104.95902,-5.38511],[104.95512,-5.3834],[104.95335,-5.3834],[104.95213,-5.38423],[104.95112,-5.38618],[104.94947,-5.387],[104.94925,-5.38878],[104.94787,-5.38803],[104.94733,-5.38871],[104.94518,-5.389],[104.94183,-5.39065],[104.9397,-5.38346],[104.94179,-5.39053],[104.93541,-5.39073],[104.93304,-5.39018],[104.93109,-5.3908],[104.92918,-5.39016],[104.92184,-5.39093],[104.9224,-5.38743],[104.92047,-5.38441],[104.92291,-5.38048],[104.92121,-5.37513],[104.91853,-5.37374],[104.91896,-5.37117],[104.92012,-5.37013],[104.92462,-5.37071],[104.9245,-5.36771],[104.92611,-5.36781],[104.92789,-5.36405],[104.93738,-5.36067],[104.93618,-5.3603],[104.93545,-5.35823],[104.93685,-5.35625],[104.93792,-5.35319],[104.93651,-5.35669],[104.93409,-5.3566],[104.93314,-5.3576],[104.92446,-5.35576],[104.92299,-5.3524],[104.9222,-5.34711],[104.92265,-5.34187],[104.92172,-5.3325],[104.92239,-5.33037],[104.92633,-5.32993],[104.92584,-5.33227],[104.93069,-5.33452],[104.93238,-5.33463],[104.9338,-5.33354],[104.93672,-5.33305],[104.93694,-5.33014],[104.93822,-5.32756],[104.93926,-5.32678],[104.93928,-5.32491],[104.94123,-5.3234],[104.94234,-5.32101],[104.94392,-5.32132],[104.94851,-5.32017],[104.9506,-5.32409],[104.95408,-5.32504],[104.95667,-5.32776],[104.95905,-5.32871],[104.96052,-5.33123],[104.96503,-5.3327],[104.97114,-5.3317],[104.97208,-5.33021],[104.97295,-5.32993],[104.97225,-5.32857],[104.9733,-5.32658],[104.9843,-5.32693],[104.98725,-5.32882],[104.9878,-5.3304],[104.989,-5.33075],[104.98892,-5.3344],[104.99075,-5.33353],[104.99141,-5.33857],[104.9961,-5.34504],[104.99648,-5.34864],[104.99889,-5.35227],[105.00041,-5.35778],[104.99989,-5.36027],[104.99856,-5.36191],[104.99556,-5.36388],[104.98673,-5.36653],[104.9878,-5.37323],[104.98532,-5.37483],[104.98188,-5.37923],[104.97995,-5.37953],[104.97919,-5.37883],[104.97976,-5.37734],[104.9784,-5.3775],[104.97611,-5.37625],[104.97482,-5.37622],[104.97339,-5.3773],[104.97357,-5.37885],[104.97263,-5.38031],[104.9727,-5.38711],[104.97209,-5.38764],[104.96882,-5.38688],[104.96423,-5.38726],[104.96438,-5.38574],[104.96055,-5.38668]],[[104.95863,-5.34357],[104.95675,-5.34229],[104.95630,-5.34247],[104.95863,-5.34357]],[[104.96062,-5.34331],[104.96099,-5.34291],[104.96059,-5.34302],[104.96062,-5.34331]],[[104.96429,-5.34209],[104.96402,-5.34208],[104.96357,-5.34220],[104.96429,-5.34209]],[[104.96022,-5.35175],[104.96021,-5.35398],[104.96097,-5.35588],[104.96069,-5.35515],[104.96022,-5.35175]],[[104.95904,-5.35017],[104.95914,-5.35083],[104.96022,-5.35175],[104.95904,-5.35017]],[[104.96276,-5.36805],[104.96347,-5.36980],[104.963,-5.36809],[104.96276,-5.36805]],[[104.95848,-5.3684],[104.95633,-5.36406],[104.95849,-5.36909],[104.95848,-5.3684]],[[104.93946,-5.38013],[104.94014,-5.37806],[104.93946,-5.38002],[104.93946,-5.38013]],[[104.94120,-5.37508],[104.94159,-5.37442],[104.94128,-5.37487],[104.94120,-5.37508]],[[104.94349,-5.37182],[104.94749,-5.36747],[104.94444,-5.37052],[104.94349,-5.37182]],[[104.93751,-5.36515],[104.93754,-5.36326],[104.93721,-5.36305],[104.93751,-5.36515]],[[104.94032,-5.35203],[104.93997,-5.35219],[104.94397,-5.34891],[104.94032,-5.35203]],[[104.94837,-5.34549],[104.95065,-5.34549],[104.95231,-5.34486],[104.94837,-5.34549]],[[104.95236,-5.34484],[104.95297,-5.34462],[104.95426,-5.34331],[104.95236,-5.34484]],[[104.95845,-5.34495],[104.95931,-5.34478],[104.96006,-5.34393],[104.95845,-5.34495]],[[104.95852,-5.3467],[104.95879,-5.34852],[104.95845,-5.34495],[104.95852,-5.3467]],[[104.97799,-5.33943],[104.976,-5.33988],[104.97547,-5.34010],[104.97799,-5.33943]],[[104.97325,-5.34220],[104.97105,-5.34128],[104.9698,-5.34136],[104.97325,-5.34220]],[[104.97929,-5.34475],[104.97934,-5.34737],[104.97937,-5.34736],[104.97929,-5.34475]],[[104.97789,-5.34874],[104.97786,-5.34877],[104.97806,-5.34956],[104.97789,-5.34874]],[[104.97819,-5.35004],[104.97823,-5.35018],[104.98171,-5.35088],[104.97819,-5.35004]],[[104.98361,-5.35448],[104.98378,-5.35466],[104.98491,-5.35223],[104.98361,-5.35448]],[[104.98431,-5.35454],[104.98345,-5.35702],[104.98346,-5.35705],[104.98431,-5.35454]]]}},{"type":"Feature","properties":{"kecamatan":"Sukoharjo"},"geometry":{"type":"MultiLineString","coordinates":[[[104.97788,-5.3264],[104.9733,-5.32658],[104.97225,-5.32857],[104.97295,-5.32993],[104.97208,-5.33021],[104.97114,-5.3317],[104.96503,-5.3327],[104.96052,-5.33123],[104.95905,-5.32871],[104.95667,-5.32776],[104.95458,-5.32536],[104.9506,-5.32409],[104.94851,-5.32017],[104.94392,-5.32132],[104.94234,-5.32101],[104.94123,-5.3234],[104.93928,-5.32491],[104.93926,-5.32678],[104.93822,-5.32756],[104.93694,-5.33014],[104.93672,-5.33306],[104.9338,-5.33354],[104.93238,-5.33463],[104.93069,-5.33452],[104.92584,-5.33227],[104.92633,-5.32993],[104.92226,-5.33029],[104.92127,-5.3268],[104.92614,-5.31784],[104.92319,-5.31217],[104.91721,-5.30842],[104.92115,-5.30307],[104.92491,-5.30178],[104.92686,-5.29781],[104.92508,-5.29597],[104.92664,-5.29182],[104.9305,-5.2917],[104.93166,-5.29070],[104.93046,-5.28989],[104.92601,-5.28963],[104.92512,-5.28471],[104.92782,-5.28073],[104.92759,-5.2785],[104.93704,-5.27735],[104.93887,-5.27635],[104.9396,-5.2806],[104.94652,-5.28077],[104.95321,-5.27897],[104.96623,-5.27406],[104.97704,-5.26797],[104.98548,-5.26518],[104.98773,-5.26564],[104.98849,-5.26493],[104.99646,-5.26583],[104.99921,-5.27124],[105.00208,-5.2716],[105.00245,-5.27445],[105.00583,-5.2746],[105.00537,-5.28069],[105.00615,-5.2855],[105.00738,-5.28603],[105.01948,-5.28505],[105.03138,-5.28583],[105.03256,-5.28541],[105.0323,-5.28747],[105.03342,-5.29216],[105.03254,-5.29399],[105.03341,-5.2987],[105.03422,-5.29958],[105.03742,-5.31999],[105.03485,-5.32094],[105.03391,-5.32292],[105.03628,-5.32478],[105.03729,-5.33058],[105.02834,-5.33174],[105.02532,-5.33113],[105.02322,-5.32834],[105.02046,-5.33013],[105.01985,-5.33542],[105.01902,-5.3366],[105.01367,-5.33463],[105.0096,-5.33732],[105.00786,-5.3332],[105.00279,-5.33292],[105.00206,-5.33311],[105.00208,-5.33383],[105.0037,-5.33402],[105.00392,-5.33506],[105.0026,-5.3359],[105.00274,-5.33786],[104.99983,-5.33879],[104.99887,-5.3362],[104.99706,-5.33536],[104.99544,-5.33279],[104.99245,-5.33403],[104.99168,-5.33392],[104.99139,-5.33258],[104.9898,-5.33435],[104.98892,-5.3344],[104.98851,-5.33376],[104.98919,-5.33123],[104.98734,-5.32971],[104.98719,-5.32880],[104.9843,-5.32693],[104.97908,-5.3267],[104.9764,-5.32581],[104.97788,-5.3264]],[[104.97572,-5.32282],[104.9764,-5.32581],[104.97595,-5.32210],[104.97572,-5.32282]],[[105.01026,-5.29311],[105.01101,-5.29144],[105.01223,-5.28572],[105.01026,-5.29311]],[[104.96803,-5.30338],[104.97580,-5.30482],[104.97482,-5.30456],[104.96803,-5.30338]],[[104.97774,-5.30788],[104.97841,-5.30555],[104.97841,-5.30555],[104.97774,-5.30788]],[[104.99505,-5.27699],[104.99518,-5.28206],[104.99513,-5.2795],[104.99505,-5.27699]],[[104.9628,-5.2932],[104.97582,-5.29386],[104.97914,-5.29393],[104.9628,-5.2932]],[[104.95999,-5.29715],[104.95815,-5.29673],[104.96335,-5.29845],[104.95999,-5.29715]],[[104.95300,-5.29706],[104.95295,-5.29713],[104.95815,-5.29673],[104.95300,-5.29706]],[[104.9333,-5.29182],[104.93231,-5.29115],[104.9361,-5.29483],[104.9333,-5.29182]],[[104.94249,-5.29244],[104.94267,-5.29339],[104.94311,-5.29479],[104.94249,-5.29244]],[[104.95116,-5.29718],[104.94476,-5.29592],[104.94478,-5.29594],[104.95116,-5.29718]],[[104.95252,-5.29776],[104.95284,-5.29917],[104.95284,-5.29729],[104.95252,-5.29776]],[[104.95134,-5.3003],[104.95138,-5.30049],[104.95147,-5.30019],[104.95134,-5.3003]],[[104.949,-5.30993],[104.94935,-5.3091],[104.94911,-5.30844],[104.949,-5.30993]],[[104.94233,-5.28863],[104.94211,-5.29034],[104.94214,-5.29055],[104.94233,-5.28863]],[[104.98201,-5.30654],[104.97963,-5.30588],[104.98064,-5.30654],[104.98201,-5.30654]],[[105.00182,-5.30314],[105.00104,-5.30328],[105.00174,-5.30318],[105.00182,-5.30314]],[[105.01128,-5.30685],[105.00171,-5.30612],[105.0042,-5.30667],[105.01128,-5.30685]],[[105.02301,-5.29805],[105.01945,-5.30216],[105.02237,-5.29904],[105.02301,-5.29805]],[[105.02557,-5.32118],[105.02666,-5.32406],[105.02651,-5.32279],[105.02557,-5.32118]],[[105.00245,-5.32081],[104.99663,-5.32265],[104.99499,-5.32323],[104.99867,-5.32232],[105.00245,-5.32081]],[[104.99105,-5.29131],[104.99147,-5.29415],[104.99136,-5.2919],[104.99105,-5.29131]],[[105.02542,-5.29041],[105.02388,-5.29671],[105.0252,-5.29266],[105.02542,-5.29041]]]}}]},"faskes":[{"nama":"RSUD Pringsewu","jenis":"rs","kecamatan":"Pringsewu","lat":-5.3567,"lon":104.9545,"bpjs":"ya","rawat_inap":"ya","poned":"-","spesialis":"bedah; dalam; anak; obgyn; saraf; mata; dll","tempat_tidur":150.0,"dokter":35.0,"bidan":50.0,"perawat":120.0,"tempat_tidur_est":true,"dokter_est":true,"bidan_est":true,"perawat_est":true,"rs_umum":true,"desa":null,"penduduk":null,"jarak_maks":null,"pend_per_dokter":null,"pend_per_bidan":null},{"nama":"RS Mitra Husada","jenis":"rs","kecamatan":"Pringsewu","lat":-5.3708,"lon":104.9856,"bpjs":"ya","rawat_inap":"ya","poned":"-","spesialis":"bedah; dalam; anak; obgyn; mata; THT","tempat_tidur":150.0,"dokter":40.0,"bidan":45.0,"perawat":130.0,"tempat_tidur_est":true,"dokter_est":true,"bidan_est":true,"perawat_est":true,"rs_umum":true,"desa":null,"penduduk":null,"jarak_maks":null,"pend_per_dokter":null,"pend_per_bidan":null},{"nama":"RS Surya Asih","jenis":"rs","kecamatan":"Pringsewu","lat":-5.3665,"lon":104.9782,"bpjs":"ya","rawat_inap":"ya","poned":"-","spesialis":"dalam; anak; obgyn; bedah","tempat_tidur":50.0,"dokter":15.0,"bidan":20.0,"perawat":40.0,"tempat_tidur_est":true,"dokter_est":true,"bidan_est":true,"perawat_est":true,"rs_umum":true,"desa":null,"penduduk":null,"jarak_maks":null,"pend_per_dokter":null,"pend_per_bidan":null},{"nama":"RS Wisma Rini","jenis":"rs","kecamatan":"Pringsewu","lat":-5.3725,"lon":104.971,"bpjs":"ya","rawat_inap":"ya","poned":"-","spesialis":"dalam; anak; bedah; obgyn","tempat_tidur":50.0,"dokter":12.0,"bidan":15.0,"perawat":35.0,"tempat_tidur_est":true,"dokter_est":true,"bidan_est":true,"perawat_est":true,"rs_umum":true,"desa":null,"penduduk":null,"jarak_maks":null,"pend_per_dokter":null,"pend_per_bidan":null},{"nama":"RS Harapan Bunda","jenis":"rs","kecamatan":"Pringsewu","lat":-5.361,"lon":104.981,"bpjs":"ya","rawat_inap":"ya","poned":"-","spesialis":"dalam; anak; obgyn","tempat_tidur":40.0,"dokter":10.0,"bidan":15.0,"perawat":30.0,"tempat_tidur_est":true,"dokter_est":true,"bidan_est":true,"perawat_est":true,"rs_umum":true,"desa":null,"penduduk":null,"jarak_maks":null,"pend_per_dokter":null,"pend_per_bidan":null},{"nama":"RSIA Mutiara Hati","jenis":"rs","kecamatan":"Gadingrejo","lat":-5.3752,"lon":105.0215,"bpjs":"ya","rawat_inap":"ya","poned":"-","spesialis":"anak; obgyn","tempat_tidur":30.0,"dokter":5.0,"bidan":25.0,"perawat":20.0,"tempat_tidur_est":true,"dokter_est":true,"bidan_est":true,"perawat_est":true,"rs_umum":false,"desa":null,"penduduk":null,"jarak_maks":null,"pend_per_dokter":null,"pend_per_bidan":null},{"nama":"Puskesmas Pringsewu","jenis":"puskesmas","kecamatan":"Pringsewu","lat":-5.3581,"lon":104.9752,"bpjs":"ya","rawat_inap":"tidak","poned":"tidak","spesialis":"-","tempat_tidur":null,"dokter":2.0,"bidan":10.0,"perawat":8.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":9.0,"penduduk":52848.0,"jarak_maks":4.74,"pend_per_dokter":26424.0,"pend_per_bidan":5285.0},{"nama":"Puskesmas Rejosari","jenis":"puskesmas","kecamatan":"Pringsewu","lat":-5.3402,"lon":104.9701,"bpjs":"ya","rawat_inap":"tidak","poned":"tidak","spesialis":"-","tempat_tidur":null,"dokter":1.0,"bidan":8.0,"perawat":6.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":9.0,"penduduk":43830.0,"jarak_maks":6.93,"pend_per_dokter":43830.0,"pend_per_bidan":5479.0},{"nama":"Puskesmas Gadingrejo","jenis":"puskesmas","kecamatan":"Gadingrejo","lat":-5.3805,"lon":105.0354,"bpjs":"ya","rawat_inap":"ya","poned":"ya","spesialis":"-","tempat_tidur":15.0,"dokter":3.0,"bidan":15.0,"perawat":12.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":11.0,"penduduk":50945.0,"jarak_maks":5.12,"pend_per_dokter":16982.0,"pend_per_bidan":3396.0},{"nama":"Puskesmas Wates","jenis":"puskesmas","kecamatan":"Gadingrejo","lat":-5.38321,"lon":105.01693,"bpjs":"ya","rawat_inap":"ya","poned":"ya","spesialis":"-","tempat_tidur":10.0,"dokter":2.0,"bidan":12.0,"perawat":10.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":7.0,"penduduk":19079.0,"jarak_maks":3.5,"pend_per_dokter":9540.0,"pend_per_bidan":1590.0},{"nama":"Puskesmas Ambarawa","jenis":"puskesmas","kecamatan":"Ambarawa","lat":-5.3951,"lon":104.9705,"bpjs":"ya","rawat_inap":"ya","poned":"ya","spesialis":"-","tempat_tidur":15.0,"dokter":3.0,"bidan":14.0,"perawat":12.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":7.0,"penduduk":34144.0,"jarak_maks":3.67,"pend_per_dokter":11381.0,"pend_per_bidan":2439.0},{"nama":"Puskesmas Pagelaran","jenis":"puskesmas","kecamatan":"Pagelaran","lat":-5.3854,"lon":104.9201,"bpjs":"ya","rawat_inap":"ya","poned":"ya","spesialis":"-","tempat_tidur":15.0,"dokter":3.0,"bidan":15.0,"perawat":14.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":14.0,"penduduk":41135.0,"jarak_maks":3.8,"pend_per_dokter":13712.0,"pend_per_bidan":2742.0},{"nama":"Puskesmas Bumiratu","jenis":"puskesmas","kecamatan":"Pagelaran","lat":-5.4056,"lon":104.9002,"bpjs":"ya","rawat_inap":"ya","poned":"ya","spesialis":"-","tempat_tidur":10.0,"dokter":2.0,"bidan":10.0,"perawat":8.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":11.0,"penduduk":29482.0,"jarak_maks":6.08,"pend_per_dokter":14741.0,"pend_per_bidan":2948.0},{"nama":"Puskesmas Fajar Mulia","jenis":"puskesmas","kecamatan":"Pagelaran Utara","lat":-5.3204,"lon":104.9005,"bpjs":"ya","rawat_inap":"tidak","poned":"tidak","spesialis":"-","tempat_tidur":null,"dokter":1.0,"bidan":6.0,"perawat":5.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":16.0,"penduduk":30209.0,"jarak_maks":13.95,"pend_per_dokter":30209.0,"pend_per_bidan":5035.0},{"nama":"Puskesmas Pardasuka","jenis":"puskesmas","kecamatan":"Pardasuka","lat":-5.4502,"lon":104.9304,"bpjs":"ya","rawat_inap":"ya","poned":"ya","spesialis":"-","tempat_tidur":15.0,"dokter":2.0,"bidan":14.0,"perawat":10.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":13.0,"penduduk":43231.0,"jarak_maks":9.72,"pend_per_dokter":21616.0,"pend_per_bidan":3088.0},{"nama":"Puskesmas Sukoharjo","jenis":"puskesmas","kecamatan":"Sukoharjo","lat":-5.2905,"lon":104.9602,"bpjs":"ya","rawat_inap":"ya","poned":"ya","spesialis":"-","tempat_tidur":15.0,"dokter":3.0,"bidan":15.0,"perawat":12.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":5.0,"penduduk":19315.0,"jarak_maks":2.69,"pend_per_dokter":6438.0,"pend_per_bidan":1288.0},{"nama":"Puskesmas Adiluwih","jenis":"puskesmas","kecamatan":"Adiluwih","lat":-5.21876,"lon":105.03670,"bpjs":"ya","rawat_inap":"ya","poned":"ya","spesialis":"-","tempat_tidur":15.0,"dokter":2.0,"bidan":12.0,"perawat":10.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":5.0,"penduduk":12986.0,"jarak_maks":3.02,"pend_per_dokter":6493.0,"pend_per_bidan":1082.0},{"nama":"Puskesmas Bandung Baru","jenis":"puskesmas","kecamatan":"Adiluwih","lat":-5.26641,"lon":104.98057,"bpjs":"ya","rawat_inap":"tidak","poned":"tidak","spesialis":"-","tempat_tidur":null,"dokter":1.0,"bidan":8.0,"perawat":6.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":12.0,"penduduk":44522.0,"jarak_maks":6.32,"pend_per_dokter":44522.0,"pend_per_bidan":5565.0},{"nama":"Puskesmas Banyumas","jenis":"puskesmas","kecamatan":"Banyumas","lat":-5.29017,"lon":104.92670,"bpjs":"ya","rawat_inap":"ya","poned":"ya","spesialis":"-","tempat_tidur":10.0,"dokter":2.0,"bidan":10.0,"perawat":8.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":13.0,"penduduk":29940.0,"jarak_maks":8.72,"pend_per_dokter":14970.0,"pend_per_bidan":2994.0},{"nama":"Klinik Kosasih Pringsewu","jenis":"klinik_pratama","kecamatan":"Pringsewu","lat":-5.365,"lon":104.977,"bpjs":"ya","rawat_inap":"tidak","poned":"-","spesialis":"-","tempat_tidur":null,"dokter":2.0,"bidan":2.0,"perawat":4.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":null,"penduduk":null,"jarak_maks":null,"pend_per_dokter":null,"pend_per_bidan":null},{"nama":"Klinik Teluk Pringsewu","jenis":"klinik_pratama","kecamatan":"Pringsewu","lat":-5.3601,"lon":104.98,"bpjs":"ya","rawat_inap":"tidak","poned":"-","spesialis":"-","tempat_tidur":null,"dokter":1.0,"bidan":2.0,"perawat":3.0,"tempat_tidur_est":false,"dokter_est":false,"bidan_est":false,"perawat_est":false,"rs_umum":false,"desa":null,"penduduk":null,"jarak_maks":null,"pend_per_dokter":null,"pend_per_bidan":null}],"stats":{"total_pend":451666,"n_desa":131,"luas":603.2,"cov_pkm3":65.8,"cov_pkm5":89.9,"cov_rs5":37.0,"cov_rs10":79.7,"cov_rs15":94.0,"avg_rs":6.8,"avg_pkm":2.7,"avg_poned":3.5,"pend_rs_gt15":27231,"pend_pkm_gt5":45442,"tt_rs_umum":440,"tt_per_1000":0.97,"tt_all":470,"kandidat":[{"desa":"Waringinsari Barat","kecamatan":"Sukoharjo","avg_sebelum":6.8,"avg_sesudah":5.6,"cov10_sesudah":89.7,"pend_gt15_sesudah":12460,"lat":-5.2756,"lon":104.97707,"desa_terbantu":29},{"desa":"Kresnomulyo","kecamatan":"Ambarawa","avg_sebelum":5.6,"avg_sesudah":4.6,"cov10_sesudah":94.6,"pend_gt15_sesudah":3764,"lat":-5.42481,"lon":104.92666,"desa_terbantu":23}]},"kec_tabel":[{"kecamatan":"Adi Luwih","penduduk":40121.0,"desa":13.0,"luas":55.7,"avg_pkm":2.6,"avg_rs":13.1,"maks_rs":17.8,"puskesmas":2},{"kecamatan":"Ambarawa","penduduk":41175.0,"desa":8.0,"luas":29.0,"avg_pkm":2.5,"avg_rs":5.4,"maks_rs":7.6,"puskesmas":1},{"kecamatan":"Banyumas","penduduk":24051.0,"desa":11.0,"luas":34.4,"avg_pkm":2.7,"avg_rs":9.8,"maks_rs":13.4,"puskesmas":1},{"kecamatan":"Gading Rejo","penduduk":86689.0,"desa":23.0,"luas":60.0,"avg_pkm":2.7,"avg_rs":5.4,"maks_rs":9.4,"puskesmas":2},{"kecamatan":"Pagelaran","penduduk":57698.0,"desa":22.0,"luas":132.9,"avg_pkm":3.0,"avg_rs":6.7,"maks_rs":21.1,"puskesmas":2},{"kecamatan":"Pagelaran Utara","penduduk":17101.0,"desa":10.0,"luas":93.0,"avg_pkm":6.3,"avg_rs":13.3,"maks_rs":16.3,"puskesmas":1},{"kecamatan":"Pardasuka","penduduk":39305.0,"desa":13.0,"luas":77.3,"avg_pkm":3.4,"avg_rs":12.4,"maks_rs":19.3,"puskesmas":1},{"kecamatan":"Pringsewu","penduduk":90025.0,"desa":15.0,"luas":48.0,"avg_pkm":1.6,"avg_rs":1.6,"maks_rs":3.7,"puskesmas":2},{"kecamatan":"Sukoharjo","penduduk":55501.0,"desa":16.0,"luas":72.9,"avg_pkm":3.0,"avg_rs":7.0,"maks_rs":9.3,"puskesmas":1}]};
+const fmt=(v,d=0)=>v==null?'–':Number(v).toLocaleString('id-ID',{minimumFractionDigits:d,maximumFractionDigits:d});
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const S=DATA.stats, F=DATA.faskes, DESA=DATA.desa.features;
+const CLS=['--c1','--c2','--c3','--c4','--c5'];
+const isRSU=f=>f.jenis==='rs'&&!/^RSIA/.test(f.nama);
+const pkmByName=Object.fromEntries(F.filter(f=>f.jenis==='puskesmas').map(f=>[f.nama,f]));
+
+// ---- KPIs
+document.getElementById('kpis').innerHTML=[
+  ['ok',fmt(S.total_pend),'penduduk di '+S.n_desa+' desa'],
+  ['ok',fmt(S.cov_pkm3,1)+'%','penduduk ≤ 3 km dari puskesmas'],
+  ['warn',fmt(100-S.cov_rs10,1)+'%','penduduk > 10 km dari RS umum'],
+  ['warn',fmt(S.avg_rs,1)+' km','rata-rata jarak warga ke RS umum'],
+  ['',fmt(S.tt_per_1000,2),'tempat tidur RS umum per 1.000 jiwa (perkiraan)'],
+].map(([c,b,s])=>`<div class="kpi ${c}"><b>${b}</b><span>${s}</span></div>`).join('');
+
+// ---- Modes
+const MODES={
+  jarak_rs:{label:'Jarak ke RS umum terdekat',unit:'km',d:1,breaks:[3,6,10,15],note:'Garis lurus dari titik tengah desa. Lebih gelap = lebih jauh dari layanan rujukan.'},
+  jarak_pkm:{label:'Jarak ke puskesmas terdekat',unit:'km',d:1,breaks:[1.5,3,5,8],note:'Garis lurus dari titik tengah desa. Acuan umum: ≤ 3 km.'},
+  jarak_poned:{label:'Jarak ke puskesmas PONED',unit:'km',d:1,breaks:[2,4,6,10],note:'PONED = layanan kegawatdaruratan obstetri dan neonatal dasar.'},
+  beban:{label:'Beban dokter puskesmas (model)',unit:'jiwa/dokter',d:0,breaks:[10000,15000,25000,35000],note:'Penduduk di wilayah layanan model dibagi jumlah dokter puskesmasnya. Desa diwarnai sesuai puskesmas terdekatnya.'},
+  kepadatan:{label:'Kepadatan penduduk',unit:'jiwa/km²',d:0,breaks:[400,700,1000,1500],note:'Konteks: desa padat butuh kapasitas, desa jarang butuh jangkauan.'},
+};
+const val=(p,m)=>m==='beban'?(pkmByName[p.pkm_terdekat]||{}).pend_per_dokter:p[m];
+const modeSel=document.getElementById('mode');
+modeSel.innerHTML=Object.entries(MODES).map(([k,v])=>`<option value="${k}">${v.label}</option>`).join('');
+let mode='jarak_rs', sel=null;
+
+// ---- Map
+const map=L.map('map',{zoomSnap:.25});
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:17,opacity:.5}).addTo(map);
+map.attributionControl.setPrefix(false).addAttribution('Batas: BPS 2020');
+const cls=v=>{const b=MODES[mode].breaks;let i=0;while(i<b.length&&v>b[i])i++;return i};
+function styleDesa(f){
+  const p=f.properties, on=sel&&sel.t==='d'&&sel.k===p.kode;
+  if(!p.penduduk) return {fillColor:css('--line'),fillOpacity:.5,color:css('--surface'),weight:.6};
+  return {fillColor:css(CLS[cls(val(p,mode))]),fillOpacity:.82,color:on?css('--sel'):css('--surface'),weight:on?3:.7,opacity:1};
+}
+const desaL=L.geoJSON(DATA.desa,{style:styleDesa,onEachFeature:(f,l)=>{
+  l.bindTooltip(()=>{const p=f.properties,m=MODES[mode];return p.penduduk?`<strong>${p.desa}</strong> · ${p.kecamatan}<br>${m.label}: <span class="v">${fmt(val(p,mode),m.d)}</span> ${m.unit}`:'Kawasan hutan'},{className:'tip',sticky:true,direction:'top',offset:[0,-8]});
+  l.on({mouseover:e=>{if(!(sel&&sel.k===f.properties.kode))e.target.setStyle({weight:2,color:css('--ink')})},mouseout:e=>desaL.resetStyle(e.target),
+        click:()=>{if(f.properties.penduduk)select('d',f.properties.kode)}});
+}}).addTo(map);
+map.fitBounds(desaL.getBounds(),{padding:[10,10]});
+const kecL=L.geoJSON(DATA.kec,{style:()=>({color:css('--ink'),weight:1.6,opacity:.75,fill:false,interactive:false})}).addTo(map);
+new ResizeObserver(()=>map.invalidateSize()).observe(document.getElementById('map'));
+
+// ---- Facility symbols
+function sym(f,size){
+  const s=size||(f.jenis==='rs'?22:f.jenis==='puskesmas'?18:13);
+  if(f.jenis==='rs') return `<svg width="${s}" height="${s}" viewBox="0 0 22 22"><rect x="1" y="1" width="20" height="20" rx="3" fill="var(--rs)" stroke="var(--surface)" stroke-width="1.5"/><path d="M11 5v12M5 11h12" stroke="#fff" stroke-width="3.2"/></svg>`;
+  if(f.jenis==='puskesmas'){const ri=f.rawat_inap==='ya';return `<svg width="${s}" height="${s}" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7.5" fill="${ri?'var(--pkm)':'var(--surface)'}" stroke="var(--pkm)" stroke-width="2.5"/>${ri?'<path d="M9 5v8M5 9h8" stroke="#fff" stroke-width="2"/>':''}</svg>`}
+  return `<svg width="${s}" height="${s}" viewBox="0 0 14 14"><path d="M7 1l6 6-6 6-6-6z" fill="var(--klinik)" stroke="var(--surface)" stroke-width="1.2"/></svg>`;
+}
+const candSym=s=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.2l7.1-.6z" fill="var(--cand)" stroke="var(--surface)" stroke-width="1.4"/></svg>`;
+const groups={rs:L.layerGroup(),pkm:L.layerGroup(),klinik:L.layerGroup(),r3:L.layerGroup(),r10:L.layerGroup(),cand:L.layerGroup()};
+const fkMarkers={};
+F.forEach((f,i)=>{
+  const s=f.jenis==='rs'?22:f.jenis==='puskesmas'?18:13;
+  const m=L.marker([f.lat,f.lon],{icon:L.divIcon({className:'fk',html:sym(f),iconSize:[s,s],iconAnchor:[s/2,s/2]}),zIndexOffset:f.jenis==='rs'?600:f.jenis==='puskesmas'?400:200,keyboard:true,title:f.nama});
+  m.bindTooltip(`<strong>${f.nama}</strong><br>${{rs:'Rumah sakit',puskesmas:'Puskesmas',klinik_pratama:'Klinik pratama'}[f.jenis]||f.jenis}${f.jenis==='puskesmas'?(f.rawat_inap==='ya'?' rawat inap':' non rawat inap'):''}`,{className:'tip',direction:'top',offset:[0,-s/2]});
+  m.on('click',()=>select('f',i));
+  fkMarkers[i]=m;
+  (f.jenis==='rs'?groups.rs:f.jenis==='puskesmas'?groups.pkm:groups.klinik).addLayer(m);
+  if(f.jenis==='puskesmas') groups.r3.addLayer(L.circle([f.lat,f.lon],{radius:3000,color:css('--pkm'),weight:1,dashArray:'4 4',fillOpacity:.04,interactive:false}));
+  if(isRSU(f)) groups.r10.addLayer(L.circle([f.lat,f.lon],{radius:10000,color:css('--rs'),weight:1.2,dashArray:'6 5',fill:false,interactive:false}));
+});
+S.kandidat.forEach((c,i)=>{
+  const m=L.marker([c.lat,c.lon],{icon:L.divIcon({className:'fk',html:candSym(26),iconSize:[26,26],iconAnchor:[13,13]}),zIndexOffset:800,title:'Kandidat '+(i+1)});
+  m.bindTooltip(`<strong>Kandidat ${i+1}: ${c.desa}</strong><br>Kec. ${c.kecamatan}`,{className:'tip',direction:'top',offset:[0,-13]});
+  groups.cand.addLayer(m);
+});
+const LAYERS=[['rs','Rumah sakit',sym({jenis:'rs'},16),true],['pkm','Puskesmas (isi = rawat inap)',sym({jenis:'puskesmas',rawat_inap:'ya'},15),true],['klinik','Klinik pratama',sym({jenis:'klinik_pratama'},13),true],
+  ['r3','Radius 3 km puskesmas','<svg width="16" height="16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="var(--pkm)" stroke-dasharray="3 2"/></svg>',false],
+  ['r10','Radius 10 km RS umum','<svg width="16" height="16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="var(--rs)" stroke-dasharray="3 2"/></svg>',true],
+  ['cand','Kandidat lokasi baru',candSym(16),true]];
+document.getElementById('layers').innerHTML=LAYERS.map(([k,l,s,on])=>`<label><input type="checkbox" id="ly-${k}" ${on?'checked':''}>${s}${l}</label>`).join('');
+LAYERS.forEach(([k,,,on])=>{if(on)groups[k].addTo(map);document.getElementById('ly-'+k).onchange=e=>e.target.checked?groups[k].addTo(map):map.removeLayer(groups[k])});
+groups.r10.eachLayer(l=>l.bringToBack&&l.bringToBack());
+document.getElementById('maplegend').innerHTML=`<span>${sym({jenis:'rs'},13)}RS</span><span>${sym({jenis:'puskesmas',rawat_inap:'ya'},12)}PKM rawat inap</span><span>${sym({jenis:'puskesmas',rawat_inap:'tidak'},12)}PKM</span><span>${sym({jenis:'klinik_pratama'},11)}Klinik</span><span>${candSym(13)}Kandidat</span>`;
+
+// ---- Render
+function renderMode(){
+  const m=MODES[mode]; desaL.setStyle(styleDesa);
+  document.getElementById('modenote').textContent=m.note;
+  const vals=DESA.filter(f=>f.properties.penduduk).map(f=>val(f.properties,mode));
+  const e=[...m.breaks]; let rows='';
+  for(let i=0;i<5;i++){
+    const lab=i===0?`≤ ${fmt(e[0],m.d===0?0:1)}`:i===4?`> ${fmt(e[3],m.d===0?0:1)}`:`${fmt(e[i-1],m.d===0?0:1)} – ${fmt(e[i],m.d===0?0:1)}`;
+    const ds=DESA.filter(f=>f.properties.penduduk&&cls(val(f.properties,mode))===i);
+    const pop=ds.reduce((a,f)=>a+f.properties.penduduk,0);
+    rows+=`<div class="row"><span class="sw" style="background:var(${CLS[i]})"></span><span>${lab} ${m.unit}</span><span class="n">${ds.length} desa · ${fmt(pop/S.total_pend*100)}%</span></div>`;
+  }
+  document.getElementById('legend').innerHTML=rows+`<div class="note" style="margin-top:6px">Persen = porsi penduduk kabupaten</div>`;
+}
+function renderDetail(){
+  const el=document.getElementById('detail');
+  Object.values(fkMarkers).forEach(m=>m._icon&&m._icon.classList.remove('on'));
+  if(!sel){el.innerHTML=`<h2>Detail</h2><p class="empty">Klik desa atau titik faskes di peta, atau baris tabel di bawah, untuk melihat rinciannya.</p>`;return}
+  if(sel.t==='d'){
+    const p=DESA.find(f=>f.properties.kode===sel.k).properties, pk=pkmByName[p.pkm_terdekat]||{};
+    const chips=[p.jarak_pkm>5?['warn','> 5 km ke puskesmas']:p.jarak_pkm<=3?['ok','≤ 3 km ke puskesmas']:null,
+                 p.jarak_rs>15?['warn','> 15 km ke RS umum']:p.jarak_rs>10?['warn','> 10 km ke RS umum']:['ok','≤ 10 km ke RS umum']].filter(Boolean);
+    el.innerHTML=`<h2>Detail desa</h2><div class="sub">Kec. ${p.kecamatan} · kode ${p.kode}</div><h3>${p.desa}</h3>
+    <dl class="kv"><dt>Penduduk</dt><dd>${fmt(p.penduduk)}</dd><dt>Luas</dt><dd>${fmt(p.luas_km2,1)} km²</dd><dt>Kepadatan</dt><dd>${fmt(p.kepadatan)} /km²</dd>
+    <dt>Puskesmas terdekat</dt><dd>${p.pkm_terdekat.replace('Puskesmas ','')}</dd><dt>Jarak</dt><dd class="${p.jarak_pkm>5?'bad':'hl'}">${fmt(p.jarak_pkm,1)} km</dd>
+    <dt>FKTP terdekat (PKM/klinik)</dt><dd>${fmt(p.jarak_fktp,1)} km</dd><dt>Puskesmas PONED</dt><dd>${fmt(p.jarak_poned,1)} km</dd>
+    <dt>RS umum terdekat</dt><dd>${p.rs_terdekat}</dd><dt>Jarak</dt><dd class="${p.jarak_rs>10?'bad':'hl'}">${fmt(p.jarak_rs,1)} km</dd>
+    <dt>Beban dokter PKM-nya</dt><dd>${fmt(pk.pend_per_dokter)} jiwa</dd></dl>
+    <div class="chips">${chips.map(([c,t])=>`<span class="chip ${c}">${t}</span>`).join('')}</div>`;
+  } else {
+    const f=F[sel.k]; const m=fkMarkers[sel.k]; m._icon&&m._icon.classList.add('on');
+    const e=c=>f[c+'_est']?'<span class="est">perkiraan</span>':'';
+    let rows=`<dt>Kecamatan</dt><dd>${f.kecamatan}</dd><dt>BPJS</dt><dd>${f.bpjs}</dd><dt>Rawat inap</dt><dd>${f.rawat_inap}</dd>`;
+    if(f.jenis==='puskesmas') rows+=`<dt>PONED</dt><dd>${f.poned}</dd>`;
+    if(f.tempat_tidur!=null) rows+=`<dt>Tempat tidur</dt><dd>${fmt(f.tempat_tidur)}${e('tempat_tidur')}</dd>`;
+    rows+=`<dt>Dokter / bidan / perawat</dt><dd>${fmt(f.dokter)} / ${fmt(f.bidan)} / ${fmt(f.perawat)}${e('dokter')}</dd>`;
+    if(f.spesialis&&f.spesialis!=='-') rows+=`<dt>Spesialis</dt><dd style="white-space:normal">${f.spesialis}</dd>`;
+    if(f.jenis==='puskesmas') rows+=`<dt>Desa di wilayah model</dt><dd>${f.desa}</dd><dt>Penduduk dilayani</dt><dd class="hl">${fmt(f.penduduk)}</dd><dt>Jiwa per dokter</dt><dd class="${f.pend_per_dokter>25000?'bad':'hl'}">${fmt(f.pend_per_dokter)}</dd><dt>Jiwa per bidan</dt><dd>${fmt(f.pend_per_bidan)}</dd><dt>Desa terjauh</dt><dd>${fmt(f.jarak_maks,1)} km</dd>`;
+    el.innerHTML=`<h2>Detail faskes</h2><div class="sub">${{rs:'Rumah sakit',puskesmas:'Puskesmas',klinik_pratama:'Klinik pratama'}[f.jenis]}</div><h3>${f.nama}</h3><dl class="kv">${rows}</dl>`;
+  }
+}
+function select(t,k,fly){
+  sel=(sel&&sel.t===t&&sel.k===k)?null:{t,k};
+  desaL.setStyle(styleDesa);
+  if(sel&&t==='d'){desaL.eachLayer(l=>{if(l.feature.properties.kode===k){l.bringToFront();if(fly)map.fitBounds(l.getBounds(),{maxZoom:13,padding:[40,40]})}})}
+  if(sel&&t==='f'&&fly){map.setView([F[k].lat,F[k].lon],13)}
+  renderDetail();
+}
+
+// ---- Findings
+function renderFinds(){
+  const K=DATA.kec_tabel, far=[...K].sort((a,b)=>b.avg_rs-a.avg_rs).slice(0,3);
+  const pk=F.filter(f=>f.jenis==='puskesmas').sort((a,b)=>b.pend_per_dokter-a.pend_per_dokter);
+  const fm=F.find(f=>f.nama==='Puskesmas Fajar Mulia');
+  const nRS=F.filter(isRSU).length, nRSpsw=F.filter(f=>isRSU(f)&&f.kecamatan==='Pringsewu').length;
+  document.getElementById('finds').innerHTML=`
+  <div class="panel"><h2>RS menumpuk di pusat kota</h2><p><strong>${nRSpsw} dari ${nRS}</strong> RS umum berada di Kecamatan Pringsewu. Warga ${far.map(k=>`${k.kecamatan} (${fmt(k.avg_rs,1)} km)`).join(', ')} rata-rata berjarak lebih dari 12 km ke RS umum terdekat, dan <strong>${fmt(S.pend_rs_gt15)}</strong> jiwa tinggal lebih dari 15 km.</p></div>
+  <div class="panel"><h2>Puskesmas dengan 1 dokter</h2><p>${pk.slice(0,2).map(p=>`<strong>${p.nama.replace('Puskesmas ','')}</strong> (${fmt(p.pend_per_dokter)} jiwa/dokter)`).join(' dan ')} memegang wilayah model terpadat dengan satu dokter, sekitar 7 kali beban Puskesmas Sukoharjo atau Adiluwih.</p></div>
+  <div class="panel"><h2>Pagelaran Utara paling terisolasi</h2><p>Satu puskesmas non rawat inap (${fm.nama.replace('Puskesmas ','')}, 1 dokter) melayani ${fm.desa} desa di wilayah model, dengan desa terjauh <strong>${fmt(fm.jarak_maks,1)} km</strong>. Rata-rata warganya ${fmt(K.find(k=>k.kecamatan==='Pagelaran Utara').avg_pkm,1)} km ke puskesmas, terjauh di kabupaten.</p></div>
+  <div class="panel"><h2>Layanan dasar relatif merata</h2><p><strong>${fmt(S.cov_pkm5,1)}%</strong> penduduk berada ≤ 5 km dari puskesmas dan rata-rata jarak ke puskesmas hanya ${fmt(S.avg_pkm,1)} km. Celah utamanya ada di layanan rujukan, bukan layanan dasar.</p></div>`;
+}
+function renderReco(){
+  document.getElementById('reco').innerHTML=S.kandidat.map((c,i)=>`
+  <div class="panel"><div class="rank">Kandidat ${i+1}${i?' (setelah kandidat 1 dibangun)':''}</div><h3>Desa ${c.desa}, Kec. ${c.kecamatan}</h3>
+  <div class="beforeafter"><div><b>${fmt(c.avg_sebelum,1)} km</b>rata-rata jarak ke RS</div><span class="arr">→</span><div><b style="color:var(--good)">${fmt(c.avg_sesudah,1)} km</b>sesudah</div></div>
+  <p>${c.desa_terbantu} desa jaraknya ke RS berkurang lebih dari 2 km. Penduduk dalam radius 10 km dari RS naik menjadi <strong>${fmt(c.cov10_sesudah,1)}%</strong>, dan yang tinggal lebih dari 15 km tersisa ${fmt(c.pend_gt15_sesudah)} jiwa.</p>
+  <button type="button" data-i="${i}">Lihat di peta</button></div>`).join('')+
+  `<div class="panel" style="border-left-color:var(--line)"><h2>Cara membaca</h2><p style="margin:0;font-size:14px">Kandidat menunjukkan <em>area</em>, bukan alamat. Bentuknya bisa RS tipe D, klinik utama dengan spesialis dasar, atau peningkatan puskesmas rawat inap terdekat. Keputusan akhirnya perlu data jalan, lahan, dan pola rujukan BPJS.</p></div>`;
+  document.querySelectorAll('#reco button').forEach(b=>b.onclick=()=>{const c=S.kandidat[+b.dataset.i];map.setView([c.lat,c.lon],12);document.getElementById('map').scrollIntoView({behavior:'smooth',block:'center'})});
+}
+function renderTables(){
+  const pk=F.map((f,i)=>({...f,i})).filter(f=>f.jenis==='puskesmas').sort((a,b)=>b.pend_per_dokter-a.pend_per_dokter);
+  const mx=Math.max(...pk.map(p=>p.pend_per_dokter));
+  const t=document.getElementById('tpkm');
+  t.tHead.innerHTML='<tr><th>Puskesmas</th><th>Kecamatan</th><th>Rawat inap</th><th>Desa</th><th>Penduduk (model)</th><th>Dokter</th><th>Jiwa / dokter</th><th>Jiwa / bidan</th><th>Desa terjauh</th></tr>';
+  t.tBodies[0].innerHTML=pk.map(p=>`<tr data-i="${p.i}"><td>${p.nama.replace('Puskesmas ','')}</td><td>${p.kecamatan}</td><td>${p.rawat_inap}</td><td>${p.desa}</td><td>${fmt(p.penduduk)}</td><td>${fmt(p.dokter)}</td>
+    <td class="${p.pend_per_dokter>25000?'bad':''}"><span class="bar" style="width:${(p.pend_per_dokter/mx*60).toFixed(0)}px"></span>${fmt(p.pend_per_dokter)}</td><td>${fmt(p.pend_per_bidan)}</td><td class="${p.jarak_maks>8?'bad':''}">${fmt(p.jarak_maks,1)} km</td></tr>`).join('');
+  t.tBodies[0].querySelectorAll('tr').forEach(r=>r.onclick=()=>{select('f',+r.dataset.i,true);document.getElementById('map').scrollIntoView({behavior:'smooth',block:'center'})});
+  const K=[...DATA.kec_tabel].sort((a,b)=>b.avg_rs-a.avg_rs);
+  const k=document.getElementById('tkec');
+  k.tHead.innerHTML='<tr><th>Kecamatan</th><th>Penduduk</th><th>Desa</th><th>Luas km²</th><th>Puskesmas</th><th>Jiwa / puskesmas</th><th>Rata-rata ke PKM</th><th>Rata-rata ke RS</th><th>Desa terjauh ke RS</th></tr>';
+  k.tBodies[0].innerHTML=K.map(r=>`<tr><td>${r.kecamatan}</td><td>${fmt(r.penduduk)}</td><td>${r.desa}</td><td>${fmt(r.luas,1)}</td><td>${r.puskesmas}</td><td>${fmt(r.penduduk/r.puskesmas)}</td>
+    <td class="${r.avg_pkm>5?'bad':''}">${fmt(r.avg_pkm,1)} km</td><td class="${r.avg_rs>10?'bad':''}">${fmt(r.avg_rs,1)} km</td><td>${fmt(r.maks_rs,1)} km</td></tr>`).join('');
+}
+function rerenderColors(){renderMode();kecL.setStyle({color:css('--ink')});groups.r3.eachLayer(l=>l.setStyle({color:css('--pkm')}));groups.r10.eachLayer(l=>l.setStyle({color:css('--rs')}))}
+modeSel.onchange=()=>{mode=modeSel.value;renderMode()};
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',rerenderColors);
+new MutationObserver(rerenderColors).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+renderMode(); renderDetail(); renderFinds(); renderReco(); renderTables();
+</script>
+
+</body>
+</html>

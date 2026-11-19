@@ -1,0 +1,42 @@
+{
+ "total_pend": 451666,
+ "n_desa": 131,
+ "luas": 603.2,
+ "cov_pkm3": 65.8,
+ "cov_pkm5": 89.9,
+ "cov_rs5": 37.0,
+ "cov_rs10": 79.7,
+ "cov_rs15": 94.0,
+ "avg_rs": 6.8,
+ "avg_pkm": 2.7,
+ "avg_poned": 3.5,
+ "pend_rs_gt15": 27231,
+ "pend_pkm_gt5": 45442,
+ "tt_rs_umum": 440,
+ "tt_per_1000": 0.97,
+ "tt_all": 470,
+ "kandidat": [
+  {
+   "desa": "Waringinsari Barat",
+   "kecamatan": "Sukoharjo",
+   "avg_sebelum": 6.8,
+   "avg_sesudah": 5.6,
+   "cov10_sesudah": 89.7,
+   "pend_gt15_sesudah": 12460,
+   "lat": -5.2756,
+   "lon": 104.97707,
+   "desa_terbantu": 29
+  },
+  {
+   "desa": "Kresnomulyo",
+   "kecamatan": "Ambarawa",
+   "avg_sebelum": 5.6,
+   "avg_sesudah": 4.6,
+   "cov10_sesudah": 94.6,
+   "pend_gt15_sesudah": 3764,
+   "lat": -5.42481,
+   "lon": 104.92666,
+   "desa_terbantu": 23
+  }
+ ]
+}
