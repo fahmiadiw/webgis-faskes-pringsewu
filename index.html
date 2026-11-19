@@ -895,7 +895,11 @@ let mode='jarak_rs', sel=null;
 
 // ---- Map
 const map=L.map('map',{zoomSnap:.25});
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:17,opacity:.5}).addTo(map);
+// Basemap: Esri Canvas (gratis, tanpa API key), ikut tema terang/gelap
+const isDark=()=>{const t=document.documentElement.dataset.theme;return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches};
+const esri=n=>`https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/${n}/MapServer/tile/{z}/{y}/{x}`;
+const baseL=L.tileLayer(esri(isDark()?'World_Dark_Gray_Base':'World_Light_Gray_Base'),{attribution:'Peta dasar &copy; Esri, HERE, Garmin, &copy; OpenStreetMap',maxZoom:16,opacity:.7}).addTo(map);
+const syncBase=()=>baseL.setUrl(esri(isDark()?'World_Dark_Gray_Base':'World_Light_Gray_Base'));
 map.attributionControl.setPrefix(false).addAttribution('Batas: BPS 2020');
 const cls=v=>{const b=MODES[mode].breaks;let i=0;while(i<b.length&&v>b[i])i++;return i};
 function styleDesa(f){
@@ -1030,7 +1034,7 @@ function renderTables(){
   k.tBodies[0].innerHTML=K.map(r=>`<tr><td>${r.kecamatan}</td><td>${fmt(r.penduduk)}</td><td>${r.desa}</td><td>${fmt(r.luas,1)}</td><td>${r.puskesmas}</td><td>${fmt(r.penduduk/r.puskesmas)}</td>
     <td class="${r.avg_pkm>5?'bad':''}">${fmt(r.avg_pkm,1)} km</td><td class="${r.avg_rs>10?'bad':''}">${fmt(r.avg_rs,1)} km</td><td>${fmt(r.maks_rs,1)} km</td></tr>`).join('');
 }
-function rerenderColors(){renderMode();kecL.setStyle({color:css('--ink')});groups.r3.eachLayer(l=>l.setStyle({color:css('--pkm')}));groups.r10.eachLayer(l=>l.setStyle({color:css('--rs')}))}
+function rerenderColors(){syncBase();renderMode();kecL.setStyle({color:css('--ink')});groups.r3.eachLayer(l=>l.setStyle({color:css('--pkm')}));groups.r10.eachLayer(l=>l.setStyle({color:css('--rs')}))}
 modeSel.onchange=()=>{mode=modeSel.value;renderMode()};
 matchMedia('(prefers-color-scheme: dark)').addEventListener('change',rerenderColors);
 new MutationObserver(rerenderColors).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
